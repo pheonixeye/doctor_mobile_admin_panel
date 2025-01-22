@@ -6,6 +6,9 @@ class ShellPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return child;
+    return Scaffold(
+      drawer: Drawer(),
+      body: child,
+    );
   }
 }

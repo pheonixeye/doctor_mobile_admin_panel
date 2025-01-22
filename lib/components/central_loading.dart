@@ -1,3 +1,4 @@
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:flutter/material.dart';
 
 class CentralLoading extends StatelessWidget {
@@ -6,18 +7,36 @@ class CentralLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'LOADING...',
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const CircularProgressIndicator(),
-        ],
+      child: Container(
+        height: 100,
+        width: 100,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 1,
+              spreadRadius: 1,
+              color: Colors.blue.shade500,
+              offset: const Offset(1, 1),
+            ),
+          ],
+        ),
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircularProgressIndicator(),
+            const SizedBox(height: 10),
+            Text(
+              context.loc.loading,
+              style: const TextStyle(
+                color: Colors.black87,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

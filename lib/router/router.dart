@@ -2,7 +2,7 @@ import 'package:doctor_mobile_admin_panel/pages/app_page/app_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/loading_screen/loading_screen.dart';
 import 'package:doctor_mobile_admin_panel/pages/login_page/login_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/shell_page/shell_page.dart';
-import 'package:doctor_mobile_admin_panel/providers/locale_p.dart';
+import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -12,9 +12,11 @@ class AppRouter {
 
   factory AppRouter.instance() => _instance;
 
+  static const String app = 'app';
+
   final GoRouter router = GoRouter(
+    navigatorKey: navigatorKey,
     initialLocation: '/',
-    refreshListenable: PxLocale(),
     routes: [
       GoRoute(
         path: '/',
@@ -43,13 +45,14 @@ class AppRouter {
             },
             routes: [
               GoRoute(
-                path: 'app',
-                name: 'app',
+                path: app,
+                name: app,
                 builder: (context, state) {
                   return AppPage(
                     key: state.pageKey,
                   );
                 },
+                routes: [],
               ),
             ],
           ),

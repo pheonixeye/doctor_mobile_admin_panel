@@ -7,6 +7,11 @@ class AppPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Admin Panel'),
+        centerTitle: true,
+      ),
+      drawer: Drawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

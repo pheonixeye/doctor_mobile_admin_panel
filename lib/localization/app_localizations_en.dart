@@ -371,4 +371,73 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get previousErVisits => 'Previous ER Visits';
+
+  @override
+  String get adminPanel => 'Admin Panel';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get clinics => 'Clinics';
+
+  @override
+  String get articles => 'Articles';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get englishName => 'English Name';
+
+  @override
+  String get arabicName => 'Arabic Name';
+
+  @override
+  String get englishTitle => 'English Title';
+
+  @override
+  String get arabicTitle => 'Arabic Title';
+
+  @override
+  String get englishPrefix => 'English Prefix';
+
+  @override
+  String get arabicPrefix => 'Arabic Prefix';
+
+  @override
+  String get avatar => 'Avatar';
+
+  @override
+  String get logo => 'Logo';
+
+  @override
+  String get createClinic => 'Create Clinic';
+
+  @override
+  String get schedule => 'Schedule';
+
+  @override
+  String get offDates => 'Off Dates';
+
+  @override
+  String get deleteClinic => 'Delete Clinic';
+
+  @override
+  String get deleteClinicConfirmation => 'Continue with Deleting This Clinic? Are You Sure?';
+
+  @override
+  String get englishAddress => 'English Address';
+
+  @override
+  String get arabicAddress => 'Arabic Address';
+
+  @override
+  String get phone => 'Phone Number';
+
+  @override
+  String get whatsapp => 'Whatsapp Number';
+
+  @override
+  String get locationLink => 'Location Link';
 }

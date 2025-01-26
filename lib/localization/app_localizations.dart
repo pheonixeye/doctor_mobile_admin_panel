@@ -826,6 +826,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Previous ER Visits'**
   String get previousErVisits;
+
+  /// No description provided for @adminPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin Panel'**
+  String get adminPanel;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @clinics.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinics'**
+  String get clinics;
+
+  /// No description provided for @articles.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get articles;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @englishName.
+  ///
+  /// In en, this message translates to:
+  /// **'English Name'**
+  String get englishName;
+
+  /// No description provided for @arabicName.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Name'**
+  String get arabicName;
+
+  /// No description provided for @englishTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'English Title'**
+  String get englishTitle;
+
+  /// No description provided for @arabicTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Title'**
+  String get arabicTitle;
+
+  /// No description provided for @englishPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'English Prefix'**
+  String get englishPrefix;
+
+  /// No description provided for @arabicPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Prefix'**
+  String get arabicPrefix;
+
+  /// No description provided for @avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar'**
+  String get avatar;
+
+  /// No description provided for @logo.
+  ///
+  /// In en, this message translates to:
+  /// **'Logo'**
+  String get logo;
+
+  /// No description provided for @createClinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Clinic'**
+  String get createClinic;
+
+  /// No description provided for @schedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get schedule;
+
+  /// No description provided for @offDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Off Dates'**
+  String get offDates;
+
+  /// No description provided for @deleteClinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Clinic'**
+  String get deleteClinic;
+
+  /// No description provided for @deleteClinicConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This Clinic? Are You Sure?'**
+  String get deleteClinicConfirmation;
+
+  /// No description provided for @englishAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'English Address'**
+  String get englishAddress;
+
+  /// No description provided for @arabicAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Address'**
+  String get arabicAddress;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phone;
+
+  /// No description provided for @whatsapp.
+  ///
+  /// In en, this message translates to:
+  /// **'Whatsapp Number'**
+  String get whatsapp;
+
+  /// No description provided for @locationLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Link'**
+  String get locationLink;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

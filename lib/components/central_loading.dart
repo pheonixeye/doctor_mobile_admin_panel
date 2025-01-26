@@ -17,7 +17,7 @@ class CentralLoading extends StatelessWidget {
             BoxShadow(
               blurRadius: 1,
               spreadRadius: 1,
-              color: Colors.blue.shade500,
+              color: Colors.blueGrey.shade500,
               offset: const Offset(1, 1),
             ),
           ],

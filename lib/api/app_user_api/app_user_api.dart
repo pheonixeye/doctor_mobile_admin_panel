@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
+import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class HxAppUsers {
@@ -24,5 +25,13 @@ class HxAppUsers {
     } on ClientException catch (e) {
       throw Exception(e.response["message"]);
     }
+  }
+
+  //nessecary transition request as all db fields are linked to doc_id - not user_id
+  Future<String?> fetchDoctorProfileId(String user_id) async {
+    final result = await PocketbaseHelper.pb
+        .collection(HxProfile.collection)
+        .getFirstListItem('user_id = "$user_id"');
+    return result.id;
   }
 }

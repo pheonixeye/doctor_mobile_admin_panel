@@ -16,6 +16,9 @@ class PxAppUsers extends ChangeNotifier {
   static bool _isLoggedIn = false;
   bool get isLoggedIn => _isLoggedIn;
 
+  static String? _doc_id;
+  String? get doc_id => _doc_id;
+
   Future<String?> loginUserByEmailAndPassword(
     String email,
     String password,
@@ -31,6 +34,8 @@ class PxAppUsers extends ChangeNotifier {
         meta: result.meta,
       );
       _isLoggedIn = true;
+
+      _doc_id = await userService.fetchDoctorProfileId(_model?.record.id ?? '');
 
       notifyListeners();
 

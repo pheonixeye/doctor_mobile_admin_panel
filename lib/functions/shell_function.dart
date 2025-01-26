@@ -40,7 +40,7 @@ class _BaseOverlayEntryState extends State<BaseOverlayEntry>
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      tileColor: Colors.teal.shade50,
+      tileColor: Colors.blueGrey.shade50,
       onTap: widget.onTap,
       title: Row(
         children: [
@@ -81,13 +81,16 @@ OverlayEntry _overlay(
 
   final _entry = OverlayEntry(
     builder: (context) {
-      return Align(
-        alignment: AlignmentDirectional.topCenter,
-        child: SizedBox(
-          width: MediaQuery.sizeOf(context).width - 10,
-          height: 60,
-          child: Card.outlined(
-            child: _overlay,
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Align(
+          alignment: AlignmentDirectional.bottomCenter,
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width - 10,
+            height: 60,
+            child: Card.outlined(
+              child: _overlay,
+            ),
           ),
         ),
       );

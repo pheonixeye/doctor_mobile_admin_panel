@@ -1,13 +1,15 @@
-import 'package:doctor_mobile_admin_panel/providers/local_database_service.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_local_db.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PxLocale extends ChangeNotifier {
   final BuildContext context;
 
-  PxLocale(this.context);
+  PxLocale(this.context) {
+    setLocaleFromLocalDb();
+  }
 
-  Locale _locale = const Locale('ar');
+  static Locale _locale = const Locale('ar');
   Locale get locale => _locale;
 
   bool get isEnglish => _locale == const Locale('en');

@@ -371,4 +371,73 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get previousErVisits => 'زيارات الطوارئ السابقة';
+
+  @override
+  String get adminPanel => 'لوحة التحكم';
+
+  @override
+  String get theme => 'سمة البرنامج';
+
+  @override
+  String get clinics => 'العيادات';
+
+  @override
+  String get articles => 'المقالات';
+
+  @override
+  String get profile => 'البيانات العامة';
+
+  @override
+  String get englishName => 'الاسم بالانجليزية';
+
+  @override
+  String get arabicName => 'الاسم بالعربية';
+
+  @override
+  String get englishTitle => 'اللقب بالانجليزية';
+
+  @override
+  String get arabicTitle => 'اللقب بالعربية';
+
+  @override
+  String get englishPrefix => 'قبل الاسم بالانجليزية';
+
+  @override
+  String get arabicPrefix => 'قبل الاسم بالعربية';
+
+  @override
+  String get avatar => 'صورة الطبيب';
+
+  @override
+  String get logo => 'لوجو العيادات';
+
+  @override
+  String get createClinic => 'اضافة عيادة جديدة';
+
+  @override
+  String get schedule => 'المواعيد';
+
+  @override
+  String get offDates => 'ايام الاجازات';
+
+  @override
+  String get deleteClinic => 'الغاء العيادة';
+
+  @override
+  String get deleteClinicConfirmation => 'متابعة الغاء هذه العيادة ؟ هل انت متأكد ؟';
+
+  @override
+  String get englishAddress => 'العنوان بالانجليزية';
+
+  @override
+  String get arabicAddress => 'العنوان بالعربية';
+
+  @override
+  String get phone => 'رقم الموبايل';
+
+  @override
+  String get whatsapp => 'رقم الواتس ابب';
+
+  @override
+  String get locationLink => 'رابط العنوان من خرائط جوجل';
 }

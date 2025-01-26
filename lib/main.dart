@@ -1,6 +1,6 @@
 import 'package:doctor_mobile_admin_panel/localization/app_localizations.dart';
 import 'package:doctor_mobile_admin_panel/providers/_px_main.dart';
-import 'package:doctor_mobile_admin_panel/providers/locale_p.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_theme.dart';
 import 'package:doctor_mobile_admin_panel/router/router.dart';
 import 'package:doctor_mobile_admin_panel/theme/app_theme.dart';
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           themeMode: t.mode,
-          routerConfig: AppRouter.instance().router,
+          routerConfig: AppRouter.router,
           locale: l.locale,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

@@ -2,14 +2,19 @@
 
 // import 'package:doctopia_doctors/models/clinic_visit/clinic_visit.dart';
 // import 'package:flutter/foundation.dart';
-import 'package:doctor_mobile_admin_panel/functions/dprint.dart';
+import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PxLocalDatabase extends ChangeNotifier {
   static late final SharedPreferencesAsync _prefs;
 
-  PxLocalDatabase._();
+  PxLocalDatabase._() {
+    Future.wait([
+      fetchLanguageFromDb(),
+      fetchThemeFromDb(),
+    ]);
+  }
 
   factory PxLocalDatabase._internal() {
     _prefs = SharedPreferencesAsync();

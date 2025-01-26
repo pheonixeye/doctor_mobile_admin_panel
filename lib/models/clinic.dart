@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class Clinic extends Equatable {
   final String id;
@@ -108,4 +110,14 @@ class Clinic extends Equatable {
       off_dates,
     ];
   }
+
+  static Map<String, String> clinicEditableFields(BuildContext context) => {
+        'name_en': context.loc.englishName,
+        'name_ar': context.loc.arabicName,
+        'address_en': context.loc.englishAddress,
+        'address_ar': context.loc.arabicAddress,
+        'phone': context.loc.phone,
+        'wa': context.loc.whatsapp,
+        'location_link': context.loc.locationLink,
+      };
 }

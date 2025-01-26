@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class Doctor extends Equatable {
   final String id;
@@ -151,4 +153,15 @@ class Doctor extends Equatable {
       logo,
     ];
   }
+
+  static Map<String, String> doctorEditableFields(BuildContext context) => {
+        'name_en': context.loc.englishName,
+        'name_ar': context.loc.arabicName,
+        'title_en': context.loc.englishTitle,
+        'title_ar': context.loc.arabicTitle,
+        'prefix_en': context.loc.englishPrefix,
+        'prefix_ar': context.loc.arabicPrefix,
+        'avatar': context.loc.avatar,
+        'logo': context.loc.logo,
+      };
 }

@@ -1,6 +1,8 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
+import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
+import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 
 class HxClinics {
@@ -9,15 +11,19 @@ class HxClinics {
   final String doc_id;
 
   static const String collection = 'clinics';
+  static const String _expand = 'schedule_ids, off_dates';
 
   Future<List<Clinic>?> fetchDoctorClinicsByDoctorId() async {
-    final result = await PocketbaseHelper.pb
-        .collection(collection)
-        .getList(filter: 'doc_id = "$doc_id"');
+    //TODO
+
+    final result = await PocketbaseHelper.pb.collection(collection).getList(
+          filter: 'doc_id = "$doc_id"',
+          expand: _expand,
+        );
 
     final _clinics =
         result.items.map((e) => Clinic.fromJson(e.toJson())).toList();
-
+    dprintPretty(result);
     return _clinics;
   }
 
@@ -56,15 +62,21 @@ class HxClinics {
     String key,
     dynamic value,
   ) async {
+    //TODO
     final result = await PocketbaseHelper.pb.collection(collection).update(
-      clinic_id,
-      body: {
-        key: value,
-      },
-    );
+          clinic_id,
+          body: {
+            key: value,
+          },
+          expand: _expand,
+        );
 
     final clinic = Clinic.fromJson(result.toJson());
 
     return clinic;
   }
+
+  Future<ClinicResponseModel?> updateClinicSchedule() async {}
+
+  Future<ClinicResponseModel?> updateClinicOffDates() async {}
 }

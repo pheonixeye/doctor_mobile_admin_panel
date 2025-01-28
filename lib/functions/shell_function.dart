@@ -40,7 +40,7 @@ class _BaseOverlayEntryState extends State<BaseOverlayEntry>
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      tileColor: Colors.blueGrey.shade50,
+      tileColor: Theme.of(context).primaryColor.withValues(alpha: 0.5),
       onTap: widget.onTap,
       title: Row(
         children: [

@@ -1,10 +1,12 @@
 import 'dart:math';
 
 import 'package:doctor_mobile_admin_panel/assets/assets.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_local_db.dart';
 import 'package:doctor_mobile_admin_panel/router/router.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 // ignore: depend_on_referenced_packages
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
@@ -36,6 +38,7 @@ class _LoadingScreenState extends State<LoadingScreen>
   }
 
   Future<void> waitThenNavigate() async {
+    await context.read<PxLocalDatabase>().init();
     await Future.delayed(const Duration(seconds: 5));
     if (navigatorKey.currentContext != null) {
       navigatorKey.currentContext!.goNamed(AppRouter.login);

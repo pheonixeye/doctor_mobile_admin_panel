@@ -9,16 +9,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PxLocalDatabase extends ChangeNotifier {
   static late final SharedPreferencesAsync _prefs;
 
-  PxLocalDatabase._() {
-    Future.wait([
-      fetchLanguageFromDb(),
-      fetchThemeFromDb(),
-    ]);
-  }
+  PxLocalDatabase._();
 
   factory PxLocalDatabase._internal() {
     _prefs = SharedPreferencesAsync();
     return PxLocalDatabase._();
+  }
+
+  Future<void> init() async {
+    await Future.wait([
+      fetchLanguageFromDb(),
+      fetchThemeFromDb(),
+    ]);
   }
 
   static PxLocalDatabase get instance => PxLocalDatabase._internal();

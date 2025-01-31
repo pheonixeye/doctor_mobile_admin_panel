@@ -4,6 +4,8 @@ import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
+import 'package:doctor_mobile_admin_panel/models/schedule.dart';
+import 'package:pocketbase/pocketbase.dart';
 
 class HxClinics {
   const HxClinics(this.doc_id);
@@ -13,7 +15,7 @@ class HxClinics {
   static const String collection = 'clinics';
   static const String _expand = 'schedule_ids, off_dates';
 
-  Future<List<Clinic>?> fetchDoctorClinicsByDoctorId() async {
+  Future<List<ClinicResponseModel>?> fetchDoctorClinicsByDoctorId() async {
     //TODO
 
     final result = await PocketbaseHelper.pb.collection(collection).getList(
@@ -21,8 +23,19 @@ class HxClinics {
           expand: _expand,
         );
 
-    final _clinics =
-        result.items.map((e) => Clinic.fromJson(e.toJson())).toList();
+    final _clinics = result.items
+        .map((e) => ClinicResponseModel(
+              clinic: Clinic.fromJson(e.toJson()),
+              schedule: e
+                  .get<List<RecordModel>>('expand.schedule_ids')
+                  .map((e) => Schedule.fromJson(e.toJson()))
+                  .toList(),
+              offDates: e
+                  .get<List<RecordModel>>('expand.off_dates')
+                  .map((e) => e.get<String>('off_date'))
+                  .toList(),
+            ))
+        .toList();
     dprintPretty(result);
     return _clinics;
   }
@@ -76,7 +89,47 @@ class HxClinics {
     return clinic;
   }
 
-  Future<ClinicResponseModel?> updateClinicSchedule() async {}
+  static const String _schedulesCollection = 'schedules';
 
-  Future<ClinicResponseModel?> updateClinicOffDates() async {}
+  Future<void> addClinicSchedule(Schedule schedule) async {
+    final result =
+        await PocketbaseHelper.pb.collection(_schedulesCollection).create(
+              body: schedule.toJson(),
+            );
+    final _sch = Schedule.fromJson(result.toJson());
+
+    final _clinic_ref =
+        await PocketbaseHelper.pb.collection(collection).getOne(_sch.clinic_id);
+
+    final _clinic = Clinic.fromJson(_clinic_ref.toJson());
+
+    final _update = {
+      'schedule_ids': [
+        ..._clinic.schedule_ids,
+        _sch.id,
+      ],
+    };
+
+    await PocketbaseHelper.pb.collection(collection).update(
+          _sch.clinic_id,
+          body: _update,
+        );
+  }
+
+  Future<void> deleteClinicSchedule(
+    String schedule_id,
+  ) async {
+    await PocketbaseHelper.pb
+        .collection(_schedulesCollection)
+        .delete(schedule_id);
+  }
+
+  Future<void> updateClinicSchedule(
+    Schedule newSchedule,
+  ) async {
+    await PocketbaseHelper.pb.collection(_schedulesCollection).update(
+          newSchedule.id,
+          body: newSchedule.toJson(),
+        );
+  }
 }

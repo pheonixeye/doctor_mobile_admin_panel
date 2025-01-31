@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:doctor_mobile_admin_panel/models/weekdays_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Schedule extends Equatable {
@@ -80,6 +81,21 @@ class Schedule extends Equatable {
       end_min: map['end_min'] as int,
       end_hour: map['end_hour'] as int,
       available: map['available'] as bool,
+    );
+  }
+
+  factory Schedule.empty() {
+    return Schedule(
+      id: '',
+      clinic_id: '',
+      weekday_en: Weekday.WEEKDAYS.first.weekdayEn,
+      weekday_ar: Weekday.WEEKDAYS.first.weekdayAr,
+      intday: Weekday.WEEKDAYS.first.intDay,
+      start_min: 0,
+      start_hour: 0,
+      end_min: 0,
+      end_hour: 0,
+      available: true,
     );
   }
 

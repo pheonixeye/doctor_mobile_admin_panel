@@ -46,9 +46,9 @@ class ClinicsPage extends StatelessWidget {
             restorationId: 'clinics-page-items',
             itemCount: c.clinics?.length,
             itemBuilder: (context, index) {
-              final item = c.clinics![index];
+              final model = c.clinics![index];
 
-              return ClinicViewEditCard(clinic: item);
+              return ClinicViewEditCard(model: model);
             },
           );
         },

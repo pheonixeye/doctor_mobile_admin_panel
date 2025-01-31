@@ -170,6 +170,13 @@
     "arabicAddress" : "Arabic Address",
     "phone" : "Phone Number",
     "whatsapp" : "Whatsapp Number",
-    "locationLink" : "Location Link"
+    "locationLink" : "Location Link",
+    "clinicInfo" : "Clinic Info",
+    "from" : "From",
+    "to" : "To",
+    "selectWeekday" : "Select Weekday",
+    "selectStartTime" : "Pick Starting Time",
+    "selectEndTime" : "Pick Ending Time",
+    "next" : "Next"
 
 }

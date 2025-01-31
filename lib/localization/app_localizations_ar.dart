@@ -440,4 +440,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get locationLink => 'رابط العنوان من خرائط جوجل';
+
+  @override
+  String get clinicInfo => 'بيانات العيادة';
+
+  @override
+  String get from => 'من';
+
+  @override
+  String get to => 'الى';
+
+  @override
+  String get selectWeekday => 'اختر اليوم';
+
+  @override
+  String get selectStartTime => 'اختر وقت البداية';
+
+  @override
+  String get selectEndTime => 'اختر وقت الانتهاء';
+
+  @override
+  String get next => 'التالى';
 }

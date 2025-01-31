@@ -168,5 +168,12 @@
     "arabicAddress" : "العنوان بالعربية",
     "phone" : "رقم الموبايل",
     "whatsapp" : "رقم الواتس ابب",
-    "locationLink" : "رابط العنوان من خرائط جوجل"
+    "locationLink" : "رابط العنوان من خرائط جوجل",
+    "clinicInfo" : "بيانات العيادة",
+    "from" : "من",
+    "to" : "الى",
+    "selectWeekday" : "اختر اليوم",
+    "selectStartTime" : "اختر وقت البداية",
+    "selectEndTime" : "اختر وقت الانتهاء",
+    "next" : "التالى"
 }

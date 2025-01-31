@@ -20,8 +20,11 @@ class Doctor extends Equatable {
   final List<String> video_ids;
   final List<String> article_ids;
   final List<String> hero_items_ids;
+  final List<String> services_ids;
   final String avatar;
   final String logo;
+  final String site_settings_id;
+  final String social_contacts_id;
 
   const Doctor({
     required this.id,
@@ -39,8 +42,11 @@ class Doctor extends Equatable {
     required this.video_ids,
     required this.article_ids,
     required this.hero_items_ids,
+    required this.services_ids,
     required this.avatar,
     required this.logo,
+    required this.site_settings_id,
+    required this.social_contacts_id,
   });
 
   Doctor copyWith({
@@ -59,8 +65,11 @@ class Doctor extends Equatable {
     List<String>? video_ids,
     List<String>? article_ids,
     List<String>? hero_items_ids,
+    List<String>? services_ids,
     String? avatar,
     String? logo,
+    String? site_settings_id,
+    String? social_contacts_id,
   }) {
     return Doctor(
       id: id ?? this.id,
@@ -78,8 +87,11 @@ class Doctor extends Equatable {
       video_ids: video_ids ?? this.video_ids,
       article_ids: article_ids ?? this.article_ids,
       hero_items_ids: hero_items_ids ?? this.hero_items_ids,
+      services_ids: services_ids ?? this.services_ids,
       avatar: avatar ?? this.avatar,
       logo: logo ?? this.logo,
+      site_settings_id: site_settings_id ?? this.site_settings_id,
+      social_contacts_id: social_contacts_id ?? this.social_contacts_id,
     );
   }
 
@@ -100,8 +112,11 @@ class Doctor extends Equatable {
       'video_ids': video_ids,
       'article_ids': article_ids,
       'hero_items_ids': hero_items_ids,
+      'services_ids': services_ids,
       'avatar': avatar,
       'logo': logo,
+      'site_settings_id': site_settings_id,
+      'social_contacts_id': social_contacts_id,
     };
   }
 
@@ -123,8 +138,11 @@ class Doctor extends Equatable {
       article_ids: List<String>.from((map['article_ids'] as List<dynamic>)),
       hero_items_ids:
           List<String>.from((map['hero_items_ids'] as List<dynamic>)),
+      services_ids: List<String>.from((map['services_ids'] as List<dynamic>)),
       avatar: map['avatar'] as String,
       logo: map['logo'] as String,
+      site_settings_id: map['site_settings_id'] as String,
+      social_contacts_id: map['social_contacts_id'] as String,
     );
   }
 
@@ -149,8 +167,11 @@ class Doctor extends Equatable {
       video_ids,
       article_ids,
       hero_items_ids,
+      services_ids,
       avatar,
       logo,
+      site_settings_id,
+      social_contacts_id,
     ];
   }
 

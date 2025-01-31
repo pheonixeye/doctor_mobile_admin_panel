@@ -1,4 +1,4 @@
-import 'package:doctor_mobile_admin_panel/extensions/doctor_url_extractor.dart';
+import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';

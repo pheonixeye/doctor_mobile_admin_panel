@@ -440,4 +440,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get locationLink => 'Location Link';
+
+  @override
+  String get clinicInfo => 'Clinic Info';
+
+  @override
+  String get from => 'From';
+
+  @override
+  String get to => 'To';
+
+  @override
+  String get selectWeekday => 'Select Weekday';
+
+  @override
+  String get selectStartTime => 'Pick Starting Time';
+
+  @override
+  String get selectEndTime => 'Pick Ending Time';
+
+  @override
+  String get next => 'Next';
 }

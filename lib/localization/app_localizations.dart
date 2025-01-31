@@ -964,6 +964,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Location Link'**
   String get locationLink;
+
+  /// No description provided for @clinicInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic Info'**
+  String get clinicInfo;
+
+  /// No description provided for @from.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get from;
+
+  /// No description provided for @to.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get to;
+
+  /// No description provided for @selectWeekday.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Weekday'**
+  String get selectWeekday;
+
+  /// No description provided for @selectStartTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Starting Time'**
+  String get selectStartTime;
+
+  /// No description provided for @selectEndTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Ending Time'**
+  String get selectEndTime;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

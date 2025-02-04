@@ -5,20 +5,20 @@ import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:equatable/equatable.dart';
 
 class ServiceResponseModel extends Equatable {
-  final Service serivce;
+  final Service service;
   final List<Faq> faqs;
 
   const ServiceResponseModel({
-    required this.serivce,
+    required this.service,
     required this.faqs,
   });
 
   ServiceResponseModel copyWith({
-    Service? serivce,
+    Service? service,
     List<Faq>? faqs,
   }) {
     return ServiceResponseModel(
-      serivce: serivce ?? this.serivce,
+      service: service ?? this.service,
       faqs: faqs ?? this.faqs,
     );
   }
@@ -27,5 +27,5 @@ class ServiceResponseModel extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props => [serivce, faqs];
+  List<Object> get props => [service, faqs];
 }

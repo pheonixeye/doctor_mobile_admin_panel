@@ -1,15 +1,18 @@
 import 'package:doctor_mobile_admin_panel/api/clinics_api/clinics_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
+import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/app_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/articles_page/articles_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/clinics_page/clinics_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/profile_page/profile_page.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/services_page/services_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/loading_screen/loading_screen.dart';
 import 'package:doctor_mobile_admin_panel/pages/login_page/login_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/shell_page/shell_page.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_app_users.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -19,9 +22,12 @@ class AppRouter {
   static const String loading = '/';
   static const String login = 'login';
   static const String app = 'app'; //bookings
+  static const String profile = 'profile';
   static const String clinics = 'clinics';
   static const String articles = 'articles';
-  static const String profile = 'profile';
+  static const String services = 'services';
+  static const String cases = 'cases';
+  static const String videos = 'videos';
 
   static final GoRouter router = GoRouter(
     navigatorKey: navigatorKey,
@@ -104,6 +110,22 @@ class AppRouter {
                     builder: (context, state) {
                       return ArticlesPage(
                         key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: services,
+                    name: services,
+                    builder: (context, state) {
+                      final doc_id = context.read<PxAppUsers>().doc_id;
+                      final _key = ValueKey('$doc_id/${state.pageKey.value}');
+                      return ChangeNotifierProvider(
+                        create: (context) => PxServices(
+                          servicesService: HxServices(doc_id ?? ''),
+                        ),
+                        child: ServicesPage(
+                          key: _key,
+                        ),
                       );
                     },
                   ),

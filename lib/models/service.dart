@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class Service extends Equatable {
   final String id;
@@ -87,4 +89,11 @@ class Service extends Equatable {
       image,
     ];
   }
+
+  static Map<String, String> serviceEditableFields(BuildContext context) => {
+        'name_en': context.loc.englishName,
+        'name_ar': context.loc.arabicName,
+        'description_en': context.loc.englishDescription,
+        'description_ar': context.loc.arabicDescription,
+      };
 }

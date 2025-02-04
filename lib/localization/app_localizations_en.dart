@@ -388,6 +388,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profile => 'Profile';
 
   @override
+  String get services => 'Services';
+
+  @override
+  String get bookings => 'Bookings';
+
+  @override
+  String get cases => 'Cases';
+
+  @override
+  String get videos => 'Videos';
+
+  @override
   String get englishName => 'English Name';
 
   @override
@@ -461,4 +473,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get next => 'Next';
+
+  @override
+  String get createService => 'Add New Service';
+
+  @override
+  String get englishDescription => 'English Description';
+
+  @override
+  String get arabicDescription => 'Arabic Description';
+
+  @override
+  String get serviceInfo => 'Service Info';
+
+  @override
+  String get serviceFaqs => 'Service Faqs';
+
+  @override
+  String get serviceImage => 'Service Image';
+
+  @override
+  String get deleteService => 'Delete Service';
+
+  @override
+  String get deleteServiceConfirmation => 'Continue with Deleting This Service? Are You Sure?';
 }

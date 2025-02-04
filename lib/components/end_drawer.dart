@@ -26,7 +26,7 @@ class EndDrawer extends StatelessWidget {
               //navigation
               const ThinDivider(),
               DrawerNavBtn(
-                title: context.loc.todayVisits,
+                title: context.loc.bookings,
                 icondata: Icons.today,
                 routePath: AppRouter.app,
                 selected: selected(AppRouter.app),
@@ -51,6 +51,13 @@ class EndDrawer extends StatelessWidget {
                 icondata: Icons.article,
                 routePath: AppRouter.articles,
                 selected: selected(AppRouter.articles),
+              ),
+              const ThinDivider(),
+              DrawerNavBtn(
+                title: context.loc.services,
+                icondata: Icons.home_repair_service_rounded,
+                routePath: AppRouter.services,
+                selected: selected(AppRouter.services),
               ),
               const ThinDivider(),
               //theme && language(TODO: maybe change location in settings page)

@@ -857,6 +857,30 @@ abstract class AppLocalizations {
   /// **'Profile'**
   String get profile;
 
+  /// No description provided for @services.
+  ///
+  /// In en, this message translates to:
+  /// **'Services'**
+  String get services;
+
+  /// No description provided for @bookings.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookings'**
+  String get bookings;
+
+  /// No description provided for @cases.
+  ///
+  /// In en, this message translates to:
+  /// **'Cases'**
+  String get cases;
+
+  /// No description provided for @videos.
+  ///
+  /// In en, this message translates to:
+  /// **'Videos'**
+  String get videos;
+
   /// No description provided for @englishName.
   ///
   /// In en, this message translates to:
@@ -1006,6 +1030,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next'**
   String get next;
+
+  /// No description provided for @createService.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Service'**
+  String get createService;
+
+  /// No description provided for @englishDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'English Description'**
+  String get englishDescription;
+
+  /// No description provided for @arabicDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Description'**
+  String get arabicDescription;
+
+  /// No description provided for @serviceInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Info'**
+  String get serviceInfo;
+
+  /// No description provided for @serviceFaqs.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Faqs'**
+  String get serviceFaqs;
+
+  /// No description provided for @serviceImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Image'**
+  String get serviceImage;
+
+  /// No description provided for @deleteService.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Service'**
+  String get deleteService;
+
+  /// No description provided for @deleteServiceConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This Service? Are You Sure?'**
+  String get deleteServiceConfirmation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

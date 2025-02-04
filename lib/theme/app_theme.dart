@@ -13,6 +13,9 @@ class AppTheme {
       borderRadius: BorderRadius.circular(8),
     ),
     titleAlignment: ListTileTitleAlignment.top,
+    titleTextStyle: TextStyle(
+      fontWeight: FontWeight.w700,
+    ),
   );
 
   static AppBarTheme appBarTheme(ColorScheme colorScheme) => AppBarTheme(

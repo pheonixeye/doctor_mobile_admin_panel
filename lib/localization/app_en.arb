@@ -149,6 +149,10 @@
     "clinics" : "Clinics",
     "articles" : "Articles",
     "profile" : "Profile",
+    "services" : "Services",
+    "bookings" : "Bookings",
+    "cases" : "Cases",
+    "videos" : "Videos",
     "@@profile_page" : "",
     "englishName" : "English Name",
     "arabicName" : "Arabic Name",
@@ -177,6 +181,14 @@
     "selectWeekday" : "Select Weekday",
     "selectStartTime" : "Pick Starting Time",
     "selectEndTime" : "Pick Ending Time",
-    "next" : "Next"
-
+    "next" : "Next",
+    "@@clinic_view_edit_card" : "",
+    "createService" : "Add New Service",
+    "englishDescription" : "English Description",
+    "arabicDescription" : "Arabic Description",
+    "serviceInfo" : "Service Info",
+    "serviceFaqs" : "Service Faqs",
+    "serviceImage" : "Service Image",
+    "deleteService" : "Delete Service",
+    "deleteServiceConfirmation" : "Continue with Deleting This Service? Are You Sure?"
 }

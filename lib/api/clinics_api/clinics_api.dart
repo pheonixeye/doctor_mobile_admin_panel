@@ -1,6 +1,6 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
-import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
+// import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
@@ -36,7 +36,7 @@ class HxClinics {
                   .toList(),
             ))
         .toList();
-    dprintPretty(result);
+    // dprintPretty(result);
     return _clinics;
   }
 

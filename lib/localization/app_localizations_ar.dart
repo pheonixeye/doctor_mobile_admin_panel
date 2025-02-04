@@ -388,6 +388,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profile => 'البيانات العامة';
 
   @override
+  String get services => 'الخدمات';
+
+  @override
+  String get bookings => 'الحجوزات';
+
+  @override
+  String get cases => 'الحالات';
+
+  @override
+  String get videos => 'الفيديو';
+
+  @override
   String get englishName => 'الاسم بالانجليزية';
 
   @override
@@ -461,4 +473,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get next => 'التالى';
+
+  @override
+  String get createService => 'اضافة خدمة جديدة';
+
+  @override
+  String get englishDescription => 'الوصف بالانجليزية';
+
+  @override
+  String get arabicDescription => 'الوصف بالعربية';
+
+  @override
+  String get serviceInfo => 'بيانات الخدمة';
+
+  @override
+  String get serviceFaqs => 'اسئلة الخدمة';
+
+  @override
+  String get serviceImage => 'صورة الخدمة';
+
+  @override
+  String get deleteService => 'الغاء الخدمة';
+
+  @override
+  String get deleteServiceConfirmation => 'متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟';
 }

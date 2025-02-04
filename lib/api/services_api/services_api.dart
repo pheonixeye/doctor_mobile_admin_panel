@@ -23,7 +23,7 @@ class HxServices {
 
     final _services = result.items.map((e) {
       return ServiceResponseModel(
-        serivce: Service.fromJson(e.toJson()),
+        service: Service.fromJson(e.toJson()),
         faqs: e
             .get<List<RecordModel>>('expand.faq_ids')
             .map((e) => Faq.fromJson(e.toJson()))
@@ -42,7 +42,7 @@ class HxServices {
 
     final _doctorQueryResult = await PocketbaseHelper.pb
         .collection(HxProfile.collection)
-        .getFirstListItem(service.doc_id);
+        .getFirstListItem('id = "${service.doc_id}"');
 
     final _doctor = Doctor.fromJson(_doctorQueryResult.toJson());
 
@@ -59,7 +59,7 @@ class HxServices {
         );
 
     final _serviceResponseModel = ServiceResponseModel(
-      serivce: Service.fromJson(result.toJson()),
+      service: Service.fromJson(result.toJson()),
       faqs: result
           .get<List<RecordModel>>('expand.faq_ids')
           .map((e) => Faq.fromJson(e.toJson()))
@@ -74,6 +74,12 @@ class HxServices {
           service.id,
           body: service.toJson(),
           expand: _expand,
+        );
+  }
+
+  Future<void> deleteService(String service_id) async {
+    await PocketbaseHelper.pb.collection(collection).delete(
+          service_id,
         );
   }
 
@@ -122,7 +128,7 @@ class HxServices {
             );
 
     final _serviceResponseModel = ServiceResponseModel(
-      serivce: Service.fromJson(_serviceUpdateResult.toJson()),
+      service: Service.fromJson(_serviceUpdateResult.toJson()),
       faqs: _serviceUpdateResult
           .get<List<RecordModel>>('expand.faq_ids')
           .map((e) => Faq.fromJson(e.toJson()))

@@ -147,6 +147,10 @@
     "clinics" : "العيادات",
     "articles" : "المقالات",
     "profile" : "البيانات العامة",
+    "services" : "الخدمات",
+    "bookings" : "الحجوزات",
+    "cases" : "الحالات",
+    "videos" : "الفيديو",
     "@@profile_page" : "",
     "englishName" : "الاسم بالانجليزية",
     "arabicName" : "الاسم بالعربية",
@@ -175,5 +179,14 @@
     "selectWeekday" : "اختر اليوم",
     "selectStartTime" : "اختر وقت البداية",
     "selectEndTime" : "اختر وقت الانتهاء",
-    "next" : "التالى"
+    "next" : "التالى",
+    "@@clinic_view_edit_card" : "",
+    "createService" : "اضافة خدمة جديدة",
+    "englishDescription" : "الوصف بالانجليزية",
+    "arabicDescription" : "الوصف بالعربية",
+    "serviceInfo" : "بيانات الخدمة",
+    "serviceFaqs" : "اسئلة الخدمة",
+    "serviceImage" : "صورة الخدمة",
+    "deleteService" : "الغاء الخدمة",
+    "deleteServiceConfirmation" : "متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟"
 }

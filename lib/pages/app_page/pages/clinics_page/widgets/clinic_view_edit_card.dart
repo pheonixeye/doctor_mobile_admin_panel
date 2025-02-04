@@ -61,6 +61,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
   @override
   void dispose() {
     _tabController.dispose();
+    _controllers.entries.map((e) => e.value.dispose());
     super.dispose();
   }
 
@@ -149,7 +150,8 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
             children: [
               Container(
                 decoration: BoxDecoration(),
-                height: MediaQuery.sizeOf(context).height,
+                height: MediaQuery.sizeOf(context).height -
+                    (MediaQuery.sizeOf(context).height * 0.2),
                 width: MediaQuery.sizeOf(context).width,
                 child: TabBarView(
                   controller: _tabController,
@@ -163,8 +165,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                           elevation: 8,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                            child: ListView(
                               children: [
                                 ListTile(
                                   title: Text(context.loc.clinicInfo),
@@ -174,8 +175,9 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                     .entries
                                     .map((entry) {
                                   return ListTile(
-                                    leading: const CircleAvatar(radius: 10),
                                     title: Text(entry.value),
+                                    contentPadding:
+                                        EdgeInsets.symmetric(horizontal: 4),
                                     subtitle: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Row(
@@ -196,53 +198,63 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                                   .toJson()[entry.key]),
                                             ),
                                           const SizedBox(width: 10),
-                                          IconButton.outlined(
-                                            onPressed: _isEditing[entry.key] ==
-                                                    false
-                                                ? () {
-                                                    //change to edit
+                                          Column(
+                                            children: [
+                                              IconButton.outlined(
+                                                onPressed:
+                                                    _isEditing[entry.key] ==
+                                                            false
+                                                        ? () {
+                                                            //change to edit
+                                                            setState(() {
+                                                              _isEditing[entry
+                                                                  .key] = true;
+                                                            });
+                                                          }
+                                                        : () async {
+                                                            //save changes && cancel edit
+                                                            await shellFunction(
+                                                              context,
+                                                              toExecute: () {
+                                                                c.updateClinicData(
+                                                                  widget
+                                                                      .model
+                                                                      .clinic
+                                                                      .id,
+                                                                  entry.key,
+                                                                  _controllers[entry
+                                                                          .key]!
+                                                                      .text,
+                                                                );
+
+                                                                setState(() {
+                                                                  _isEditing[entry
+                                                                          .key] =
+                                                                      false;
+                                                                });
+                                                              },
+                                                            );
+                                                          },
+                                                icon: Icon(
+                                                    _isEditing[entry.key] ==
+                                                            true
+                                                        ? Icons.save
+                                                        : Icons.edit),
+                                              ),
+                                              const SizedBox(height: 10),
+                                              if (_isEditing[entry.key] == true)
+                                                IconButton.outlined(
+                                                  onPressed: () {
                                                     setState(() {
                                                       _isEditing[entry.key] =
-                                                          true;
+                                                          false;
                                                     });
-                                                  }
-                                                : () async {
-                                                    //save changes && cancel edit
-                                                    await shellFunction(
-                                                      context,
-                                                      toExecute: () {
-                                                        c.updateClinicData(
-                                                          widget
-                                                              .model.clinic.id,
-                                                          entry.key,
-                                                          _controllers[
-                                                                  entry.key]!
-                                                              .text,
-                                                        );
-
-                                                        setState(() {
-                                                          _isEditing[entry
-                                                              .key] = false;
-                                                        });
-                                                      },
-                                                    );
                                                   },
-                                            icon: Icon(
-                                                _isEditing[entry.key] == true
-                                                    ? Icons.save
-                                                    : Icons.edit),
+                                                  icon: const Icon(Icons.close),
+                                                ),
+                                              const SizedBox(width: 10),
+                                            ],
                                           ),
-                                          const SizedBox(width: 10),
-                                          if (_isEditing[entry.key] == true)
-                                            IconButton.outlined(
-                                              onPressed: () {
-                                                setState(() {
-                                                  _isEditing[entry.key] = false;
-                                                });
-                                              },
-                                              icon: const Icon(Icons.close),
-                                            ),
-                                          const SizedBox(width: 10),
                                         ],
                                       ),
                                     ),
@@ -303,7 +315,8 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                 ...widget.model.schedule.map(
                                   (sch) {
                                     return ListTile(
-                                      leading: const CircleAvatar(radius: 10),
+                                      contentPadding:
+                                          EdgeInsets.symmetric(horizontal: 4),
                                       title: Text(
                                         l.isEnglish
                                             ? sch.weekday_en

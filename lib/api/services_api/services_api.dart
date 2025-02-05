@@ -69,10 +69,13 @@ class HxServices {
     return _serviceResponseModel;
   }
 
-  Future<void> updateServiceData(Service service) async {
+  Future<void> updateServiceData(
+    String service_id,
+    Map<String, dynamic> update,
+  ) async {
     await PocketbaseHelper.pb.collection(collection).update(
-          service.id,
-          body: service.toJson(),
+          service_id,
+          body: update,
           expand: _expand,
         );
   }
@@ -109,7 +112,7 @@ class HxServices {
 
     final _ServiceQueryResult = await PocketbaseHelper.pb
         .collection(collection)
-        .getFirstListItem(faq.service_id);
+        .getFirstListItem('id = "${faq.service_id}"');
 
     final service = Service.fromJson(_ServiceQueryResult.toJson());
 
@@ -136,5 +139,9 @@ class HxServices {
     );
 
     return _serviceResponseModel;
+  }
+
+  Future<void> deleteServiceFaq(String faq_id) async {
+    await PocketbaseHelper.pb.collection(faqsCollection).delete(faq_id);
   }
 }

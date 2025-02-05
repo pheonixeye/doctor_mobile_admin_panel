@@ -400,6 +400,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get videos => 'Videos';
 
   @override
+  String get siteSettings => 'Site Settings';
+
+  @override
+  String get socialContacts => 'Social Contacts';
+
+  @override
   String get englishName => 'English Name';
 
   @override
@@ -497,4 +503,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteServiceConfirmation => 'Continue with Deleting This Service? Are You Sure?';
+
+  @override
+  String get addServiceFaq => 'Add Service Faq';
+
+  @override
+  String get englishQuestion => 'English Question';
+
+  @override
+  String get arabicQuestion => 'Arabic Question';
+
+  @override
+  String get englishAnswer => 'English Answer';
+
+  @override
+  String get arabicAnswer => 'Arabic Answer';
+
+  @override
+  String get deleteFaq => 'Delete Faq';
+
+  @override
+  String get deleteFaqConfirmation => 'Continue with Deleting This Faq? Are You Sure?';
 }

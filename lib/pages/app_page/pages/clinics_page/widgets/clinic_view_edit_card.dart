@@ -21,6 +21,8 @@ class ClinicViewEditCard extends StatefulWidget {
 
 class _ClinicViewEditCardState extends State<ClinicViewEditCard>
     with SingleTickerProviderStateMixin {
+  //TODO: Refactor split into smaller widgets
+
   late Map<String, TextEditingController> _controllers;
   late Map<String, bool> _isEditing;
 
@@ -76,7 +78,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
             controller: _tileController,
             tilePadding: const EdgeInsets.symmetric(horizontal: 8),
             leading: const CircleAvatar(
-              child: Text('*'),
+              child: Text('@'),
             ),
             title: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -283,7 +285,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                   subtitle: Divider(),
                                   trailing: IconButton.outlined(
                                     onPressed: () async {
-                                      //TODO
+                                      //todo
                                       var _schedule =
                                           await showDialog<Schedule?>(
                                         context: context,
@@ -314,27 +316,36 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                 ),
                                 ...widget.model.schedule.map(
                                   (sch) {
-                                    return ListTile(
-                                      contentPadding:
-                                          EdgeInsets.symmetric(horizontal: 4),
-                                      title: Text(
-                                        l.isEnglish
-                                            ? sch.weekday_en
-                                            : sch.weekday_ar,
-                                      ),
-                                      subtitle: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text.rich(
-                                              TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                      text: context.loc.from),
-                                                  TextSpan(text: ' : '),
-                                                  TextSpan(
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ListTile(
+                                        tileColor: Theme.of(context)
+                                            .primaryColor
+                                            .withValues(alpha: 0.2),
+                                        shape: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        contentPadding:
+                                            EdgeInsets.symmetric(horizontal: 4),
+                                        title: Text(
+                                          l.isEnglish
+                                              ? sch.weekday_en
+                                              : sch.weekday_ar,
+                                        ),
+                                        subtitle: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                        text: context.loc.from),
+                                                    TextSpan(text: ' : '),
+                                                    TextSpan(
                                                       text: DateFormat.jm(l
                                                               .locale
                                                               .languageCode)
@@ -346,43 +357,56 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                                       ),
                                                       recognizer:
                                                           TapGestureRecognizer()
-                                                            ..onTap = () {
+                                                            ..onTap = () async {
                                                               //TODO
-                                                            })
-                                                ],
-                                              ),
-                                            ),
-                                            const Divider(),
-                                            Text.rich(
-                                              TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                      text: context.loc.to),
-                                                  TextSpan(text: ' : '),
-                                                  TextSpan(
-                                                      text: DateFormat.jm(l
-                                                              .locale
-                                                              .languageCode)
-                                                          .format(
-                                                        DateTime.now().copyWith(
-                                                          hour: sch.end_hour,
-                                                          minute: sch.end_min,
-                                                        ),
+                                                              final _updatedTime =
+                                                                  await showTimePicker(
+                                                                context:
+                                                                    context,
+                                                                initialTime:
+                                                                    TimeOfDay
+                                                                        .now(),
+                                                              );
+                                                              if (_updatedTime ==
+                                                                  null) {
+                                                                return;
+                                                              }
+                                                              if (context
+                                                                  .mounted) {
+                                                                final _newSch =
+                                                                    sch.copyWith(
+                                                                  start_hour:
+                                                                      _updatedTime
+                                                                          .hour,
+                                                                  start_min:
+                                                                      _updatedTime
+                                                                          .minute,
+                                                                );
+                                                                await shellFunction(
+                                                                  context,
+                                                                  toExecute:
+                                                                      () async {
+                                                                    await c.updateClinicSchedule(
+                                                                        _newSch);
+                                                                  },
+                                                                );
+                                                              }
+                                                            },
+                                                      style: TextStyle(
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
                                                       ),
-                                                      recognizer:
-                                                          TapGestureRecognizer()
-                                                            ..onTap = () {
-                                                              //TODO
-                                                            })
-                                                ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Row(
+                                              Row(
                                                 children: [
-                                                  const Spacer(),
+                                                  Expanded(
+                                                    child: const Divider(),
+                                                  ),
+                                                  SizedBox(width: 10),
                                                   IconButton.outlined(
                                                     onPressed: () async {
                                                       await shellFunction(
@@ -399,27 +423,89 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                                       color: Colors.red,
                                                     ),
                                                   ),
-                                                  const SizedBox(width: 12),
+                                                  SizedBox(width: 10),
                                                 ],
                                               ),
-                                            ),
-                                          ],
+                                              Text.rich(
+                                                TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                        text: context.loc.to),
+                                                    TextSpan(text: ' : '),
+                                                    TextSpan(
+                                                      text: DateFormat.jm(l
+                                                              .locale
+                                                              .languageCode)
+                                                          .format(
+                                                        DateTime.now().copyWith(
+                                                          hour: sch.end_hour,
+                                                          minute: sch.end_min,
+                                                        ),
+                                                      ),
+                                                      recognizer:
+                                                          TapGestureRecognizer()
+                                                            ..onTap = () async {
+                                                              //TODO
+                                                              final _updatedTime =
+                                                                  await showTimePicker(
+                                                                context:
+                                                                    context,
+                                                                initialTime:
+                                                                    TimeOfDay
+                                                                        .now(),
+                                                              );
+                                                              if (_updatedTime ==
+                                                                  null) {
+                                                                return;
+                                                              }
+                                                              if (context
+                                                                  .mounted) {
+                                                                final _newSch =
+                                                                    sch.copyWith(
+                                                                  end_hour:
+                                                                      _updatedTime
+                                                                          .hour,
+                                                                  end_min:
+                                                                      _updatedTime
+                                                                          .minute,
+                                                                );
+                                                                await shellFunction(
+                                                                  context,
+                                                                  toExecute:
+                                                                      () async {
+                                                                    await c.updateClinicSchedule(
+                                                                        _newSch);
+                                                                  },
+                                                                );
+                                                              }
+                                                            },
+                                                      style: TextStyle(
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      trailing: Switch.adaptive(
-                                        value: sch.available,
-                                        onChanged: (value) async {
-                                          final _sch = sch.copyWith(
-                                            available: value,
-                                          );
-                                          await shellFunction(
-                                            context,
-                                            toExecute: () async {
-                                              await c
-                                                  .updateClinicSchedule(_sch);
-                                            },
-                                          );
-                                        },
+                                        trailing: Switch.adaptive(
+                                          value: sch.available,
+                                          onChanged: (value) async {
+                                            final _sch = sch.copyWith(
+                                              available: value,
+                                            );
+                                            await shellFunction(
+                                              context,
+                                              toExecute: () async {
+                                                await c
+                                                    .updateClinicSchedule(_sch);
+                                              },
+                                            );
+                                          },
+                                        ),
                                       ),
                                     );
                                   },

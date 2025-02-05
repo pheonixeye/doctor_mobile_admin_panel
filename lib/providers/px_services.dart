@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
+import 'package:doctor_mobile_admin_panel/models/faq.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:doctor_mobile_admin_panel/models/service_response_model.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +29,34 @@ class PxServices extends ChangeNotifier {
     await _fetchServices();
   }
 
-  Future<void> updateServiceData(Service service) async {
-    await servicesService.updateServiceData(service);
+  Future<void> updateServiceData(
+    String service_id,
+    Map<String, dynamic> update,
+  ) async {
+    await servicesService.updateServiceData(service_id, update);
+    await _fetchServices();
+  }
+
+  Future<void> addServiceFaq(Faq faq) async {
+    await servicesService.addServiceFaq(faq);
+    await _fetchServices();
+  }
+
+  Future<void> deleteServiceFaq(String faq_id) async {
+    await servicesService.deleteServiceFaq(faq_id);
+    await _fetchServices();
+  }
+
+  Future<void> addServiceImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  }) async {
+    await servicesService.updateServiceImage(
+      id: id,
+      fileBytes: fileBytes,
+      fileName_key: fileName_key,
+    );
     await _fetchServices();
   }
 }

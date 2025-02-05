@@ -60,6 +60,34 @@ class EndDrawer extends StatelessWidget {
                 selected: selected(AppRouter.services),
               ),
               const ThinDivider(),
+              DrawerNavBtn(
+                title: context.loc.cases,
+                icondata: Icons.person_2,
+                routePath: AppRouter.cases,
+                selected: selected(AppRouter.cases),
+              ),
+              const ThinDivider(),
+              DrawerNavBtn(
+                title: context.loc.videos,
+                icondata: Icons.video_call,
+                routePath: AppRouter.videos,
+                selected: selected(AppRouter.videos),
+              ),
+              const ThinDivider(),
+              DrawerNavBtn(
+                title: context.loc.siteSettings,
+                icondata: Icons.settings,
+                routePath: AppRouter.site_settings,
+                selected: selected(AppRouter.site_settings),
+              ),
+              const ThinDivider(),
+              DrawerNavBtn(
+                title: context.loc.socialContacts,
+                icondata: Icons.contact_emergency,
+                routePath: AppRouter.social_contacts,
+                selected: selected(AppRouter.social_contacts),
+              ),
+              const ThinDivider(),
               //theme && language(TODO: maybe change location in settings page)
               Padding(
                 padding: const EdgeInsets.all(8.0),

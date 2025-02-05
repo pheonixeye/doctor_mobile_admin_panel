@@ -881,6 +881,18 @@ abstract class AppLocalizations {
   /// **'Videos'**
   String get videos;
 
+  /// No description provided for @siteSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Site Settings'**
+  String get siteSettings;
+
+  /// No description provided for @socialContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Social Contacts'**
+  String get socialContacts;
+
   /// No description provided for @englishName.
   ///
   /// In en, this message translates to:
@@ -1078,6 +1090,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with Deleting This Service? Are You Sure?'**
   String get deleteServiceConfirmation;
+
+  /// No description provided for @addServiceFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Service Faq'**
+  String get addServiceFaq;
+
+  /// No description provided for @englishQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'English Question'**
+  String get englishQuestion;
+
+  /// No description provided for @arabicQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Question'**
+  String get arabicQuestion;
+
+  /// No description provided for @englishAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'English Answer'**
+  String get englishAnswer;
+
+  /// No description provided for @arabicAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Answer'**
+  String get arabicAnswer;
+
+  /// No description provided for @deleteFaq.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Faq'**
+  String get deleteFaq;
+
+  /// No description provided for @deleteFaqConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This Faq? Are You Sure?'**
+  String get deleteFaqConfirmation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

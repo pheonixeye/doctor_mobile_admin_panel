@@ -3,9 +3,13 @@ import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/app_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/articles_page/articles_page.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/cases_page/cases_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/clinics_page/clinics_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/profile_page/profile_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/services_page/services_page.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/site_settings_page.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/social_contacts_page/social_contacts_page.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/videos_page/videos_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/loading_screen/loading_screen.dart';
 import 'package:doctor_mobile_admin_panel/pages/login_page/login_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/shell_page/shell_page.dart';
@@ -28,6 +32,8 @@ class AppRouter {
   static const String services = 'services';
   static const String cases = 'cases';
   static const String videos = 'videos';
+  static const String social_contacts = 'social_contacts';
+  static const String site_settings = 'site_settings';
 
   static final GoRouter router = GoRouter(
     navigatorKey: navigatorKey,
@@ -109,6 +115,42 @@ class AppRouter {
                     name: articles,
                     builder: (context, state) {
                       return ArticlesPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: cases,
+                    name: cases,
+                    builder: (context, state) {
+                      return CasesPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: videos,
+                    name: videos,
+                    builder: (context, state) {
+                      return VideosPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: social_contacts,
+                    name: social_contacts,
+                    builder: (context, state) {
+                      return SocialContactsPage(
+                        key: state.pageKey,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: site_settings,
+                    name: site_settings,
+                    builder: (context, state) {
+                      return SiteSettingsPage(
                         key: state.pageKey,
                       );
                     },

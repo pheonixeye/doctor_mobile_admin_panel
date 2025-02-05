@@ -1,10 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
+import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
+import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
+import 'package:doctor_mobile_admin_panel/models/faq.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:doctor_mobile_admin_panel/models/service_response_model.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/services_page/widgets/create_faq_dialog.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +24,7 @@ class ServiceCard extends StatefulWidget {
 
 class _ServiceCardState extends State<ServiceCard>
     with SingleTickerProviderStateMixin {
+  //TODO: Refactor split into smaller widgets
   late Map<String, TextEditingController> _controllers;
   late Map<String, bool> _isEditing;
 
@@ -73,7 +80,7 @@ class _ServiceCardState extends State<ServiceCard>
             controller: _tileController,
             leading: const CircleAvatar(
               radius: 15,
-              child: Text('^'),
+              child: Text('@'),
             ),
             title: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -226,26 +233,8 @@ class _ServiceCardState extends State<ServiceCard>
                                                         await shellFunction(
                                                           context,
                                                           toExecute: () async {
-                                                            //TODO
-                                                            final _updatedService =
-                                                                widget.model
-                                                                    .service
-                                                                    .copyWith(
-                                                              name_en: _controllers[
-                                                                      'name_en']
-                                                                  ?.text,
-                                                              name_ar: _controllers[
-                                                                      'name_ar']
-                                                                  ?.text,
-                                                              description_en:
-                                                                  _controllers[
-                                                                          'description_en']
-                                                                      ?.text,
-                                                              description_ar:
-                                                                  _controllers[
-                                                                          'description_ar']
-                                                                      ?.text,
-                                                            );
+                                                            //todo
+
                                                             final _update = {
                                                               entry.key:
                                                                   _controllers[
@@ -253,8 +242,12 @@ class _ServiceCardState extends State<ServiceCard>
                                                                               .key]
                                                                       ?.text
                                                             };
-                                                            await s.updateServiceData(
-                                                                _updatedService);
+                                                            await s
+                                                                .updateServiceData(
+                                                              widget.model
+                                                                  .service.id,
+                                                              _update,
+                                                            );
                                                             setState(() {
                                                               _isEditing[entry
                                                                   .key] = false;
@@ -301,17 +294,84 @@ class _ServiceCardState extends State<ServiceCard>
                           elevation: 8,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                            child: ListView(
                               children: [
                                 ListTile(
                                   title: Text(context.loc.serviceFaqs),
                                   subtitle: Divider(),
                                   trailing: IconButton.outlined(
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      final _faq = await showDialog<Faq?>(
+                                        context: context,
+                                        builder: (context) {
+                                          return CreateFaqDialog(
+                                            model: widget.model,
+                                          );
+                                        },
+                                      );
+                                      if (_faq == null) {
+                                        return;
+                                      }
+                                      if (context.mounted) {
+                                        await shellFunction(
+                                          context,
+                                          toExecute: () async {
+                                            await s.addServiceFaq(_faq);
+                                          },
+                                        );
+                                      }
+                                    },
                                     icon: const Icon(Icons.add),
                                   ),
                                 ),
+                                ...widget.model.faqs.map((f) {
+                                  return ListTile(
+                                    title: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child:
+                                          Text(l.isEnglish ? f.q_en : f.q_ar),
+                                    ),
+                                    subtitle: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        spacing: 4,
+                                        children: [
+                                          Text(l.isEnglish ? f.a_en : f.a_ar),
+                                          const Divider(),
+                                        ],
+                                      ),
+                                    ),
+                                    trailing: IconButton.outlined(
+                                      onPressed: () async {
+                                        final _toDelete = await showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return GenericConfirmationDialog(
+                                              title: context.loc.deleteFaq,
+                                              message: context
+                                                  .loc.deleteFaqConfirmation,
+                                            );
+                                          },
+                                        );
+                                        if (_toDelete == null) {
+                                          return;
+                                        }
+                                        if (context.mounted) {
+                                          await shellFunction(
+                                            context,
+                                            toExecute: () async {
+                                              await s.deleteServiceFaq(f.id);
+                                            },
+                                          );
+                                        }
+                                      },
+                                      icon: const Icon(
+                                        Icons.delete_forever,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  );
+                                }),
                               ],
                             ),
                           ),
@@ -327,16 +387,67 @@ class _ServiceCardState extends State<ServiceCard>
                           elevation: 8,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                            child: ListView(
                               children: [
                                 ListTile(
                                   title: Text(context.loc.serviceImage),
                                   subtitle: Divider(),
                                   trailing: IconButton.outlined(
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      final _result =
+                                          await FilePicker.platform.pickFiles(
+                                        allowMultiple: false,
+                                        allowedExtensions:
+                                            AppConstants.imageAllowedExtentions,
+                                        type: FileType.custom,
+                                        withData: true,
+                                      );
+                                      if (_result == null) {
+                                        return;
+                                      }
+
+                                      if (context.mounted) {
+                                        await shellFunction(
+                                          context,
+                                          toExecute: () async {
+                                            await s.addServiceImage(
+                                              id: widget.model.service.id,
+                                              fileBytes:
+                                                  _result.files.first.bytes ??
+                                                      [],
+                                              fileName_key: 'image',
+                                            );
+                                          },
+                                        );
+                                      }
+                                    },
                                     icon: const Icon(Icons.add),
                                   ),
+                                ),
+                                SizedBox(height: 50),
+                                CachedNetworkImage(
+                                  imageUrl: widget.model.service.imageUrl(
+                                          widget.model.service.image) ??
+                                      '',
+                                  imageBuilder: (context, imageProvider) =>
+                                      Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width - 60,
+                                    height: 300,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: imageProvider,
+                                        fit: BoxFit.contain,
+                                      ),
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  placeholder: (context, url) => Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                  errorWidget: (context, url, error) =>
+                                      Icon(Icons.error),
                                 ),
                               ],
                             ),

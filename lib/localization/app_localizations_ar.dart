@@ -400,6 +400,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get videos => 'الفيديو';
 
   @override
+  String get siteSettings => 'خصائص الموقع';
+
+  @override
+  String get socialContacts => 'بيانات التواصل';
+
+  @override
   String get englishName => 'الاسم بالانجليزية';
 
   @override
@@ -497,4 +503,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteServiceConfirmation => 'متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟';
+
+  @override
+  String get addServiceFaq => 'اضافة سؤال متكرر';
+
+  @override
+  String get englishQuestion => 'السؤال بالانجليزية';
+
+  @override
+  String get arabicQuestion => 'السؤال بالعربية';
+
+  @override
+  String get englishAnswer => 'الاجابة بالانجليزية';
+
+  @override
+  String get arabicAnswer => 'الاجابة بالعربية';
+
+  @override
+  String get deleteFaq => 'الغاء السؤال المتكرر';
+
+  @override
+  String get deleteFaqConfirmation => 'متابعة الغاء هذا السؤال المتكرر ؟ هل انت متأكد ؟';
 }

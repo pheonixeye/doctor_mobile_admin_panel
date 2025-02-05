@@ -1,3 +1,4 @@
+import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
@@ -67,7 +68,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                     await FilePicker.platform.pickFiles(
                                   withData: true,
                                   type: FileType.custom,
-                                  allowedExtensions: ['webp', 'png', 'jpg'],
+                                  allowedExtensions:
+                                      AppConstants.imageAllowedExtentions,
                                 );
 
                                 if (bytes == null) {

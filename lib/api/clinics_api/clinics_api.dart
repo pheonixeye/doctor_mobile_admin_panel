@@ -16,7 +16,7 @@ class HxClinics {
   static const String _expand = 'schedule_ids, off_dates';
 
   Future<List<ClinicResponseModel>?> fetchDoctorClinicsByDoctorId() async {
-    //TODO
+    //todo
 
     final result = await PocketbaseHelper.pb.collection(collection).getList(
           filter: 'doc_id = "$doc_id"',
@@ -75,7 +75,7 @@ class HxClinics {
     String key,
     dynamic value,
   ) async {
-    //TODO
+    //todo
     final result = await PocketbaseHelper.pb.collection(collection).update(
           clinic_id,
           body: {

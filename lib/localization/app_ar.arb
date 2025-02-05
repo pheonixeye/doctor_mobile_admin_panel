@@ -151,6 +151,8 @@
     "bookings" : "الحجوزات",
     "cases" : "الحالات",
     "videos" : "الفيديو",
+    "siteSettings" : "خصائص الموقع",
+    "socialContacts" : "بيانات التواصل",
     "@@profile_page" : "",
     "englishName" : "الاسم بالانجليزية",
     "arabicName" : "الاسم بالعربية",
@@ -188,5 +190,13 @@
     "serviceFaqs" : "اسئلة الخدمة",
     "serviceImage" : "صورة الخدمة",
     "deleteService" : "الغاء الخدمة",
-    "deleteServiceConfirmation" : "متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟"
+    "deleteServiceConfirmation" : "متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟",
+    "@@add_service_faq_dialog" : "",
+    "addServiceFaq" : "اضافة سؤال متكرر",
+    "englishQuestion" : "السؤال بالانجليزية",
+    "arabicQuestion" : "السؤال بالعربية",
+    "englishAnswer" : "الاجابة بالانجليزية",
+    "arabicAnswer" : "الاجابة بالعربية",
+    "deleteFaq" : "الغاء السؤال المتكرر",
+    "deleteFaqConfirmation" : "متابعة الغاء هذا السؤال المتكرر ؟ هل انت متأكد ؟"
 }

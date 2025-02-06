@@ -200,5 +200,13 @@
     "englishAnswer" : "English Answer",
     "arabicAnswer" : "Arabic Answer",
     "deleteFaq" : "Delete Faq",
-    "deleteFaqConfirmation" : "Continue with Deleting This Faq? Are You Sure?"
+    "deleteFaqConfirmation" : "Continue with Deleting This Faq? Are You Sure?",
+    "@@social_contacts_page" : "",
+    "mainPhone" : "Main Phone",
+    "mainWa" : "Main Whatsapp",
+    "fb" : "Facebook Page Link",
+    "ig" : "Instagram Page Link",
+    "yt" : "Youtube Channel Link",
+    "li" : "LinkedIn Page Link"
+
 }

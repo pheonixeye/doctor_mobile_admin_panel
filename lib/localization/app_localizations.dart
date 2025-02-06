@@ -1132,6 +1132,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with Deleting This Faq? Are You Sure?'**
   String get deleteFaqConfirmation;
+
+  /// No description provided for @mainPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Main Phone'**
+  String get mainPhone;
+
+  /// No description provided for @mainWa.
+  ///
+  /// In en, this message translates to:
+  /// **'Main Whatsapp'**
+  String get mainWa;
+
+  /// No description provided for @fb.
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook Page Link'**
+  String get fb;
+
+  /// No description provided for @ig.
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Page Link'**
+  String get ig;
+
+  /// No description provided for @yt.
+  ///
+  /// In en, this message translates to:
+  /// **'Youtube Channel Link'**
+  String get yt;
+
+  /// No description provided for @li.
+  ///
+  /// In en, this message translates to:
+  /// **'LinkedIn Page Link'**
+  String get li;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

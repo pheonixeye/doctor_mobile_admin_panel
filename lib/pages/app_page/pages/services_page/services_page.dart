@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/components/central_loading.dart';
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/services_page/widgets/create_service_dialog.dart';
@@ -41,15 +42,24 @@ class ServicesPage extends StatelessWidget {
           while (c.services == null) {
             return const CentralLoading();
           }
-          return ListView.builder(
+          return ListView(
             cacheExtent: 3000,
             restorationId: 'services-page-items',
-            itemCount: c.services?.length,
-            itemBuilder: (context, index) {
-              final model = c.services![index];
-
-              return ServiceCard(model: model);
-            },
+            children: [
+              ListTile(
+                leading: const CircleAvatar(),
+                title: Text(context.loc.services),
+                subtitle: const Divider(),
+              ),
+              if (c.services == null)
+                Center(
+                  child: CircularProgressIndicator(),
+                )
+              else
+                ...c.services!.map((model) {
+                  return ServiceCard(model: model);
+                })
+            ],
           );
         },
       ),

@@ -21,6 +21,7 @@ class Doctor extends Equatable {
   final List<String> article_ids;
   final List<String> hero_items_ids;
   final List<String> services_ids;
+  final List<String> cases_ids;
   final String avatar;
   final String logo;
   final String site_settings_id;
@@ -43,6 +44,7 @@ class Doctor extends Equatable {
     required this.article_ids,
     required this.hero_items_ids,
     required this.services_ids,
+    required this.cases_ids,
     required this.avatar,
     required this.logo,
     required this.site_settings_id,
@@ -66,6 +68,7 @@ class Doctor extends Equatable {
     List<String>? article_ids,
     List<String>? hero_items_ids,
     List<String>? services_ids,
+    List<String>? cases_ids,
     String? avatar,
     String? logo,
     String? site_settings_id,
@@ -88,6 +91,7 @@ class Doctor extends Equatable {
       article_ids: article_ids ?? this.article_ids,
       hero_items_ids: hero_items_ids ?? this.hero_items_ids,
       services_ids: services_ids ?? this.services_ids,
+      cases_ids: cases_ids ?? this.cases_ids,
       avatar: avatar ?? this.avatar,
       logo: logo ?? this.logo,
       site_settings_id: site_settings_id ?? this.site_settings_id,
@@ -113,6 +117,7 @@ class Doctor extends Equatable {
       'article_ids': article_ids,
       'hero_items_ids': hero_items_ids,
       'services_ids': services_ids,
+      'cases_ids': cases_ids,
       'avatar': avatar,
       'logo': logo,
       'site_settings_id': site_settings_id,
@@ -139,6 +144,7 @@ class Doctor extends Equatable {
       hero_items_ids:
           List<String>.from((map['hero_items_ids'] as List<dynamic>)),
       services_ids: List<String>.from((map['services_ids'] as List<dynamic>)),
+      cases_ids: List<String>.from((map['cases_ids'] as List<dynamic>)),
       avatar: map['avatar'] as String,
       logo: map['logo'] as String,
       site_settings_id: map['site_settings_id'] as String,
@@ -168,6 +174,7 @@ class Doctor extends Equatable {
       article_ids,
       hero_items_ids,
       services_ids,
+      cases_ids,
       avatar,
       logo,
       site_settings_id,

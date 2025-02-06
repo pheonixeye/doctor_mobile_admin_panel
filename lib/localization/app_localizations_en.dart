@@ -524,4 +524,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteFaqConfirmation => 'Continue with Deleting This Faq? Are You Sure?';
+
+  @override
+  String get mainPhone => 'Main Phone';
+
+  @override
+  String get mainWa => 'Main Whatsapp';
+
+  @override
+  String get fb => 'Facebook Page Link';
+
+  @override
+  String get ig => 'Instagram Page Link';
+
+  @override
+  String get yt => 'Youtube Channel Link';
+
+  @override
+  String get li => 'LinkedIn Page Link';
 }

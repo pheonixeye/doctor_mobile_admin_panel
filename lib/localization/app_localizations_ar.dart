@@ -524,4 +524,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteFaqConfirmation => 'متابعة الغاء هذا السؤال المتكرر ؟ هل انت متأكد ؟';
+
+  @override
+  String get mainPhone => 'رقم الموبايل للموقع';
+
+  @override
+  String get mainWa => 'رقم الواتساب للموقع';
+
+  @override
+  String get fb => 'رابط صفحة الفيسبوك';
+
+  @override
+  String get ig => 'رابط صفحة الانستاجرام';
+
+  @override
+  String get yt => 'رابط قناة اليوتيوب';
+
+  @override
+  String get li => 'رابط صفحة اللينكدان';
 }

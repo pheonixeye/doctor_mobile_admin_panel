@@ -1,6 +1,8 @@
 import 'package:doctor_mobile_admin_panel/api/clinics_api/clinics_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
+import 'package:doctor_mobile_admin_panel/api/social_contacts_api/social_contacts_api.dart';
+import 'package:doctor_mobile_admin_panel/api/videos_api/videos_api.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/app_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/articles_page/articles_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/cases_page/cases_page.dart';
@@ -17,6 +19,8 @@ import 'package:doctor_mobile_admin_panel/providers/px_app_users.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_social_contact.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_videos.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -132,8 +136,15 @@ class AppRouter {
                     path: videos,
                     name: videos,
                     builder: (context, state) {
-                      return VideosPage(
-                        key: state.pageKey,
+                      final doc_id = context.read<PxAppUsers>().doc_id;
+                      final _key = ValueKey('$doc_id/${state.pageKey.value}');
+                      return ChangeNotifierProvider(
+                        create: (context) => PxVideos(
+                          service: HxVideos(doc_id: doc_id ?? ''),
+                        ),
+                        child: VideosPage(
+                          key: _key,
+                        ),
                       );
                     },
                   ),
@@ -141,8 +152,17 @@ class AppRouter {
                     path: social_contacts,
                     name: social_contacts,
                     builder: (context, state) {
-                      return SocialContactsPage(
-                        key: state.pageKey,
+                      final doc_id = context.read<PxAppUsers>().doc_id;
+                      final _key = ValueKey('$doc_id/${state.pageKey.value}');
+                      return ChangeNotifierProvider(
+                        create: (context) => PxSocialContact(
+                          socialContactsService: HxSocialContacts(
+                            doc_id: doc_id ?? '',
+                          ),
+                        ),
+                        child: SocialContactsPage(
+                          key: _key,
+                        ),
                       );
                     },
                   ),

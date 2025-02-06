@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
@@ -47,6 +48,11 @@ class _ProfilePageState extends State<ProfilePage> {
           body: ListView(
             cacheExtent: 3000,
             children: [
+              ListTile(
+                leading: const CircleAvatar(),
+                title: Text(context.loc.profile),
+                subtitle: const Divider(),
+              ),
               ...Doctor.doctorEditableFields(context).entries.map((field) {
                 if (field.key == 'avatar' || field.key == 'logo') {
                   return Card.outlined(

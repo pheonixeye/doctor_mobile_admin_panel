@@ -1168,6 +1168,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'LinkedIn Page Link'**
   String get li;
+
+  /// No description provided for @createVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Video'**
+  String get createVideo;
+
+  /// No description provided for @videoSrc.
+  ///
+  /// In en, this message translates to:
+  /// **'Video Link'**
+  String get videoSrc;
+
+  /// No description provided for @isLong.
+  ///
+  /// In en, this message translates to:
+  /// **'is Vertical Video'**
+  String get isLong;
+
+  /// No description provided for @videoThumbnail.
+  ///
+  /// In en, this message translates to:
+  /// **'Video Thumbnail'**
+  String get videoThumbnail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

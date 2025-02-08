@@ -542,4 +542,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get li => 'LinkedIn Page Link';
+
+  @override
+  String get createVideo => 'Add New Video';
+
+  @override
+  String get videoSrc => 'Video Link';
+
+  @override
+  String get isLong => 'is Vertical Video';
+
+  @override
+  String get videoThumbnail => 'Video Thumbnail';
 }

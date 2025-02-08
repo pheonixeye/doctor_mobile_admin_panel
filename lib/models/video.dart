@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class Video extends Equatable {
   final String id;
@@ -93,5 +95,17 @@ class Video extends Equatable {
       thumbnail,
       is_long,
     ];
+  }
+
+  static Map<String, String> editableStrings(BuildContext context) {
+    return {
+      'title_en': context.loc.englishName,
+      'title_ar': context.loc.arabicName,
+      'description_en': context.loc.englishDescription,
+      'description_ar': context.loc.arabicDescription,
+      'src': context.loc.videoSrc,
+      'is_long': context.loc.isLong,
+      'thumbnail': context.loc.videoThumbnail,
+    };
   }
 }

@@ -542,4 +542,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get li => 'رابط صفحة اللينكدان';
+
+  @override
+  String get createVideo => 'اضافة فيديو جديد';
+
+  @override
+  String get videoSrc => 'رابط الفيديو';
+
+  @override
+  String get isLong => 'فيديو طولي';
+
+  @override
+  String get videoThumbnail => 'صورة للفيديو';
 }

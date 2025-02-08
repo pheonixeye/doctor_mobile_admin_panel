@@ -1,6 +1,7 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
+import 'package:doctor_mobile_admin_panel/models/video.dart';
 
 String _baseUrl({
   required String collection,
@@ -20,4 +21,10 @@ extension ImageUrlExtractorService on Service {
   String? imageUrl(String fileKey) => image.isEmpty
       ? null
       : _baseUrl(collection: 'services', id: id, fileKey: fileKey);
+}
+
+extension ImageUrlExtractorVideo on Video {
+  String? imageUrl(String fileKey) => thumbnail.isEmpty
+      ? null
+      : _baseUrl(collection: 'videos', id: id, fileKey: fileKey);
 }

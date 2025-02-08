@@ -207,6 +207,11 @@
     "fb" : "Facebook Page Link",
     "ig" : "Instagram Page Link",
     "yt" : "Youtube Channel Link",
-    "li" : "LinkedIn Page Link"
+    "li" : "LinkedIn Page Link",
+    "@@video_create_dialog" : "",
+    "createVideo" : "Add New Video",
+    "videoSrc" : "Video Link",
+    "isLong" : "is Vertical Video",
+    "videoThumbnail" : "Video Thumbnail"
 
 }

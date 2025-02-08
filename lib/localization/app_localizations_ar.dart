@@ -563,4 +563,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get postImage => 'صورة بعد العمليات';
+
+  @override
+  String get createArticle => 'اضافة مقالة جديدة';
+
+  @override
+  String get articleThumbnail => 'صورة المقالة';
+
+  @override
+  String get englishBody => 'جسم الفقرة بالانجليزية';
+
+  @override
+  String get arabicBody => 'جسم الفقرة بالعربية';
+
+  @override
+  String get createParagraph => 'اضافة فقرة جديدة';
 }

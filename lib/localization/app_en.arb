@@ -216,6 +216,13 @@
     "@@case_create_dialog" : "",
     "createCase" : "Add New Case",
     "preImage" : "Pre Image",
-    "postImage" : "Post Image"
+    "postImage" : "Post Image",
+    "@@article_create_dialog" : "",
+    "createArticle" : "Add New Article",
+    "articleThumbnail" : "Article Thumbnail",
+    "englishBody" : "English Body",
+    "arabicBody" : "Arabic Body",
+    "@@paragraph_create_dialog" : "",
+    "createParagraph" : "Add New Paragraph"
 
 }

@@ -1210,6 +1210,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Post Image'**
   String get postImage;
+
+  /// No description provided for @createArticle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Article'**
+  String get createArticle;
+
+  /// No description provided for @articleThumbnail.
+  ///
+  /// In en, this message translates to:
+  /// **'Article Thumbnail'**
+  String get articleThumbnail;
+
+  /// No description provided for @englishBody.
+  ///
+  /// In en, this message translates to:
+  /// **'English Body'**
+  String get englishBody;
+
+  /// No description provided for @arabicBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Body'**
+  String get arabicBody;
+
+  /// No description provided for @createParagraph.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Paragraph'**
+  String get createParagraph;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

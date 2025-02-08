@@ -214,5 +214,12 @@
     "@@case_create_dialog" : "",
     "createCase" : "اضافة حالة جديدة",
     "preImage" : "صورة قبل العمليات",
-    "postImage" : "صورة بعد العمليات"
+    "postImage" : "صورة بعد العمليات",
+    "@@article_create_dialog" : "",
+    "createArticle" : "اضافة مقالة جديدة",
+    "articleThumbnail" : "صورة المقالة",
+    "englishBody" : "جسم الفقرة بالانجليزية",
+    "arabicBody" : "جسم الفقرة بالعربية",
+    "@@paragraph_create_dialog" : "",
+    "createParagraph" : "اضافة فقرة جديدة"
 }

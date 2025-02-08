@@ -563,4 +563,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get postImage => 'Post Image';
+
+  @override
+  String get createArticle => 'Add New Article';
+
+  @override
+  String get articleThumbnail => 'Article Thumbnail';
+
+  @override
+  String get englishBody => 'English Body';
+
+  @override
+  String get arabicBody => 'Arabic Body';
+
+  @override
+  String get createParagraph => 'Add New Paragraph';
 }

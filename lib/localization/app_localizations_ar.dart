@@ -554,4 +554,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get videoThumbnail => 'صورة للفيديو';
+
+  @override
+  String get createCase => 'اضافة حالة جديدة';
+
+  @override
+  String get preImage => 'صورة قبل العمليات';
+
+  @override
+  String get postImage => 'صورة بعد العمليات';
 }

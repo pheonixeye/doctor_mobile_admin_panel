@@ -358,7 +358,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                                       recognizer:
                                                           TapGestureRecognizer()
                                                             ..onTap = () async {
-                                                              //TODO
+                                                              //todo
                                                               final _updatedTime =
                                                                   await showTimePicker(
                                                                 context:
@@ -445,7 +445,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                                       recognizer:
                                                           TapGestureRecognizer()
                                                             ..onTap = () async {
-                                                              //TODO
+                                                              //todo
                                                               final _updatedTime =
                                                                   await showTimePicker(
                                                                 context:

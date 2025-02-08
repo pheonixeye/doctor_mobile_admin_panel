@@ -1192,6 +1192,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Video Thumbnail'**
   String get videoThumbnail;
+
+  /// No description provided for @createCase.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Case'**
+  String get createCase;
+
+  /// No description provided for @preImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Pre Image'**
+  String get preImage;
+
+  /// No description provided for @postImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Post Image'**
+  String get postImage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

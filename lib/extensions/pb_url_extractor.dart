@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
+import 'package:doctor_mobile_admin_panel/models/case.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:doctor_mobile_admin_panel/models/video.dart';
@@ -27,4 +28,14 @@ extension ImageUrlExtractorVideo on Video {
   String? imageUrl(String fileKey) => thumbnail.isEmpty
       ? null
       : _baseUrl(collection: 'videos', id: id, fileKey: fileKey);
+}
+
+extension ImageUrlExtractorCase on Case {
+  String? imageUrlPre(String fileKey) => pre_image.isEmpty
+      ? null
+      : _baseUrl(collection: 'cases', id: id, fileKey: fileKey);
+
+  String? imageUrlPost(String fileKey) => post_image.isEmpty
+      ? null
+      : _baseUrl(collection: 'cases', id: id, fileKey: fileKey);
 }

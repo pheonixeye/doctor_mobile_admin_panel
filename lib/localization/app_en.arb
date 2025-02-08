@@ -212,6 +212,10 @@
     "createVideo" : "Add New Video",
     "videoSrc" : "Video Link",
     "isLong" : "is Vertical Video",
-    "videoThumbnail" : "Video Thumbnail"
+    "videoThumbnail" : "Video Thumbnail",
+    "@@case_create_dialog" : "",
+    "createCase" : "Add New Case",
+    "preImage" : "Pre Image",
+    "postImage" : "Post Image"
 
 }

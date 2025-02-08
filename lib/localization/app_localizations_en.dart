@@ -554,4 +554,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get videoThumbnail => 'Video Thumbnail';
+
+  @override
+  String get createCase => 'Add New Case';
+
+  @override
+  String get preImage => 'Pre Image';
+
+  @override
+  String get postImage => 'Post Image';
 }

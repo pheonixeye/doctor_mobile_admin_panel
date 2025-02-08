@@ -210,5 +210,9 @@
     "createVideo" : "اضافة فيديو جديد",
     "videoSrc" : "رابط الفيديو",
     "isLong" : "فيديو طولي",
-    "videoThumbnail" : "صورة للفيديو"
+    "videoThumbnail" : "صورة للفيديو",
+    "@@case_create_dialog" : "",
+    "createCase" : "اضافة حالة جديدة",
+    "preImage" : "صورة قبل العمليات",
+    "postImage" : "صورة بعد العمليات"
 }

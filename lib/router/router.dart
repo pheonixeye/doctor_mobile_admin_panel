@@ -1,3 +1,4 @@
+import 'package:doctor_mobile_admin_panel/api/cases_api/cases_api.dart';
 import 'package:doctor_mobile_admin_panel/api/clinics_api/clinics_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
@@ -16,6 +17,7 @@ import 'package:doctor_mobile_admin_panel/pages/loading_screen/loading_screen.da
 import 'package:doctor_mobile_admin_panel/pages/login_page/login_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/shell_page/shell_page.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_app_users.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_cases.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
@@ -127,8 +129,14 @@ class AppRouter {
                     path: cases,
                     name: cases,
                     builder: (context, state) {
-                      return CasesPage(
-                        key: state.pageKey,
+                      final doc_id = context.read<PxAppUsers>().doc_id;
+                      final _key = ValueKey('$doc_id/${state.pageKey.value}');
+                      return ChangeNotifierProvider(
+                        create: (context) =>
+                            PxCases(service: HxCases(doc_id: doc_id ?? '')),
+                        child: CasesPage(
+                          key: _key,
+                        ),
                       );
                     },
                   ),

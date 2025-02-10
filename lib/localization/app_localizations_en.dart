@@ -596,4 +596,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createParagraph => 'Add New Paragraph';
+
+  @override
+  String get addDoctorAbout => 'Add Doctor About';
+
+  @override
+  String get doctorAbout => 'Doctor About';
+
+  @override
+  String get deleteAbout => 'Delete Doctor About';
+
+  @override
+  String get confirmDeleteAbout => 'Continue with Deleting This About? Are You Sure?';
 }

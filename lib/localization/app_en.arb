@@ -229,6 +229,11 @@
     "deleteParagraph" : "Delete Paragraph",
     "deleteParagraphConfirmation" : "Continue with Deleting This Paragraph? Are You Sure?",
     "@@paragraph_create_dialog" : "",
-    "createParagraph" : "Add New Paragraph"
+    "createParagraph" : "Add New Paragraph",
+    "@@create_doctor_about_dialog" : "",
+    "addDoctorAbout" : "Add Doctor About",
+    "doctorAbout" : "Doctor About",
+    "deleteAbout" : "Delete Doctor About",
+    "confirmDeleteAbout" : "Continue with Deleting This About? Are You Sure?"
 
 }

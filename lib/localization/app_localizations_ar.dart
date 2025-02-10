@@ -596,4 +596,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get createParagraph => 'اضافة فقرة جديدة';
+
+  @override
+  String get addDoctorAbout => 'اضافة عن الطبيب';
+
+  @override
+  String get doctorAbout => 'عن الطبيب';
+
+  @override
+  String get deleteAbout => 'الغاء عن الطبيب';
+
+  @override
+  String get confirmDeleteAbout => 'متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟';
 }

@@ -1,8 +1,13 @@
+import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
+import 'package:doctor_mobile_admin_panel/models/doctor_about.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/profile_page/widgets/create_doctor_about_dialog.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_doctor_about.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +47,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PxProfile>(
-      builder: (context, p, _) {
+    return Consumer3<PxLocale, PxProfile, PxDoctorAbout>(
+      builder: (context, l, p, d, _) {
         return Scaffold(
           body: ListView(
             cacheExtent: 3000,
@@ -197,6 +202,83 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 );
               }),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: const Divider(),
+              ),
+              ListTile(
+                leading: const CircleAvatar(),
+                title: Text(context.loc.doctorAbout),
+                subtitle: const Divider(),
+                trailing: IconButton.outlined(
+                  onPressed: () async {
+                    final _about = await showDialog<DoctorAbout?>(
+                      context: context,
+                      builder: (context) {
+                        return CreateDoctorAboutDialog();
+                      },
+                    );
+                    if (_about == null) {
+                      return;
+                    }
+                    if (context.mounted) {
+                      await shellFunction(
+                        context,
+                        toExecute: () async {
+                          await d.addNewAbout(_about);
+                        },
+                      );
+                    }
+                  },
+                  icon: const Icon(Icons.add),
+                ),
+              ),
+              if (d.abouts == null)
+                Center(
+                  child: CircularProgressIndicator(),
+                )
+              else if (d.abouts != null && d.abouts!.isEmpty)
+                const SizedBox()
+              else
+                ...d.abouts!.map((about) {
+                  return Card.outlined(
+                    elevation: 0,
+                    color:
+                        Theme.of(context).primaryColor.withValues(alpha: 0.2),
+                    child: ListTile(
+                      title: Text(about.about_en),
+                      subtitle: Text(about.about_ar),
+                      trailing: IconButton.outlined(
+                        onPressed: () async {
+                          final _toDelete = await showDialog<bool?>(
+                            context: context,
+                            builder: (context) {
+                              return GenericConfirmationDialog(
+                                title: context.loc.deleteAbout,
+                                message: context.loc.confirmDeleteAbout,
+                              );
+                            },
+                          );
+                          if (_toDelete == null || _toDelete == false) {
+                            return;
+                          }
+                          if (context.mounted) {
+                            await shellFunction(
+                              context,
+                              toExecute: () async {
+                                await d.deleteAbout(about.id);
+                              },
+                            );
+                          }
+                        },
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  );
+                })
             ],
           ),
         );

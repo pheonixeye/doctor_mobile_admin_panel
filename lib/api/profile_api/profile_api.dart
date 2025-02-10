@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:http/http.dart' as http;
 
 class HxProfile {
-  const HxProfile(this.user_id);
+  const HxProfile({required this.user_id});
   final String user_id;
 
   static const String collection = 'doctors';

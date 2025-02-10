@@ -1276,6 +1276,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add New Paragraph'**
   String get createParagraph;
+
+  /// No description provided for @addDoctorAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Doctor About'**
+  String get addDoctorAbout;
+
+  /// No description provided for @doctorAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor About'**
+  String get doctorAbout;
+
+  /// No description provided for @deleteAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Doctor About'**
+  String get deleteAbout;
+
+  /// No description provided for @confirmDeleteAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This About? Are You Sure?'**
+  String get confirmDeleteAbout;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

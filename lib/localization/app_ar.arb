@@ -227,5 +227,10 @@
     "deleteParagraph" : "الغاء الفقرة",
     "deleteParagraphConfirmation" : "متابعة الغاء هذه الفقرة ؟ هل انت متأكد ؟",
     "@@paragraph_create_dialog" : "",
-    "createParagraph" : "اضافة فقرة جديدة"
+    "createParagraph" : "اضافة فقرة جديدة",
+    "@@create_doctor_about_dialog" : "",
+    "addDoctorAbout" : "اضافة عن الطبيب",
+    "doctorAbout" : "عن الطبيب",
+    "deleteAbout" : "الغاء عن الطبيب",
+    "confirmDeleteAbout" : "متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟"
 }

@@ -1,7 +1,9 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
+import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/models/article.dart';
 import 'package:doctor_mobile_admin_panel/models/article_paragraph.dart';
 import 'package:doctor_mobile_admin_panel/models/article_response_model.dart';
+import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,6 +42,25 @@ class HxArticles {
               body: article.toJson(),
               expand: _expand,
             );
+
+    final _docRef = await PocketbaseHelper.pb
+        .collection(HxProfile.collection)
+        .getOne(doc_id);
+
+    final _doctor = Doctor.fromJson(_docRef.toJson());
+
+    final _update = {
+      'article_ids': [
+        ..._doctor.article_ids,
+        _result.id,
+      ],
+    };
+
+    await PocketbaseHelper.pb.collection(HxProfile.collection).update(
+          article.doc_id,
+          body: _update,
+        );
+
     return ArticleResponseModel(
       article: Article.fromJson(_result.toJson()),
       paragraphs: _result

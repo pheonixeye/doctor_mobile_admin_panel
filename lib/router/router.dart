@@ -1,6 +1,7 @@
 import 'package:doctor_mobile_admin_panel/api/articles_api/articles_api.dart';
 import 'package:doctor_mobile_admin_panel/api/cases_api/cases_api.dart';
 import 'package:doctor_mobile_admin_panel/api/clinics_api/clinics_api.dart';
+import 'package:doctor_mobile_admin_panel/api/doctor_about_api.dart/doctor_about_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
 import 'package:doctor_mobile_admin_panel/api/social_contacts_api/social_contacts_api.dart';
@@ -21,6 +22,7 @@ import 'package:doctor_mobile_admin_panel/providers/px_app_users.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_articles.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_cases.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_doctor_about.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_social_contact.dart';
@@ -89,12 +91,23 @@ class AppRouter {
                     builder: (context, state) {
                       final _appUserId =
                           context.read<PxAppUsers>().model?.record.id;
+                      final _doc_id = context.read<PxAppUsers>().doc_id;
                       final _key =
                           ValueKey('$_appUserId/${state.pageKey.value}');
-                      return ChangeNotifierProvider(
-                        create: (context) => PxProfile(
-                          profileService: HxProfile(_appUserId ?? ''),
-                        ),
+                      return MultiProvider(
+                        providers: [
+                          ChangeNotifierProvider(
+                            create: (context) => PxProfile(
+                              profileService:
+                                  HxProfile(user_id: _appUserId ?? ''),
+                            ),
+                          ),
+                          ChangeNotifierProvider(
+                            create: (context) => PxDoctorAbout(
+                              service: HxDoctorAbout(doc_id: _doc_id ?? ''),
+                            ),
+                          ),
+                        ],
                         child: ProfilePage(
                           key: _key,
                         ),

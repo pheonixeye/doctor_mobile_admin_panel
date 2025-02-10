@@ -220,6 +220,12 @@
     "articleThumbnail" : "صورة المقالة",
     "englishBody" : "جسم الفقرة بالانجليزية",
     "arabicBody" : "جسم الفقرة بالعربية",
+    "articleInfo" : "بيانات المقالة",
+    "articleParagraphs" : "فقرات المقالة",
+    "deleteArticle" : "الغاء المقالة",
+    "deleteArticleConfirmation" : "متابعة الغاء هذه المقالة ؟ هل انت متأكد ؟",
+    "deleteParagraph" : "الغاء الفقرة",
+    "deleteParagraphConfirmation" : "متابعة الغاء هذه الفقرة ؟ هل انت متأكد ؟",
     "@@paragraph_create_dialog" : "",
     "createParagraph" : "اضافة فقرة جديدة"
 }

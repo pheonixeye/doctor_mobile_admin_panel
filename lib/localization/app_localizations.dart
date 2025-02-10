@@ -1235,6 +1235,42 @@ abstract class AppLocalizations {
   /// **'Arabic Body'**
   String get arabicBody;
 
+  /// No description provided for @articleInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Article Info'**
+  String get articleInfo;
+
+  /// No description provided for @articleParagraphs.
+  ///
+  /// In en, this message translates to:
+  /// **'Article Paragraphs'**
+  String get articleParagraphs;
+
+  /// No description provided for @deleteArticle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Article'**
+  String get deleteArticle;
+
+  /// No description provided for @deleteArticleConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This Article? Are You Sure?'**
+  String get deleteArticleConfirmation;
+
+  /// No description provided for @deleteParagraph.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Paragraph'**
+  String get deleteParagraph;
+
+  /// No description provided for @deleteParagraphConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Deleting This Paragraph? Are You Sure?'**
+  String get deleteParagraphConfirmation;
+
   /// No description provided for @createParagraph.
   ///
   /// In en, this message translates to:

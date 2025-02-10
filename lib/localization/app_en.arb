@@ -222,6 +222,12 @@
     "articleThumbnail" : "Article Thumbnail",
     "englishBody" : "English Body",
     "arabicBody" : "Arabic Body",
+    "articleInfo" : "Article Info",
+    "articleParagraphs" : "Article Paragraphs",
+    "deleteArticle" : "Delete Article",
+    "deleteArticleConfirmation" : "Continue with Deleting This Article? Are You Sure?",
+    "deleteParagraph" : "Delete Paragraph",
+    "deleteParagraphConfirmation" : "Continue with Deleting This Paragraph? Are You Sure?",
     "@@paragraph_create_dialog" : "",
     "createParagraph" : "Add New Paragraph"
 

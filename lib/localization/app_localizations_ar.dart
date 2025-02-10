@@ -577,5 +577,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arabicBody => 'جسم الفقرة بالعربية';
 
   @override
+  String get articleInfo => 'بيانات المقالة';
+
+  @override
+  String get articleParagraphs => 'فقرات المقالة';
+
+  @override
+  String get deleteArticle => 'الغاء المقالة';
+
+  @override
+  String get deleteArticleConfirmation => 'متابعة الغاء هذه المقالة ؟ هل انت متأكد ؟';
+
+  @override
+  String get deleteParagraph => 'الغاء الفقرة';
+
+  @override
+  String get deleteParagraphConfirmation => 'متابعة الغاء هذه الفقرة ؟ هل انت متأكد ؟';
+
+  @override
   String get createParagraph => 'اضافة فقرة جديدة';
 }

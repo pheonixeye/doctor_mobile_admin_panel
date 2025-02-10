@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
+import 'package:doctor_mobile_admin_panel/models/article.dart';
 import 'package:doctor_mobile_admin_panel/models/case.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
@@ -38,4 +39,10 @@ extension ImageUrlExtractorCase on Case {
   String? imageUrlPost(String fileKey) => post_image.isEmpty
       ? null
       : _baseUrl(collection: 'cases', id: id, fileKey: fileKey);
+}
+
+extension ImageUrlExtractorArticle on Article {
+  String? imageUrl(String fileKey) => thumbnail.isEmpty
+      ? null
+      : _baseUrl(collection: 'articles', id: id, fileKey: fileKey);
 }

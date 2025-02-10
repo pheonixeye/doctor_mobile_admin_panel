@@ -577,5 +577,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get arabicBody => 'Arabic Body';
 
   @override
+  String get articleInfo => 'Article Info';
+
+  @override
+  String get articleParagraphs => 'Article Paragraphs';
+
+  @override
+  String get deleteArticle => 'Delete Article';
+
+  @override
+  String get deleteArticleConfirmation => 'Continue with Deleting This Article? Are You Sure?';
+
+  @override
+  String get deleteParagraph => 'Delete Paragraph';
+
+  @override
+  String get deleteParagraphConfirmation => 'Continue with Deleting This Paragraph? Are You Sure?';
+
+  @override
   String get createParagraph => 'Add New Paragraph';
 }

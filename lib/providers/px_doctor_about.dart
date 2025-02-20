@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/doctor_about.dart';
 import 'package:flutter/material.dart';
 
 class PxDoctorAbout extends ChangeNotifier {
-  final HxDoctorAbout service;
+  final DoctorAboutApi service;
 
   PxDoctorAbout({required this.service}) {
     _fetchAbouts();

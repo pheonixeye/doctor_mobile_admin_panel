@@ -1,5 +1,6 @@
 import 'package:doctor_mobile_admin_panel/components/central_loading.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
+import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -45,7 +46,12 @@ class _BaseOverlayEntryState extends State<BaseOverlayEntry>
       title: Row(
         children: [
           const SizedBox(width: 10),
-          SelectableText(widget.message),
+          Expanded(
+            child: Text(
+              widget.message,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
           const SizedBox(
             width: 20,
           ),
@@ -156,6 +162,7 @@ Future<void> shellFunction(
         return;
       }
 
+      dprint(e);
       if (onCatch != null) {
         onCatch();
       }

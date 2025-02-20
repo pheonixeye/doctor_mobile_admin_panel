@@ -16,18 +16,18 @@ class HxCases {
           body: case_.toJson(),
         );
     final _doctorFetchResponse = await PocketbaseHelper.pb
-        .collection(HxProfile.collection)
+        .collection(HxProfilePocketbase.collection)
         .getOne(doc_id);
 
     final doctor = Doctor.fromJson(_doctorFetchResponse.toJson());
 
     final _update = {
       'cases_ids': [
-        ...doctor.cases_ids,
+        ...doctor.cases_ids ?? [],
         _result.id,
       ],
     };
-    await PocketbaseHelper.pb.collection(HxProfile.collection).update(
+    await PocketbaseHelper.pb.collection(HxProfilePocketbase.collection).update(
           doc_id,
           body: _update,
         );

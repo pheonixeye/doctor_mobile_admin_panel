@@ -89,22 +89,20 @@ class AppRouter {
                     path: profile,
                     name: profile,
                     builder: (context, state) {
-                      final _appUserId =
-                          context.read<PxAppUsers>().model?.record.id;
                       final _doc_id = context.read<PxAppUsers>().doc_id;
-                      final _key =
-                          ValueKey('$_appUserId/${state.pageKey.value}');
+                      final _key = ValueKey('$_doc_id/${state.pageKey.value}');
                       return MultiProvider(
                         providers: [
                           ChangeNotifierProvider(
                             create: (context) => PxProfile(
                               profileService:
-                                  HxProfile(user_id: _appUserId ?? ''),
+                                  ProfileApi.common(doc_id: _doc_id ?? ''),
                             ),
                           ),
                           ChangeNotifierProvider(
                             create: (context) => PxDoctorAbout(
-                              service: HxDoctorAbout(doc_id: _doc_id ?? ''),
+                              service:
+                                  DoctorAboutApi.common(doc_id: _doc_id ?? ''),
                             ),
                           ),
                         ],

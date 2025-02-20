@@ -20,7 +20,9 @@ class HxSocialContacts {
       final _result = await PocketbaseHelper.pb.collection(collection).create(
             body: SocialContact.withDocId(doc_id).toJson(),
           );
-      await PocketbaseHelper.pb.collection(HxProfile.collection).update(
+      await PocketbaseHelper.pb
+          .collection(HxProfilePocketbase.collection)
+          .update(
         doc_id,
         body: {
           'social_contacts_id': _result.id,

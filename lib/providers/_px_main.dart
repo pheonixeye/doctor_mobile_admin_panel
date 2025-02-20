@@ -16,7 +16,7 @@ final List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (context) => PxTheme(context)),
   ChangeNotifierProvider(
     create: (context) => PxAppUsers(
-      userService: HxAppUsers(),
+      userService: AppUsersApi.common(),
     ),
   ),
 ];

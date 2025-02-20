@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:flutter/material.dart';
 
 class PxProfile extends ChangeNotifier {
-  final HxProfile profileService;
+  final ProfileApi profileService;
 
   PxProfile({required this.profileService}) {
     fetchDoctorById();
@@ -19,7 +19,7 @@ class PxProfile extends ChangeNotifier {
 
   Future<void> editDoctorProfileByKey(String key, String value) async {
     if (doctor != null) {
-      await profileService.updateDoctorProfileById(doctor!.id, key, value);
+      await profileService.updateDoctorProfileById(key, value);
       await fetchDoctorById();
     }
   }
@@ -27,7 +27,6 @@ class PxProfile extends ChangeNotifier {
   Future<void> editDoctorAvatarAndLogo(String key, List<int> bytes) async {
     if (doctor != null) {
       await profileService.updateDoctorAvatarAndLogo(
-        id: doctor!.id,
         fileBytes: bytes,
         fileName_key: key,
       );

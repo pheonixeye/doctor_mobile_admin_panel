@@ -4,45 +4,68 @@ import 'package:doctor_mobile_admin_panel/models/case.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
 import 'package:doctor_mobile_admin_panel/models/video.dart';
+import 'package:pocketbase/pocketbase.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-String _baseUrl({
+String _baseUrlPocketbase({
   required String collection,
   required String id,
   required String fileKey,
 }) {
-  return "${PocketbaseHelper.pb.baseURL}/api/files/$collection/$id/$fileKey?thumb=200x200";
+  final _url =
+      "${(DataSourceHelper.ds as PocketBase).baseURL}/api/files/$collection/$id/$fileKey?thumb=200x200";
+  print(_url);
+  return _url;
+}
+
+String _baseUrlSupabase({
+  required String collection,
+  required String id,
+  required String fileKey,
+}) {
+  final _url = (DataSourceHelper.ds as SupabaseClient)
+      .storage
+      .from(collection)
+      .getPublicUrl(fileKey);
+  print(_url);
+  return _url;
 }
 
 extension ImageUrlExtractorDoctor on Doctor {
-  String? imageUrl(String fileKey) => avatar.isEmpty
+  String? avatarUrl(String fileKey) => avatar.isEmpty
       ? null
-      : _baseUrl(collection: 'doctors', id: id, fileKey: fileKey);
+      : switch (DataSourceHelper().dataSource) {
+          DataSource.pb =>
+            _baseUrlPocketbase(collection: 'doctors', id: id, fileKey: fileKey),
+          DataSource.sb =>
+            _baseUrlSupabase(collection: 'base', id: id, fileKey: fileKey),
+        };
 }
 
 extension ImageUrlExtractorService on Service {
   String? imageUrl(String fileKey) => image.isEmpty
       ? null
-      : _baseUrl(collection: 'services', id: id, fileKey: fileKey);
+      : _baseUrlPocketbase(collection: 'services', id: id, fileKey: fileKey);
 }
 
 extension ImageUrlExtractorVideo on Video {
   String? imageUrl(String fileKey) => thumbnail.isEmpty
       ? null
-      : _baseUrl(collection: 'videos', id: id, fileKey: fileKey);
+      : _baseUrlPocketbase(collection: 'videos', id: id, fileKey: fileKey);
 }
 
 extension ImageUrlExtractorCase on Case {
   String? imageUrlPre(String fileKey) => pre_image.isEmpty
       ? null
-      : _baseUrl(collection: 'cases', id: id, fileKey: fileKey);
+      : _baseUrlPocketbase(collection: 'cases', id: id, fileKey: fileKey);
 
   String? imageUrlPost(String fileKey) => post_image.isEmpty
       ? null
-      : _baseUrl(collection: 'cases', id: id, fileKey: fileKey);
+      : _baseUrlPocketbase(collection: 'cases', id: id, fileKey: fileKey);
 }
 
 extension ImageUrlExtractorArticle on Article {
   String? imageUrl(String fileKey) => thumbnail.isEmpty
       ? null
-      : _baseUrl(collection: 'articles', id: id, fileKey: fileKey);
+      : _baseUrlPocketbase(collection: 'articles', id: id, fileKey: fileKey);
 }

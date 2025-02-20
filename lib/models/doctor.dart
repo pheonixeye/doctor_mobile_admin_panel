@@ -15,17 +15,17 @@ class Doctor extends Equatable {
   final String title_ar;
   final String prefix_en;
   final String prefix_ar;
-  final List<String> clinic_ids;
-  final List<String> about_ids;
-  final List<String> video_ids;
-  final List<String> article_ids;
-  final List<String> hero_items_ids;
-  final List<String> services_ids;
-  final List<String> cases_ids;
+  final List<String>? clinic_ids;
+  final List<String>? about_ids;
+  final List<String>? video_ids;
+  final List<String>? article_ids;
+  final List<String>? hero_items_ids;
+  final List<String>? services_ids;
+  final List<String>? cases_ids;
   final String avatar;
   final String logo;
-  final String site_settings_id;
-  final String social_contacts_id;
+  final String? site_settings_id;
+  final String? social_contacts_id;
 
   const Doctor({
     required this.id,
@@ -137,18 +137,21 @@ class Doctor extends Equatable {
       title_ar: map['title_ar'] as String,
       prefix_en: map['prefix_en'] as String,
       prefix_ar: map['prefix_ar'] as String,
-      clinic_ids: List<String>.from((map['clinic_ids'] as List<dynamic>)),
-      about_ids: List<String>.from((map['about_ids'] as List<dynamic>)),
-      video_ids: List<String>.from((map['video_ids'] as List<dynamic>)),
-      article_ids: List<String>.from((map['article_ids'] as List<dynamic>)),
+      clinic_ids:
+          List<String>.from((map['clinic_ids'] as List<dynamic>? ?? [])),
+      about_ids: List<String>.from((map['about_ids'] as List<dynamic>? ?? [])),
+      video_ids: List<String>.from((map['video_ids'] as List<dynamic>? ?? [])),
+      article_ids:
+          List<String>.from((map['article_ids'] as List<dynamic>? ?? [])),
       hero_items_ids:
-          List<String>.from((map['hero_items_ids'] as List<dynamic>)),
-      services_ids: List<String>.from((map['services_ids'] as List<dynamic>)),
-      cases_ids: List<String>.from((map['cases_ids'] as List<dynamic>)),
+          List<String>.from((map['hero_items_ids'] as List<dynamic>? ?? [])),
+      services_ids:
+          List<String>.from((map['services_ids'] as List<dynamic>? ?? [])),
+      cases_ids: List<String>.from((map['cases_ids'] as List<dynamic>? ?? [])),
       avatar: map['avatar'] as String,
       logo: map['logo'] as String,
-      site_settings_id: map['site_settings_id'] as String,
-      social_contacts_id: map['social_contacts_id'] as String,
+      site_settings_id: map['site_settings_id'] as String?,
+      social_contacts_id: map['social_contacts_id'] as String?,
     );
   }
 
@@ -156,7 +159,7 @@ class Doctor extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       user_id,

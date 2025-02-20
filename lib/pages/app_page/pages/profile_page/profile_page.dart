@@ -92,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     context,
                                     toExecute: () async {
                                       await p.editDoctorAvatarAndLogo(
-                                        field.key,
+                                        '${field.key}.${bytes.xFiles.first.name.split('.').last}',
                                         await bytes.xFiles.first.readAsBytes(),
                                       );
                                     },
@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 200,
                             decoration: BoxDecoration(),
                             child: Image.network(
-                              p.doctor?.imageUrl(
+                              p.doctor?.avatarUrl(
                                       p.doctor?.toJson()[field.key]) ??
                                   '',
                               errorBuilder: (context, error, stackTrace) {

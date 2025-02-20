@@ -41,19 +41,19 @@ class HxServices {
         );
 
     final _doctorQueryResult = await PocketbaseHelper.pb
-        .collection(HxProfile.collection)
+        .collection(HxProfilePocketbase.collection)
         .getFirstListItem('id = "${service.doc_id}"');
 
     final _doctor = Doctor.fromJson(_doctorQueryResult.toJson());
 
     final _update = {
       'services_ids': [
-        ..._doctor.services_ids,
+        ..._doctor.services_ids ?? [],
         result.id,
       ],
     };
 
-    await PocketbaseHelper.pb.collection(HxProfile.collection).update(
+    await PocketbaseHelper.pb.collection(HxProfilePocketbase.collection).update(
           service.doc_id,
           body: _update,
         );

@@ -47,16 +47,16 @@ class HxClinics {
             );
 
     final _doctorFetchResult = await PocketbaseHelper.pb
-        .collection(HxProfile.collection)
+        .collection(HxProfilePocketbase.collection)
         .getFirstListItem('id = "$doc_id"');
 
     final _doctor = Doctor.fromJson(_doctorFetchResult.toJson());
 
     final _update = {
-      'clinic_ids': [..._doctor.clinic_ids, clinicCreationResult.id],
+      'clinic_ids': [..._doctor.clinic_ids ?? [], clinicCreationResult.id],
     };
 
-    await PocketbaseHelper.pb.collection(HxProfile.collection).update(
+    await PocketbaseHelper.pb.collection(HxProfilePocketbase.collection).update(
           _doctor.id,
           body: _update,
         );

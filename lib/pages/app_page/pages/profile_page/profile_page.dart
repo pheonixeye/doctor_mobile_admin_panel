@@ -1,7 +1,7 @@
 import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
-import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
+import 'package:doctor_mobile_admin_panel/extensions/model_image_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor_about.dart';
@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 200,
                             decoration: BoxDecoration(),
                             child: Image.network(
-                              p.doctor?.avatarUrl(
+                              p.doctor?.imageUrlByKey(
                                       p.doctor?.toJson()[field.key]) ??
                                   '',
                               errorBuilder: (context, error, stackTrace) {

@@ -11,7 +11,7 @@ class Service extends Equatable {
   final String name_ar;
   final String description_en;
   final String description_ar;
-  final List<String> faq_ids;
+  final List<String>? faq_ids;
   final String image;
 
   const Service({
@@ -60,6 +60,12 @@ class Service extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()
+      ..remove('id')
+      ..remove('faq_ids');
+  }
+
   factory Service.fromJson(Map<String, dynamic> map) {
     return Service(
       id: map['id'] as String,
@@ -68,7 +74,7 @@ class Service extends Equatable {
       name_ar: map['name_ar'] as String,
       description_en: map['description_en'] as String,
       description_ar: map['description_ar'] as String,
-      faq_ids: List<String>.from((map['faq_ids'] as List<dynamic>)),
+      faq_ids: List<String>.from((map['faq_ids'] as List<dynamic>? ?? [])),
       image: map['image'] as String,
     );
   }
@@ -77,7 +83,7 @@ class Service extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       doc_id,

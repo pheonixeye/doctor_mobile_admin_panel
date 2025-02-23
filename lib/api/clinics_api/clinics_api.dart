@@ -1,24 +1,51 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
-// import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
+import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/schedule.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-class HxClinics {
-  const HxClinics(this.doc_id);
+abstract class ClinicsApi {
+  const ClinicsApi();
+
+  Future<List<ClinicResponseModel>?> fetchDoctorClinicsByDoctorId();
+  Future<Clinic?> createClinic(Clinic clinic);
+  Future<void> deleteClinic(String clinic_id);
+  Future<Clinic?> updateClinicData(String clinic_id, String key, dynamic value);
+
+  Future<void> addClinicSchedule(Schedule schedule);
+  Future<void> deleteClinicSchedule(String schedule_id);
+  Future<void> updateClinicSchedule(Schedule newSchedule);
+
+  static final DataSourceHelper _helper = DataSourceHelper();
+
+  factory ClinicsApi.common({required String doc_id}) {
+    return switch (_helper.dataSource) {
+      DataSource.pb => HxClinicsPocketbase(doc_id: doc_id),
+      DataSource.sb => HxClinicsSupabase(doc_id: doc_id),
+    };
+  }
+}
+
+@POCKETBASE()
+class HxClinicsPocketbase extends ClinicsApi {
+  HxClinicsPocketbase({required this.doc_id});
 
   final String doc_id;
 
   static const String collection = 'clinics';
   static const String _expand = 'schedule_ids, off_dates';
 
+  final _client = (DataSourceHelper.ds as PocketBase);
+
+  @override
   Future<List<ClinicResponseModel>?> fetchDoctorClinicsByDoctorId() async {
     //todo
 
-    final result = await PocketbaseHelper.pb.collection(collection).getList(
+    final result = await _client.collection(collection).getList(
           filter: 'doc_id = "$doc_id"',
           expand: _expand,
         );
@@ -40,13 +67,13 @@ class HxClinics {
     return _clinics;
   }
 
+  @override
   Future<Clinic?> createClinic(Clinic clinic) async {
-    final clinicCreationResult =
-        await PocketbaseHelper.pb.collection(collection).create(
-              body: clinic.toJson(),
-            );
+    final clinicCreationResult = await _client.collection(collection).create(
+          body: clinic.toJson(),
+        );
 
-    final _doctorFetchResult = await PocketbaseHelper.pb
+    final _doctorFetchResult = await _client
         .collection(HxProfilePocketbase.collection)
         .getFirstListItem('id = "$doc_id"');
 
@@ -56,7 +83,7 @@ class HxClinics {
       'clinic_ids': [..._doctor.clinic_ids ?? [], clinicCreationResult.id],
     };
 
-    await PocketbaseHelper.pb.collection(HxProfilePocketbase.collection).update(
+    await _client.collection(HxProfilePocketbase.collection).update(
           _doctor.id,
           body: _update,
         );
@@ -66,17 +93,19 @@ class HxClinics {
     return _clinic;
   }
 
+  @override
   Future<void> deleteClinic(String clinic_id) async {
-    await PocketbaseHelper.pb.collection(collection).delete(clinic_id);
+    await _client.collection(collection).delete(clinic_id);
   }
 
+  @override
   Future<Clinic?> updateClinicData(
     String clinic_id,
     String key,
     dynamic value,
   ) async {
     //todo
-    final result = await PocketbaseHelper.pb.collection(collection).update(
+    final result = await _client.collection(collection).update(
           clinic_id,
           body: {
             key: value,
@@ -91,45 +120,119 @@ class HxClinics {
 
   static const String _schedulesCollection = 'schedules';
 
+  @override
   Future<void> addClinicSchedule(Schedule schedule) async {
-    final result =
-        await PocketbaseHelper.pb.collection(_schedulesCollection).create(
-              body: schedule.toJson(),
-            );
+    final result = await _client.collection(_schedulesCollection).create(
+          body: schedule.toJson(),
+        );
     final _sch = Schedule.fromJson(result.toJson());
 
     final _clinic_ref =
-        await PocketbaseHelper.pb.collection(collection).getOne(_sch.clinic_id);
+        await _client.collection(collection).getOne(_sch.clinic_id);
 
     final _clinic = Clinic.fromJson(_clinic_ref.toJson());
 
     final _update = {
       'schedule_ids': [
-        ..._clinic.schedule_ids,
+        ..._clinic.schedule_ids ?? [],
         _sch.id,
       ],
     };
 
-    await PocketbaseHelper.pb.collection(collection).update(
+    await _client.collection(collection).update(
           _sch.clinic_id,
           body: _update,
         );
   }
 
+  @override
   Future<void> deleteClinicSchedule(
     String schedule_id,
   ) async {
-    await PocketbaseHelper.pb
-        .collection(_schedulesCollection)
-        .delete(schedule_id);
+    await _client.collection(_schedulesCollection).delete(schedule_id);
   }
 
+  @override
   Future<void> updateClinicSchedule(
     Schedule newSchedule,
   ) async {
-    await PocketbaseHelper.pb.collection(_schedulesCollection).update(
+    await _client.collection(_schedulesCollection).update(
           newSchedule.id,
           body: newSchedule.toJson(),
         );
+  }
+}
+
+@SUPABASE()
+class HxClinicsSupabase extends ClinicsApi {
+  HxClinicsSupabase({required this.doc_id});
+
+  final String doc_id;
+
+  static const String collection = 'clinics';
+
+  static const String _schedulesCollection = 'schedules';
+
+  final _client = (DataSourceHelper.ds as SupabaseClient);
+
+  @override
+  Future<Clinic?> createClinic(Clinic clinic) async {
+    final _result =
+        await _client.from(collection).insert(clinic.toSupabaseJson()).select();
+
+    return Clinic.fromJson(_result.first);
+  }
+
+  @override
+  Future<void> deleteClinic(String clinic_id) async {
+    await _client.from(collection).delete().eq('id', clinic_id);
+  }
+
+  @override
+  Future<List<ClinicResponseModel>?> fetchDoctorClinicsByDoctorId() async {
+    final rpc = 'get_clinics';
+
+    final _params = {'doctor_id': doc_id};
+
+    final _result = await _client.rpc(rpc, params: _params).select();
+
+    // dprint(_result);
+    return _result.map((x) {
+      return ClinicResponseModel(
+        offDates: [],
+        clinic: Clinic.fromJson(x),
+        schedule: (x['schedules'] as List<dynamic>)
+            .map((y) => Schedule.fromJson(y))
+            .toList(),
+      );
+    }).toList();
+  }
+
+  @override
+  Future<Clinic?> updateClinicData(String clinic_id, String key, value) async {
+    final _result = await _client
+        .from(collection)
+        .update({key: value})
+        .eq('id', clinic_id)
+        .select();
+
+    return Clinic.fromJson(_result.first);
+  }
+
+  @override
+  Future<void> addClinicSchedule(Schedule schedule) async {
+    await _client.from(_schedulesCollection).insert(schedule.toSupabaseJson());
+  }
+
+  @override
+  Future<void> deleteClinicSchedule(String schedule_id) async {
+    await _client.from(_schedulesCollection).delete().eq('id', schedule_id);
+  }
+
+  @override
+  Future<void> updateClinicSchedule(Schedule newSchedule) async {
+    await _client
+        .from(_schedulesCollection)
+        .update({...newSchedule.toSupabaseJson()}).eq('id', newSchedule.id);
   }
 }

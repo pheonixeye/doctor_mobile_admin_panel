@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
-import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
+import 'package:doctor_mobile_admin_panel/extensions/model_image_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/faq.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
@@ -415,7 +415,8 @@ class _ServiceCardState extends State<ServiceCard>
                                               fileBytes:
                                                   _result.files.first.bytes ??
                                                       [],
-                                              fileName_key: 'image',
+                                              fileName_key:
+                                                  'image(${DateTime.now().toIso8601String()}).${_result.xFiles.first.name.split('.').last}',
                                             );
                                           },
                                         );

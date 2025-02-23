@@ -60,6 +60,10 @@ class SocialContact extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory SocialContact.fromJson(Map<String, dynamic> map) {
     return SocialContact(
       id: map['id'] as String,

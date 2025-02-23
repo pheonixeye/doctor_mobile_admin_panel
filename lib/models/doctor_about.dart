@@ -38,6 +38,10 @@ class DoctorAbout extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory DoctorAbout.fromJson(Map<String, dynamic> map) {
     return DoctorAbout(
       id: map['id'] as String,

@@ -69,6 +69,10 @@ class Schedule extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory Schedule.fromJson(Map<String, dynamic> map) {
     return Schedule(
       id: map['id'] as String,

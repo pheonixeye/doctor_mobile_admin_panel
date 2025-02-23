@@ -5,7 +5,7 @@ import 'package:doctor_mobile_admin_panel/models/schedule.dart';
 import 'package:flutter/material.dart';
 
 class PxClinics extends ChangeNotifier {
-  final HxClinics clinicsService;
+  final ClinicsApi clinicsService;
 
   PxClinics({required this.clinicsService}) {
     _fetchDoctorClinicsById();

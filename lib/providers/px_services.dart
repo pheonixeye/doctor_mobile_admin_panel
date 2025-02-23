@@ -5,7 +5,7 @@ import 'package:doctor_mobile_admin_panel/models/service_response_model.dart';
 import 'package:flutter/material.dart';
 
 class PxServices extends ChangeNotifier {
-  final HxServices servicesService;
+  final ServicesApi servicesService;
 
   PxServices({required this.servicesService}) {
     _fetchServices();

@@ -60,6 +60,10 @@ class Article extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory Article.fromJson(Map<String, dynamic> map) {
     return Article(
       id: map['id'] as String,

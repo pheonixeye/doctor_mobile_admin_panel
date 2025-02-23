@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
-import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
+import 'package:doctor_mobile_admin_panel/extensions/model_image_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/article.dart';
 import 'package:doctor_mobile_admin_panel/models/article_paragraph.dart';

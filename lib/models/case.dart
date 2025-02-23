@@ -60,6 +60,10 @@ class Case extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory Case.fromJson(Map<String, dynamic> map) {
     return Case(
       id: map['id'] as String,

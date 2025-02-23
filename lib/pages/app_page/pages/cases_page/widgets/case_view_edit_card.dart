@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
-import 'package:doctor_mobile_admin_panel/extensions/pb_url_extractor.dart';
+import 'package:doctor_mobile_admin_panel/extensions/model_image_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/case.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_cases.dart';

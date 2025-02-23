@@ -65,6 +65,10 @@ class Video extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory Video.fromJson(Map<String, dynamic> map) {
     return Video(
       id: map['id'] as String,

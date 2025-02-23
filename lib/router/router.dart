@@ -121,7 +121,8 @@ class AppRouter {
                       // dprintPretty(_key.value);
                       return ChangeNotifierProvider(
                         create: (context) => PxClinics(
-                          clinicsService: HxClinics(doc_id ?? ''),
+                          clinicsService:
+                              ClinicsApi.common(doc_id: doc_id ?? ''),
                         ),
                         child: ClinicsPage(
                           key: _key,
@@ -210,7 +211,8 @@ class AppRouter {
                       final _key = ValueKey('$doc_id/${state.pageKey.value}');
                       return ChangeNotifierProvider(
                         create: (context) => PxServices(
-                          servicesService: HxServices(doc_id ?? ''),
+                          servicesService:
+                              ServicesApi.common(doc_id: doc_id ?? ''),
                         ),
                         child: ServicesPage(
                           key: _key,

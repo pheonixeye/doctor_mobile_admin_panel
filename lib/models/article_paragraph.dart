@@ -61,6 +61,10 @@ class ArticleParagraph extends Equatable {
     );
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   @override
   bool get stringify => true;
 

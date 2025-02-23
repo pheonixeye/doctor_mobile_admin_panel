@@ -1,7 +1,9 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
+import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor_about.dart';
+import 'package:pocketbase/pocketbase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class DoctorAboutApi {
@@ -21,24 +23,26 @@ abstract class DoctorAboutApi {
   }
 }
 
+@POCKETBASE()
 class HxDoctorAboutPocketbase extends DoctorAboutApi {
-  const HxDoctorAboutPocketbase({required this.doc_id});
+  HxDoctorAboutPocketbase({required this.doc_id});
 
   final String doc_id;
 
   static const String collection = 'doctor_about';
 
+  final _client = (DataSourceHelper.ds as PocketBase);
+
   @override
   Future<DoctorAbout> addNewDoctorAbout(
     DoctorAbout doctorAbout,
   ) async {
-    final _result = await PocketbaseHelper.pb.collection(collection).create(
+    final _result = await _client.collection(collection).create(
           body: doctorAbout.toJson(),
         );
 
-    final _docRef = await PocketbaseHelper.pb
-        .collection(HxProfilePocketbase.collection)
-        .getOne(doc_id);
+    final _docRef =
+        await _client.collection(HxProfilePocketbase.collection).getOne(doc_id);
 
     final _doctor = Doctor.fromJson(_docRef.toJson());
 
@@ -49,7 +53,7 @@ class HxDoctorAboutPocketbase extends DoctorAboutApi {
       ],
     };
 
-    await PocketbaseHelper.pb
+    await _client
         .collection(HxProfilePocketbase.collection)
         .update(doc_id, body: _update);
 
@@ -61,7 +65,7 @@ class HxDoctorAboutPocketbase extends DoctorAboutApi {
     String id,
     Map<String, dynamic> update,
   ) async {
-    final _result = await PocketbaseHelper.pb.collection(collection).update(
+    final _result = await _client.collection(collection).update(
           id,
           body: update,
         );
@@ -71,12 +75,12 @@ class HxDoctorAboutPocketbase extends DoctorAboutApi {
 
   @override
   Future<void> deleteDoctorAbout(String id) async {
-    await PocketbaseHelper.pb.collection(collection).delete(id);
+    await _client.collection(collection).delete(id);
   }
 
   @override
   Future<List<DoctorAbout>> fetchDoctorAboutList() async {
-    final _result = await PocketbaseHelper.pb
+    final _result = await _client
         .collection(collection)
         .getList(filter: 'doc_id = "$doc_id"');
 
@@ -84,6 +88,7 @@ class HxDoctorAboutPocketbase extends DoctorAboutApi {
   }
 }
 
+@SUPABASE()
 class HxDoctorAboutSupabase extends DoctorAboutApi {
   HxDoctorAboutSupabase({required this.doc_id});
 
@@ -91,36 +96,32 @@ class HxDoctorAboutSupabase extends DoctorAboutApi {
 
   static const String collection = 'doctor_about';
 
+  final _client = (DataSourceHelper.ds as SupabaseClient);
+
   @override
   Future<DoctorAbout> addNewDoctorAbout(DoctorAbout doctorAbout) async {
-    final result = await (DataSourceHelper.ds as SupabaseClient)
+    final result = await _client
         .from(collection)
-        .insert(doctorAbout.toJson())
+        .insert(doctorAbout.toSupabaseJson())
         .select();
     return DoctorAbout.fromJson(result.first);
   }
 
   @override
   Future<void> deleteDoctorAbout(String id) async {
-    await (DataSourceHelper.ds as SupabaseClient)
-        .from(collection)
-        .delete()
-        .eq('id', id);
+    await _client.from(collection).delete().eq('id', id);
   }
 
   @override
   Future<List<DoctorAbout>> fetchDoctorAboutList() async {
-    final result = await (DataSourceHelper.ds as SupabaseClient)
-        .from(collection)
-        .select()
-        .eq('doc_id', doc_id);
+    final result = await _client.from(collection).select().eq('doc_id', doc_id);
     return result.map((e) => DoctorAbout.fromJson(e)).toList();
   }
 
   @override
   Future<DoctorAbout> updateDoctorAbout(
       String id, Map<String, dynamic> update) async {
-    final result = await (DataSourceHelper.ds as SupabaseClient)
+    final result = await _client
         .from(collection)
         .update(update)
         .eq('id', id)

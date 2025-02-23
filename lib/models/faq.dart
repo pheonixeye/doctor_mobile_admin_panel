@@ -53,6 +53,10 @@ class Faq extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()..remove('id');
+  }
+
   factory Faq.fromJson(Map<String, dynamic> map) {
     return Faq(
       id: map['id'] as String,

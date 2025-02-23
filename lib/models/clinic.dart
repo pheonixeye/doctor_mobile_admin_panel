@@ -14,8 +14,8 @@ class Clinic extends Equatable {
   final String wa;
   final String location_link;
   final String doc_id;
-  final List<String> schedule_ids;
-  final List<String> off_dates;
+  final List<String>? schedule_ids;
+  final List<String>? off_dates;
 
   const Clinic({
     required this.id,
@@ -75,6 +75,13 @@ class Clinic extends Equatable {
     };
   }
 
+  Map<String, dynamic> toSupabaseJson() {
+    return toJson()
+      ..remove('id')
+      ..remove('schedule_ids')
+      ..remove('off_dates');
+  }
+
   factory Clinic.fromJson(Map<String, dynamic> map) {
     return Clinic(
       id: map['id'] as String,
@@ -86,8 +93,9 @@ class Clinic extends Equatable {
       wa: map['wa'] as String,
       location_link: map['location_link'] as String,
       doc_id: map['doc_id'] as String,
-      schedule_ids: List<String>.from((map['schedule_ids'] as List<dynamic>)),
-      off_dates: List<String>.from((map['off_dates'] as List<dynamic>)),
+      schedule_ids:
+          List<String>.from((map['schedule_ids'] as List<dynamic>? ?? [])),
+      off_dates: List<String>.from((map['off_dates'] as List<dynamic>? ?? [])),
     );
   }
 
@@ -95,7 +103,7 @@ class Clinic extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       name_en,

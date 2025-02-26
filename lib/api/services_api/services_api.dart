@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
-import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
+// import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
 import 'package:doctor_mobile_admin_panel/models/faq.dart';
 import 'package:doctor_mobile_admin_panel/models/service.dart';
@@ -222,7 +222,7 @@ class HxServicesSupabase extends ServicesApi {
 
     final _result = await _client.rpc(rpc, params: _params).select();
 
-    dprint(_result);
+    // dprint(_result);
     return _result.map((x) {
       return ServiceResponseModel(
         service: Service.fromJson(x),

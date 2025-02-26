@@ -72,13 +72,20 @@ extension ImageUrlExtractorVideo on Video {
 }
 
 extension ImageUrlExtractorCase on Case {
-  String? imageUrlPre(String fileKey) => pre_image.isEmpty
+  String? imageUrl(String fileKey) => fileKey.isEmpty
       ? null
-      : _baseUrlPocketbase(collection: 'cases', id: id, fileKey: fileKey);
-
-  String? imageUrlPost(String fileKey) => post_image.isEmpty
-      ? null
-      : _baseUrlPocketbase(collection: 'cases', id: id, fileKey: fileKey);
+      : switch (DataSourceHelper().dataSource) {
+          DataSource.pb => _baseUrlPocketbase(
+              collection: 'cases',
+              id: id,
+              fileKey: fileKey,
+            ),
+          DataSource.sb => _baseUrlSupabase(
+              collection: 'base',
+              id: id,
+              fileKey: fileKey,
+            ),
+        };
 }
 
 extension ImageUrlExtractorArticle on Article {

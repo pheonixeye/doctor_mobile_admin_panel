@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
+import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
 // import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -21,6 +22,7 @@ abstract class AppUsersApi {
   }
 }
 
+@POCKETBASE()
 class HxAppUsersPocketbase implements AppUsersApi {
   HxAppUsersPocketbase();
 
@@ -61,6 +63,7 @@ class HxAppUsersPocketbase implements AppUsersApi {
   // }
 }
 
+@SUPABASE()
 class HxAppUsersSupabase implements AppUsersApi {
   HxAppUsersSupabase();
 

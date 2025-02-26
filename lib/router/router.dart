@@ -152,8 +152,8 @@ class AppRouter {
                       final doc_id = context.read<PxAppUsers>().doc_id;
                       final _key = ValueKey('$doc_id/${state.pageKey.value}');
                       return ChangeNotifierProvider(
-                        create: (context) =>
-                            PxCases(service: HxCases(doc_id: doc_id ?? '')),
+                        create: (context) => PxCases(
+                            service: CasesApi.common(doc_id: doc_id ?? '')),
                         child: CasesPage(
                           key: _key,
                         ),

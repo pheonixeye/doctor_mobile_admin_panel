@@ -9,7 +9,7 @@ class Faq extends Equatable {
   final String q_ar;
   final String a_en;
   final String a_ar;
-  final String video_id;
+  final String? video_id;
 
   const Faq({
     required this.id,
@@ -54,7 +54,9 @@ class Faq extends Equatable {
   }
 
   Map<String, dynamic> toSupabaseJson() {
-    return toJson()..remove('id');
+    return toJson()
+      ..remove('id')
+      ..remove('video_id');
   }
 
   factory Faq.fromJson(Map<String, dynamic> map) {
@@ -65,7 +67,7 @@ class Faq extends Equatable {
       q_ar: map['q_ar'] as String,
       a_en: map['a_en'] as String,
       a_ar: map['a_ar'] as String,
-      video_id: map['video_id'] as String,
+      video_id: map['video_id'] as String?,
     );
   }
 
@@ -73,7 +75,7 @@ class Faq extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       service_id,

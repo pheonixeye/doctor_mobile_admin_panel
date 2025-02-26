@@ -106,7 +106,8 @@ class _CaseViewEditCardState extends State<CaseViewEditCard> {
                                         id: widget.model.id,
                                         fileBytes:
                                             _result.files.first.bytes ?? [],
-                                        fileName_key: entry.key,
+                                        fileName_key:
+                                            '${entry.key}.${_result.xFiles.first.name.split('.').last}',
                                       );
                                     },
                                   );
@@ -118,13 +119,9 @@ class _CaseViewEditCardState extends State<CaseViewEditCard> {
                           const SizedBox(height: 30),
                           CachedNetworkImage(
                             imageUrl: switch (entry.key) {
-                              'pre_image' => widget.model
-                                      .imageUrlPre(widget.model.pre_image) ??
+                              _ => widget.model.imageUrl(
+                                      widget.model.toJson()[entry.key]) ??
                                   '',
-                              'post_image' => widget.model
-                                      .imageUrlPost(widget.model.post_image) ??
-                                  '',
-                              _ => '',
                             },
                             imageBuilder: (context, imageProvider) => Container(
                               width: MediaQuery.sizeOf(context).width - 60,

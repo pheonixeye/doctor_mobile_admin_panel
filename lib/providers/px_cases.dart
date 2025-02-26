@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/case.dart';
 import 'package:flutter/material.dart';
 
 class PxCases extends ChangeNotifier {
-  final HxCases service;
+  final CasesApi service;
 
   PxCases({required this.service}) {
     _fetchDoctorCases();

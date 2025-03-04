@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/video.dart';
 import 'package:flutter/material.dart';
 
 class PxVideos extends ChangeNotifier {
-  final HxVideos service;
+  final VideosApi service;
 
   PxVideos({required this.service}) {
     _fetchAllDoctorVideos();

@@ -68,7 +68,18 @@ extension ImageUrlExtractorService on Service {
 extension ImageUrlExtractorVideo on Video {
   String? imageUrl(String fileKey) => thumbnail.isEmpty
       ? null
-      : _baseUrlPocketbase(collection: 'videos', id: id, fileKey: fileKey);
+      : switch (DataSourceHelper().dataSource) {
+          DataSource.pb => _baseUrlPocketbase(
+              collection: 'videos',
+              id: id,
+              fileKey: fileKey,
+            ),
+          DataSource.sb => _baseUrlSupabase(
+              collection: 'base',
+              id: id,
+              fileKey: fileKey,
+            ),
+        };
 }
 
 extension ImageUrlExtractorCase on Case {

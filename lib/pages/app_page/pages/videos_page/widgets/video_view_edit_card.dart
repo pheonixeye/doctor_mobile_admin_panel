@@ -136,7 +136,8 @@ class _VideoViewEditCardState extends State<VideoViewEditCard> {
                                         id: widget.model.id,
                                         fileBytes:
                                             _result.files.first.bytes ?? [],
-                                        fileName_key: 'thumbnail',
+                                        fileName_key:
+                                            '${entry.key}.${_result.xFiles.first.name.split('.').last}',
                                       );
                                     },
                                   );
@@ -147,9 +148,9 @@ class _VideoViewEditCardState extends State<VideoViewEditCard> {
                           ),
                           const SizedBox(height: 30),
                           CachedNetworkImage(
-                            imageUrl:
-                                widget.model.imageUrl(widget.model.thumbnail) ??
-                                    '',
+                            imageUrl: widget.model.imageUrl(
+                                    widget.model.toJson()[entry.key]) ??
+                                '',
                             imageBuilder: (context, imageProvider) => Container(
                               width: MediaQuery.sizeOf(context).width - 60,
                               height: 300,

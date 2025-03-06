@@ -12,7 +12,7 @@ class Article extends Equatable {
   final String description_en;
   final String description_ar;
   final String thumbnail;
-  final List<String> paragraphs_ids;
+  final List<String>? paragraphs_ids;
 
   const Article({
     required this.id,
@@ -22,7 +22,7 @@ class Article extends Equatable {
     required this.description_en,
     required this.description_ar,
     required this.thumbnail,
-    required this.paragraphs_ids,
+    this.paragraphs_ids,
   });
 
   Article copyWith({
@@ -61,7 +61,9 @@ class Article extends Equatable {
   }
 
   Map<String, dynamic> toSupabaseJson() {
-    return toJson()..remove('id');
+    return toJson()
+      ..remove('id')
+      ..remove('paragraphs_ids');
   }
 
   factory Article.fromJson(Map<String, dynamic> map) {
@@ -73,8 +75,9 @@ class Article extends Equatable {
       description_en: map['description_en'] as String,
       description_ar: map['description_ar'] as String,
       thumbnail: map['thumbnail'] as String,
-      paragraphs_ids:
-          List<String>.from((map['paragraphs_ids'] as List<dynamic>)),
+      // paragraphs_ids: map['paragraphs_ids'] == null
+      //     ? []
+      //     : List<String>.from((map['paragraphs_ids'] as List<dynamic>)),
     );
   }
 
@@ -82,7 +85,7 @@ class Article extends Equatable {
   bool get stringify => true;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       doc_id,

@@ -102,5 +102,16 @@ extension ImageUrlExtractorCase on Case {
 extension ImageUrlExtractorArticle on Article {
   String? imageUrl(String fileKey) => thumbnail.isEmpty
       ? null
-      : _baseUrlPocketbase(collection: 'articles', id: id, fileKey: fileKey);
+      : switch (DataSourceHelper().dataSource) {
+          DataSource.pb => _baseUrlPocketbase(
+              collection: 'articles',
+              id: id,
+              fileKey: fileKey,
+            ),
+          DataSource.sb => _baseUrlSupabase(
+              collection: 'base',
+              id: id,
+              fileKey: fileKey,
+            ),
+        };
 }

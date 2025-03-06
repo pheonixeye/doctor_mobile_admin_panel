@@ -26,6 +26,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
     with SingleTickerProviderStateMixin {
   late Map<String, TextEditingController> _controllers;
 
+  //TODO:
   final Map<String, Map<String, TextEditingController>> _controllersParagraph =
       {};
 
@@ -245,7 +246,8 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
                                                   fileBytes: _result
                                                           .files.first.bytes ??
                                                       [],
-                                                  fileName_key: entry.key,
+                                                  fileName_key:
+                                                      '${entry.key}.${_result.xFiles.first.name.split('.').last}',
                                                 );
                                               },
                                             );
@@ -257,7 +259,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
                                         CachedNetworkImage(
                                           imageUrl: widget.model.article
                                                   .imageUrl(widget.model.article
-                                                      .thumbnail) ??
+                                                      .toJson()[entry.key]) ??
                                               '',
                                           imageBuilder:
                                               (context, imageProvider) =>

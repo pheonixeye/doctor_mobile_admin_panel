@@ -138,7 +138,7 @@ class AppRouter {
                       final _key = ValueKey('$doc_id/${state.pageKey.value}');
                       return ChangeNotifierProvider(
                         create: (context) => PxArticles(
-                            service: HxArticles(doc_id: doc_id ?? '')),
+                            service: ArticlesApi.common(doc_id: doc_id ?? '')),
                         child: ArticlesPage(
                           key: _key,
                         ),

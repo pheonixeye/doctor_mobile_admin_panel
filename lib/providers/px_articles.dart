@@ -5,7 +5,7 @@ import 'package:doctor_mobile_admin_panel/models/article_response_model.dart';
 import 'package:flutter/material.dart';
 
 class PxArticles extends ChangeNotifier {
-  final HxArticles service;
+  final ArticlesApi service;
 
   PxArticles({required this.service}) {
     _fetchArticlesOfOneDoctor();

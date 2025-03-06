@@ -184,7 +184,7 @@ class AppRouter {
                       final _key = ValueKey('$doc_id/${state.pageKey.value}');
                       return ChangeNotifierProvider(
                         create: (context) => PxSocialContact(
-                          socialContactsService: HxSocialContacts(
+                          socialContactsService: SocialContactsApi.common(
                             doc_id: doc_id ?? '',
                           ),
                         ),

@@ -1,5 +1,4 @@
 import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
-import 'package:doctor_mobile_admin_panel/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -33,8 +32,8 @@ class DrawerNavBtn extends StatelessWidget {
               GoRouter.of(context).goNamed(routePath!);
               Scaffold.of(context).closeDrawer();
             },
-            selectedColor: AppTheme.secondaryOrangeColor,
-            selectedTileColor: AppTheme.secondaryOrangeColor,
+            // selectedColor: AppTheme.secondaryOrangeColor,
+            selectedTileColor: Theme.of(context).primaryColor,
             selected: selected,
             title: Row(
               children: [
@@ -46,8 +45,8 @@ class DrawerNavBtn extends StatelessWidget {
                       : Icon(
                           icondata,
                           size: selected ? 22 : 18,
-                          color:
-                              selected ? AppTheme.secondaryOrangeColor : null,
+                          // color:
+                          // selected ? AppTheme.secondaryOrangeColor : null,
                         ),
                 ),
                 const SizedBox(width: 10),

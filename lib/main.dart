@@ -51,20 +51,8 @@ class MyApp extends StatelessWidget {
           title: 'Admin Panel',
           debugShowCheckedModeBanner: false,
           //THEMES
-          theme: AppTheme.theme(
-            colorScheme: const ColorScheme.light(
-              primary: Colors.blueGrey,
-            ),
-          ),
-          darkTheme: AppTheme.theme(
-            colorScheme: const ColorScheme.dark(
-              primary: Colors.blueGrey,
-            ),
-            textTheme: const TextTheme().apply(
-              displayColor: Colors.white,
-              bodyColor: Colors.white,
-            ),
-          ),
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
           themeMode: t.mode,
           routerConfig: AppRouter.router,
           locale: l.locale,

@@ -3,7 +3,7 @@ import 'package:doctor_mobile_admin_panel/models/social_contact.dart';
 import 'package:flutter/material.dart';
 
 class PxSocialContact extends ChangeNotifier {
-  final HxSocialContacts socialContactsService;
+  final SocialContactsApi socialContactsService;
 
   PxSocialContact({required this.socialContactsService}) {
     _fetchSocialContact();

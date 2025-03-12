@@ -610,4 +610,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get confirmDeleteAbout => 'متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟';
+
+  @override
+  String get heroItems => 'عناصر الصفحة الرئيسية';
+
+  @override
+  String get addHeroItem => 'اضافة عنصر رئيسي';
 }

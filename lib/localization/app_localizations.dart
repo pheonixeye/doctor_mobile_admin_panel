@@ -1300,6 +1300,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with Deleting This About? Are You Sure?'**
   String get confirmDeleteAbout;
+
+  /// No description provided for @heroItems.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Items'**
+  String get heroItems;
+
+  /// No description provided for @addHeroItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Hero Item'**
+  String get addHeroItem;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

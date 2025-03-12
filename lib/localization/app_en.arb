@@ -234,6 +234,8 @@
     "addDoctorAbout" : "Add Doctor About",
     "doctorAbout" : "Doctor About",
     "deleteAbout" : "Delete Doctor About",
-    "confirmDeleteAbout" : "Continue with Deleting This About? Are You Sure?"
-
+    "confirmDeleteAbout" : "Continue with Deleting This About? Are You Sure?",
+    "@@site_settings_page" : "",
+    "heroItems" : "Hero Items",
+    "addHeroItem" : "Add Hero Item"
 }

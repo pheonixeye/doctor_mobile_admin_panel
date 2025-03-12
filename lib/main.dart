@@ -17,7 +17,7 @@ Future<void> main() async {
 
   await initializeDateFormatting('ar');
 
-  await dotenv.load(fileName: "assets/env/.env");
+  await dotenv.load(fileName: "/env/.env");
 
   await Supabase.initialize(
     url: dotenv.env[AppConstants.SUPABASE_URL]!,

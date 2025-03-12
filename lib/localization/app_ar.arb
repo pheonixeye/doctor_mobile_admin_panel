@@ -232,5 +232,8 @@
     "addDoctorAbout" : "اضافة عن الطبيب",
     "doctorAbout" : "عن الطبيب",
     "deleteAbout" : "الغاء عن الطبيب",
-    "confirmDeleteAbout" : "متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟"
+    "confirmDeleteAbout" : "متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟",
+    "@@site_settings_page" : "",
+    "heroItems" : "عناصر الصفحة الرئيسية",
+    "addHeroItem" : "اضافة عنصر رئيسي"
 }

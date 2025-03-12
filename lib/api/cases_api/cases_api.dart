@@ -74,6 +74,7 @@ class HxCasesPocketbase extends CasesApi {
     return _result.items.map((e) => Case.fromJson(e.toJson())).toList();
   }
 
+  @override
   Future<Case> updateCaseData(String id, Map<String, dynamic> update) async {
     final _result = await _client.collection(collection).update(
           id,

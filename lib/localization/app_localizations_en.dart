@@ -610,4 +610,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmDeleteAbout => 'Continue with Deleting This About? Are You Sure?';
+
+  @override
+  String get heroItems => 'Hero Items';
+
+  @override
+  String get addHeroItem => 'Add Hero Item';
 }

@@ -1,7 +1,9 @@
 import 'package:doctor_mobile_admin_panel/api/articles_api/articles_api.dart';
+import 'package:doctor_mobile_admin_panel/api/bookings_api/bookings_api.dart';
 import 'package:doctor_mobile_admin_panel/api/cases_api/cases_api.dart';
 import 'package:doctor_mobile_admin_panel/api/clinics_api/clinics_api.dart';
 import 'package:doctor_mobile_admin_panel/api/doctor_about_api.dart/doctor_about_api.dart';
+import 'package:doctor_mobile_admin_panel/api/hero_items_api/hero_items_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
 import 'package:doctor_mobile_admin_panel/api/social_contacts_api/social_contacts_api.dart';
@@ -20,9 +22,11 @@ import 'package:doctor_mobile_admin_panel/pages/login_page/login_page.dart';
 import 'package:doctor_mobile_admin_panel/pages/shell_page/shell_page.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_app_users.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_articles.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_bookings.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_cases.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_doctor_about.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_hero_items.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_social_contact.dart';
@@ -75,13 +79,28 @@ class AppRouter {
               );
             },
             routes: [
-              //bookings
               GoRoute(
-                path: app,
+                path: app, //bookings
                 name: app,
                 builder: (context, state) {
-                  return AppPage(
-                    key: state.pageKey,
+                  final _doc_id = context.read<PxAppUsers>().doc_id;
+                  final _key = ValueKey('$_doc_id/${state.pageKey.value}');
+                  return MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider(
+                        create: (context) => PxClinics(
+                          clinicsService:
+                              ClinicsApi.common(doc_id: _doc_id ?? ''),
+                        ),
+                      ),
+                      ChangeNotifierProvider(
+                        create: (context) => PxBookings(
+                            service: BookingsApi.common(_doc_id ?? '')),
+                      ),
+                    ],
+                    child: AppPage(
+                      key: _key,
+                    ),
                   );
                 },
                 routes: [
@@ -119,8 +138,8 @@ class AppRouter {
                       final doc_id = context.read<PxAppUsers>().doc_id;
                       final _key = ValueKey('$doc_id/${state.pageKey.value}');
                       // dprintPretty(_key.value);
-                      return ChangeNotifierProvider(
-                        create: (context) => PxClinics(
+                      return ChangeNotifierProvider.value(
+                        value: PxClinics(
                           clinicsService:
                               ClinicsApi.common(doc_id: doc_id ?? ''),
                         ),
@@ -198,8 +217,19 @@ class AppRouter {
                     path: site_settings,
                     name: site_settings,
                     builder: (context, state) {
-                      return SiteSettingsPage(
-                        key: state.pageKey,
+                      final doc_id = context.read<PxAppUsers>().doc_id;
+                      final _key = ValueKey('$doc_id/${state.pageKey.value}');
+                      return MultiProvider(
+                        providers: [
+                          ChangeNotifierProvider(
+                            create: (context) => PxHeroItems(
+                              service: HeroItemsApi.common(doc_id ?? ''),
+                            ),
+                          ),
+                        ],
+                        child: SiteSettingsPage(
+                          key: _key,
+                        ),
                       );
                     },
                   ),

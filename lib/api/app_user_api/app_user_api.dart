@@ -49,18 +49,6 @@ class HxAppUsersPocketbase implements AppUsersApi {
       throw Exception(e.response["message"]);
     }
   }
-
-  ///nessecary transition request as all db fields are linked to doc_id - not user_id
-  /// in pocketbase
-  ///TODO: remove in future pb instances
-
-  // @override
-  // Future<String?> fetchDoctorProfileId(String user_id) async {
-  //   final result = await (DataSourceHelper.ds as PocketBase)
-  //       .collection(HxProfile.collection)
-  //       .getFirstListItem('user_id = "$user_id"');
-  //   return result.id;
-  // }
 }
 
 @SUPABASE()
@@ -78,12 +66,6 @@ class HxAppUsersSupabase implements AppUsersApi {
     // dprint(result.user);
     return result.user?.id;
   }
-
-  // @override
-  // Future fetchDoctorProfileId(String user_id) {
-  //   // TODO: implement fetchDoctorProfileId
-  //   throw UnimplementedError();
-  // }
 
   @override
   Future requestPasswordReset(String email) async {

@@ -259,7 +259,6 @@ class HxArticlesSupabase extends ArticlesApi {
 
   @override
   Future<List<ArticleResponseModel>> fetchArticlesOfOneDoctor() async {
-    //TODO:
     final rpc = 'get_articles';
 
     final _params = {'doctor_id': doc_id};

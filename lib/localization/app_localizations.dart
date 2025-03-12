@@ -1312,6 +1312,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Hero Item'**
   String get addHeroItem;
+
+  /// No description provided for @heroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Title'**
+  String get heroTitle;
+
+  /// No description provided for @heroSubitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Subtitle'**
+  String get heroSubitle;
+
+  /// No description provided for @heroDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Description'**
+  String get heroDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

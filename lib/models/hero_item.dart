@@ -3,7 +3,8 @@ import 'package:equatable/equatable.dart';
 class HeroItem extends Equatable {
   final String id;
   final String doc_id;
-  final String image;
+  final String? image_mobile;
+  final String? image_other;
   final String title_en;
   final String title_ar;
   final String? subtitle_en;
@@ -34,7 +35,8 @@ class HeroItem extends Equatable {
   const HeroItem({
     required this.id,
     required this.doc_id,
-    required this.image,
+    this.image_mobile,
+    this.image_other,
     required this.title_en,
     required this.title_ar,
     this.subtitle_en,
@@ -67,7 +69,8 @@ class HeroItem extends Equatable {
   HeroItem copyWith({
     String? id,
     String? doc_id,
-    String? image,
+    String? image_mobile,
+    String? image_other,
     String? title_en,
     String? title_ar,
     String? subtitle_en,
@@ -99,7 +102,8 @@ class HeroItem extends Equatable {
     return HeroItem(
       id: id ?? this.id,
       doc_id: doc_id ?? this.doc_id,
-      image: image ?? this.image,
+      image_mobile: image_mobile ?? this.image_mobile,
+      image_other: image_other ?? this.image_other,
       title_en: title_en ?? this.title_en,
       title_ar: title_ar ?? this.title_ar,
       subtitle_en: subtitle_en ?? this.subtitle_en,
@@ -170,7 +174,8 @@ class HeroItem extends Equatable {
     return <String, dynamic>{
       'id': id,
       'doc_id': doc_id,
-      'image': image,
+      'image_mobile': image_mobile,
+      'image_other': image_other,
       'title_en': title_en,
       'title_ar': title_ar,
       'subtitle_en': subtitle_en,
@@ -207,7 +212,8 @@ class HeroItem extends Equatable {
     return HeroItem(
       id: map['id'] as String,
       doc_id: map['doc_id'] as String,
-      image: map['image'] as String,
+      image_mobile: map['image_mobile'] as String?,
+      image_other: map['image_other'] as String?,
       title_en: map['title_en'] as String,
       title_ar: map['title_ar'] as String,
       subtitle_en:
@@ -270,7 +276,8 @@ class HeroItem extends Equatable {
     return [
       id,
       doc_id,
-      image,
+      image_mobile,
+      image_other,
       title_en,
       title_ar,
       subtitle_en,

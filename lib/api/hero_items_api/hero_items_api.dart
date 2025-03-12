@@ -144,7 +144,7 @@ class HxHeroItemsSupabase extends HeroItemsApi {
     String _pathDebased = result.replaceFirstMapped('base/', (m) => '');
 
     final _update = {
-      'image': _pathDebased,
+      fileName_key: _pathDebased,
     };
 
     await _client.from(collection).update(_update).eq('id', id);

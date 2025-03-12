@@ -616,4 +616,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addHeroItem => 'Add Hero Item';
+
+  @override
+  String get heroTitle => 'Hero Title';
+
+  @override
+  String get heroSubitle => 'Hero Subtitle';
+
+  @override
+  String get heroDescription => 'Hero Description';
 }

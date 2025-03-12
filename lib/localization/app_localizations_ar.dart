@@ -616,4 +616,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addHeroItem => 'اضافة عنصر رئيسي';
+
+  @override
+  String get heroTitle => 'العنوان الرئيسي';
+
+  @override
+  String get heroSubitle => 'العنوان الفرعي';
+
+  @override
+  String get heroDescription => 'الكتابة الفرعية';
 }

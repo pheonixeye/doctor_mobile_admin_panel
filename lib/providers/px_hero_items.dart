@@ -21,4 +21,9 @@ class PxHeroItems extends ChangeNotifier {
     await service.createHeroItem(heroItem);
     await _fetchItems();
   }
+
+  Future<void> updateHeroItem(String id, Map<String, dynamic> update) async {
+    await service.updateHeroItem(id, update);
+    await _fetchItems();
+  }
 }

@@ -106,7 +106,8 @@ class _CreateHeroItemDialogState extends State<CreateHeroItemDialog> {
                 doc_id: context.read<PxAppUsers>().doc_id ?? '',
                 title_en: _titleEnController.text,
                 title_ar: _titleArController.text,
-                image: '',
+                image_mobile: '',
+                image_other: '',
               );
               Navigator.pop(context, _heroItem);
             }

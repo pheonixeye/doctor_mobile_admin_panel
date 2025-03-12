@@ -237,5 +237,9 @@
     "confirmDeleteAbout" : "Continue with Deleting This About? Are You Sure?",
     "@@site_settings_page" : "",
     "heroItems" : "Hero Items",
-    "addHeroItem" : "Add Hero Item"
+    "addHeroItem" : "Add Hero Item",
+    "@@hero_item_view_edit_card" : "",
+    "heroTitle" : "Hero Title",
+    "heroSubitle" : "Hero Subtitle",
+    "heroDescription" : "Hero Description"
 }

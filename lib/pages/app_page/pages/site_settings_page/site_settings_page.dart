@@ -1,9 +1,9 @@
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/hero_item.dart';
-import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/create_hero_item_dialog.dart';
-import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/hero_items_view.dart';
-import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/site_settings_view.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/hero_items/create_hero_item_dialog.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/hero_items/hero_items_view.dart';
+import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/site_settings/site_settings_view.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_hero_items.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

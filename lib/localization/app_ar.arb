@@ -235,5 +235,9 @@
     "confirmDeleteAbout" : "متابعة الغاء عن الطبيب ؟ هل انت متأكد ؟",
     "@@site_settings_page" : "",
     "heroItems" : "عناصر الصفحة الرئيسية",
-    "addHeroItem" : "اضافة عنصر رئيسي"
+    "addHeroItem" : "اضافة عنصر رئيسي",
+    "@@hero_item_view_edit_card" : "",
+    "heroTitle" : "العنوان الرئيسي",
+    "heroSubitle" : "العنوان الفرعي",
+    "heroDescription" : "الكتابة الفرعية"
 }

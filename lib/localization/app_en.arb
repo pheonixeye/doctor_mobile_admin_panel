@@ -241,5 +241,21 @@
     "@@hero_item_view_edit_card" : "",
     "heroTitle" : "Hero Title",
     "heroSubitle" : "Hero Subtitle",
-    "heroDescription" : "Hero Description"
+    "heroDescription" : "Hero Description",
+    "englishHeroTitle" : "English Hero Title",
+    "arabicHeroTitle" : "Arabic Hero Title",
+    "fontMobile" : "Font Size Mobile",
+    "fontOther" : "Font Size Other",
+    "align" : "Align",
+    "spacingTopMobile" : "Spacing Top Mobile",
+    "spacingStartMobile" : "Spacing Start Mobile",
+    "spacingTopOther" : "Spacing Top Other",
+    "spacingStartOther" : "Spacing Start Other",
+    "englishHeroSubtitle" : "English Hero Subtitle",
+    "arabicHeroSubtitle" : "Arabic Hero Subtitle",
+    "englishHeroDescription" : "English Hero Description",
+    "arabicHeroDescription" : "Arabic Hero Description",
+    "heroImageMobile" : "Hero Image Mobile",
+    "heroImageOther" : "Hero Image Other"
+    
 }

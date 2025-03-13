@@ -142,9 +142,10 @@ class HxHeroItemsSupabase extends HeroItemsApi {
         );
 
     String _pathDebased = result.replaceFirstMapped('base/', (m) => '');
+    final String _key = fileName_key.split('.').first;
 
     final _update = {
-      fileName_key: _pathDebased,
+      _key: _pathDebased,
     };
 
     await _client.from(collection).update(_update).eq('id', id);

@@ -239,5 +239,20 @@
     "@@hero_item_view_edit_card" : "",
     "heroTitle" : "العنوان الرئيسي",
     "heroSubitle" : "العنوان الفرعي",
-    "heroDescription" : "الكتابة الفرعية"
+    "heroDescription" : "الكتابة الفرعية",
+    "englishHeroTitle" : "العنوان الرئيسي بالانجليزية",
+    "arabicHeroTitle" : "العنوان الرئيسي بالعربية",
+    "fontMobile" : "حجم الخط للموبايل",
+    "fontOther" : "حجم الخط للشاشات الاخري",
+    "align" : "المكان",
+    "spacingTopMobile" : "المسافة من اعلي للموبايل",
+    "spacingStartMobile" : "المسافة من البداية للموبايل",
+    "spacingTopOther" : "المسافة من اعلي للشاشات الاخري",
+    "spacingStartOther" : "المسافة من البداية للشاشات الاخري",
+    "englishHeroSubtitle" : "العنوان الفرعي بالانجليزية",
+    "arabicHeroSubtitle" : "العنوان الفرعي بالعربية",
+    "englishHeroDescription" : "الكتابة بالانجليزية",
+    "arabicHeroDescription" : "الكتابة بالعربية",
+    "heroImageMobile" : "الصورة للموبايل",
+    "heroImageOther" : "الصورة للشاشات الاخري"
 }

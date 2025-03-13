@@ -26,4 +26,18 @@ class PxHeroItems extends ChangeNotifier {
     await service.updateHeroItem(id, update);
     await _fetchItems();
   }
+
+  Future<void> updateHeroItemImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  }) async {
+    await service.updateHeroItemImage(
+      id: id,
+      fileBytes: fileBytes,
+      fileName_key: fileName_key,
+    );
+
+    await _fetchItems();
+  }
 }

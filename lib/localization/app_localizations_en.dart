@@ -625,4 +625,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get heroDescription => 'Hero Description';
+
+  @override
+  String get englishHeroTitle => 'English Hero Title';
+
+  @override
+  String get arabicHeroTitle => 'Arabic Hero Title';
+
+  @override
+  String get fontMobile => 'Font Size Mobile';
+
+  @override
+  String get fontOther => 'Font Size Other';
+
+  @override
+  String get align => 'Align';
+
+  @override
+  String get spacingTopMobile => 'Spacing Top Mobile';
+
+  @override
+  String get spacingStartMobile => 'Spacing Start Mobile';
+
+  @override
+  String get spacingTopOther => 'Spacing Top Other';
+
+  @override
+  String get spacingStartOther => 'Spacing Start Other';
+
+  @override
+  String get englishHeroSubtitle => 'English Hero Subtitle';
+
+  @override
+  String get arabicHeroSubtitle => 'Arabic Hero Subtitle';
+
+  @override
+  String get englishHeroDescription => 'English Hero Description';
+
+  @override
+  String get arabicHeroDescription => 'Arabic Hero Description';
+
+  @override
+  String get heroImageMobile => 'Hero Image Mobile';
+
+  @override
+  String get heroImageOther => 'Hero Image Other';
 }

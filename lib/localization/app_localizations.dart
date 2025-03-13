@@ -1330,6 +1330,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hero Description'**
   String get heroDescription;
+
+  /// No description provided for @englishHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'English Hero Title'**
+  String get englishHeroTitle;
+
+  /// No description provided for @arabicHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Hero Title'**
+  String get arabicHeroTitle;
+
+  /// No description provided for @fontMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Font Size Mobile'**
+  String get fontMobile;
+
+  /// No description provided for @fontOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Font Size Other'**
+  String get fontOther;
+
+  /// No description provided for @align.
+  ///
+  /// In en, this message translates to:
+  /// **'Align'**
+  String get align;
+
+  /// No description provided for @spacingTopMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Spacing Top Mobile'**
+  String get spacingTopMobile;
+
+  /// No description provided for @spacingStartMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Spacing Start Mobile'**
+  String get spacingStartMobile;
+
+  /// No description provided for @spacingTopOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Spacing Top Other'**
+  String get spacingTopOther;
+
+  /// No description provided for @spacingStartOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Spacing Start Other'**
+  String get spacingStartOther;
+
+  /// No description provided for @englishHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'English Hero Subtitle'**
+  String get englishHeroSubtitle;
+
+  /// No description provided for @arabicHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Hero Subtitle'**
+  String get arabicHeroSubtitle;
+
+  /// No description provided for @englishHeroDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'English Hero Description'**
+  String get englishHeroDescription;
+
+  /// No description provided for @arabicHeroDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic Hero Description'**
+  String get arabicHeroDescription;
+
+  /// No description provided for @heroImageMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Image Mobile'**
+  String get heroImageMobile;
+
+  /// No description provided for @heroImageOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Hero Image Other'**
+  String get heroImageOther;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

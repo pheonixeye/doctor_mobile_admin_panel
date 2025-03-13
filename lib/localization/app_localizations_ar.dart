@@ -625,4 +625,49 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get heroDescription => 'الكتابة الفرعية';
+
+  @override
+  String get englishHeroTitle => 'العنوان الرئيسي بالانجليزية';
+
+  @override
+  String get arabicHeroTitle => 'العنوان الرئيسي بالعربية';
+
+  @override
+  String get fontMobile => 'حجم الخط للموبايل';
+
+  @override
+  String get fontOther => 'حجم الخط للشاشات الاخري';
+
+  @override
+  String get align => 'المكان';
+
+  @override
+  String get spacingTopMobile => 'المسافة من اعلي للموبايل';
+
+  @override
+  String get spacingStartMobile => 'المسافة من البداية للموبايل';
+
+  @override
+  String get spacingTopOther => 'المسافة من اعلي للشاشات الاخري';
+
+  @override
+  String get spacingStartOther => 'المسافة من البداية للشاشات الاخري';
+
+  @override
+  String get englishHeroSubtitle => 'العنوان الفرعي بالانجليزية';
+
+  @override
+  String get arabicHeroSubtitle => 'العنوان الفرعي بالعربية';
+
+  @override
+  String get englishHeroDescription => 'الكتابة بالانجليزية';
+
+  @override
+  String get arabicHeroDescription => 'الكتابة بالعربية';
+
+  @override
+  String get heroImageMobile => 'الصورة للموبايل';
+
+  @override
+  String get heroImageOther => 'الصورة للشاشات الاخري';
 }

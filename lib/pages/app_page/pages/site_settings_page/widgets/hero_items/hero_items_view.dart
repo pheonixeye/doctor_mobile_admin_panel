@@ -24,7 +24,10 @@ class HeroItemsView extends StatelessWidget {
               subtitle: const Divider(),
             ),
             ...h.items!.map((item) {
-              return HeroItemViewEditCard(item: item);
+              return HeroItemViewEditCard(
+                item: item,
+                key: ValueKey(item.id),
+              );
             })
           ],
         );

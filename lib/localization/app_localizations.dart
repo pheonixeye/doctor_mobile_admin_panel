@@ -1420,6 +1420,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hero Image Other'**
   String get heroImageOther;
+
+  /// No description provided for @websiteTitleFontColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Title Font Color'**
+  String get websiteTitleFontColor;
+
+  /// No description provided for @websiteTitleFontShadowColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Title Font Shadow Color'**
+  String get websiteTitleFontShadowColor;
+
+  /// No description provided for @websiteTitleFontSizeMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Title Font Size Mobile'**
+  String get websiteTitleFontSizeMobile;
+
+  /// No description provided for @websiteTitleFontSizeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Title Font Size Other'**
+  String get websiteTitleFontSizeOther;
+
+  /// No description provided for @titlesFontColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Titles Font Color'**
+  String get titlesFontColor;
+
+  /// No description provided for @titlesFontShadowColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Titles Font Shadow Color'**
+  String get titlesFontShadowColor;
+
+  /// No description provided for @titlesFontSizeMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Titles Font Size Mobile'**
+  String get titlesFontSizeMobile;
+
+  /// No description provided for @titlesFontSizeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Titles Font Size Other'**
+  String get titlesFontSizeOther;
+
+  /// No description provided for @subtitlesFontColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtitles Font Color'**
+  String get subtitlesFontColor;
+
+  /// No description provided for @subtitlesFontShadowColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtitles Font Shadow Color'**
+  String get subtitlesFontShadowColor;
+
+  /// No description provided for @subtitlesFontSizeMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtitles Font Size Mobile'**
+  String get subtitlesFontSizeMobile;
+
+  /// No description provided for @subtitlesFontSizeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtitles Font Size Other'**
+  String get subtitlesFontSizeOther;
+
+  /// No description provided for @textFontColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Text Font Color'**
+  String get textFontColor;
+
+  /// No description provided for @textFontShadowColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Text Font Shadow Color'**
+  String get textFontShadowColor;
+
+  /// No description provided for @textFontSizeMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Text Font Size Mobile'**
+  String get textFontSizeMobile;
+
+  /// No description provided for @textFontSizeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Text Font Size Other'**
+  String get textFontSizeOther;
+
+  /// No description provided for @buttonColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Button Color'**
+  String get buttonColor;
+
+  /// No description provided for @buttonFontColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Button Font Color'**
+  String get buttonFontColor;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

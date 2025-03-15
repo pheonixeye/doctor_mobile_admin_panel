@@ -670,4 +670,58 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get heroImageOther => 'الصورة للشاشات الاخري';
+
+  @override
+  String get websiteTitleFontColor => 'لون خط عنوان الموقع';
+
+  @override
+  String get websiteTitleFontShadowColor => 'لون ظل خط عنوان الموقع';
+
+  @override
+  String get websiteTitleFontSizeMobile => 'حجم عنوان الموقع للموبايل';
+
+  @override
+  String get websiteTitleFontSizeOther => 'حجم عنوان الموقع للشاشات الاخري';
+
+  @override
+  String get titlesFontColor => 'لون خط العناوين الرئيسية';
+
+  @override
+  String get titlesFontShadowColor => 'لون ظل خط العناوين الرئيسية';
+
+  @override
+  String get titlesFontSizeMobile => 'حجم خط العناوين الرئيسية للموبايل';
+
+  @override
+  String get titlesFontSizeOther => 'حجم خط العناوين الرئيسية للشاشات الاخري';
+
+  @override
+  String get subtitlesFontColor => 'لون خط العناوين الفرعية';
+
+  @override
+  String get subtitlesFontShadowColor => 'لون ظل خط العناوين الفرعية';
+
+  @override
+  String get subtitlesFontSizeMobile => 'حجم خط العناوين الفرعية للموبايل';
+
+  @override
+  String get subtitlesFontSizeOther => 'حجم خط العناوين الفرعية للشاشات الاخري';
+
+  @override
+  String get textFontColor => 'لون خط الكتابة';
+
+  @override
+  String get textFontShadowColor => 'لون ظل خط الكتابة';
+
+  @override
+  String get textFontSizeMobile => 'حجم خط الكتابة للموبايل';
+
+  @override
+  String get textFontSizeOther => 'حجم خط الكتابة للشاشات الاخري';
+
+  @override
+  String get buttonColor => 'لون الزر';
+
+  @override
+  String get buttonFontColor => 'لون خط الزر';
 }

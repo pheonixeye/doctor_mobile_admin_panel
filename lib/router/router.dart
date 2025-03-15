@@ -6,6 +6,7 @@ import 'package:doctor_mobile_admin_panel/api/doctor_about_api.dart/doctor_about
 import 'package:doctor_mobile_admin_panel/api/hero_items_api/hero_items_api.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/api/services_api/services_api.dart';
+import 'package:doctor_mobile_admin_panel/api/site_settings_api/site_settings_api.dart';
 import 'package:doctor_mobile_admin_panel/api/social_contacts_api/social_contacts_api.dart';
 import 'package:doctor_mobile_admin_panel/api/videos_api/videos_api.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/app_page.dart';
@@ -29,6 +30,7 @@ import 'package:doctor_mobile_admin_panel/providers/px_doctor_about.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_hero_items.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_profile.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_services.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_site_settings.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_social_contact.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_videos.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
@@ -224,6 +226,11 @@ class AppRouter {
                           ChangeNotifierProvider(
                             create: (context) => PxHeroItems(
                               service: HeroItemsApi.common(doc_id ?? ''),
+                            ),
+                          ),
+                          ChangeNotifierProvider(
+                            create: (context) => PxSiteSettings(
+                              service: SiteSettingsApi.common(doc_id ?? ''),
                             ),
                           ),
                         ],

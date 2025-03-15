@@ -670,4 +670,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get heroImageOther => 'Hero Image Other';
+
+  @override
+  String get websiteTitleFontColor => 'Website Title Font Color';
+
+  @override
+  String get websiteTitleFontShadowColor => 'Website Title Font Shadow Color';
+
+  @override
+  String get websiteTitleFontSizeMobile => 'Website Title Font Size Mobile';
+
+  @override
+  String get websiteTitleFontSizeOther => 'Website Title Font Size Other';
+
+  @override
+  String get titlesFontColor => 'Titles Font Color';
+
+  @override
+  String get titlesFontShadowColor => 'Titles Font Shadow Color';
+
+  @override
+  String get titlesFontSizeMobile => 'Titles Font Size Mobile';
+
+  @override
+  String get titlesFontSizeOther => 'Titles Font Size Other';
+
+  @override
+  String get subtitlesFontColor => 'Subtitles Font Color';
+
+  @override
+  String get subtitlesFontShadowColor => 'Subtitles Font Shadow Color';
+
+  @override
+  String get subtitlesFontSizeMobile => 'Subtitles Font Size Mobile';
+
+  @override
+  String get subtitlesFontSizeOther => 'Subtitles Font Size Other';
+
+  @override
+  String get textFontColor => 'Text Font Color';
+
+  @override
+  String get textFontShadowColor => 'Text Font Shadow Color';
+
+  @override
+  String get textFontSizeMobile => 'Text Font Size Mobile';
+
+  @override
+  String get textFontSizeOther => 'Text Font Size Other';
+
+  @override
+  String get buttonColor => 'Button Color';
+
+  @override
+  String get buttonFontColor => 'Button Font Color';
 }

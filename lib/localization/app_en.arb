@@ -256,6 +256,24 @@
     "englishHeroDescription" : "English Hero Description",
     "arabicHeroDescription" : "Arabic Hero Description",
     "heroImageMobile" : "Hero Image Mobile",
-    "heroImageOther" : "Hero Image Other"
-    
+    "heroImageOther" : "Hero Image Other",
+    "@@site_settings_view" : "",
+    "websiteTitleFontColor" : "Website Title Font Color",
+    "websiteTitleFontShadowColor" : "Website Title Font Shadow Color",
+    "websiteTitleFontSizeMobile" : "Website Title Font Size Mobile",
+    "websiteTitleFontSizeOther" : "Website Title Font Size Other",
+    "titlesFontColor" : "Titles Font Color",
+    "titlesFontShadowColor" : "Titles Font Shadow Color",
+    "titlesFontSizeMobile" : "Titles Font Size Mobile",
+    "titlesFontSizeOther" : "Titles Font Size Other",
+    "subtitlesFontColor" : "Subtitles Font Color",
+    "subtitlesFontShadowColor" : "Subtitles Font Shadow Color",
+    "subtitlesFontSizeMobile" : "Subtitles Font Size Mobile",
+    "subtitlesFontSizeOther" : "Subtitles Font Size Other",
+    "textFontColor" : "Text Font Color",
+    "textFontShadowColor" : "Text Font Shadow Color",
+    "textFontSizeMobile" : "Text Font Size Mobile",
+    "textFontSizeOther" : "Text Font Size Other",
+    "buttonColor" : "Button Color",
+    "buttonFontColor" : "Button Font Color"
 }

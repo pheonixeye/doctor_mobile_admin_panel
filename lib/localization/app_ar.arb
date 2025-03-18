@@ -273,5 +273,10 @@
     "textFontSizeMobile" : "حجم خط الكتابة للموبايل",
     "textFontSizeOther" : "حجم خط الكتابة للشاشات الاخري",
     "buttonColor" : "لون الزر",
-    "buttonFontColor" : "لون خط الزر"
+    "buttonFontColor" : "لون خط الزر",
+    "websiteMainTitle" : "عنوان الموقع الرئيسي",
+    "websiteTitles" : "عناوين الموقع الاساسية",
+    "websiteSubtitles" : "عناوين الموقع الفرعية",
+    "websiteText" : "كتابة الموقع",
+    "websiteBackground" : "خلفية الموقع"
 }

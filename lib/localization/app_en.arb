@@ -275,5 +275,11 @@
     "textFontSizeMobile" : "Text Font Size Mobile",
     "textFontSizeOther" : "Text Font Size Other",
     "buttonColor" : "Button Color",
-    "buttonFontColor" : "Button Font Color"
+    "buttonFontColor" : "Button Font Color",
+    "websiteMainTitle" : "Website Main Title",
+    "websiteTitles" : "Website Titles",
+    "websiteSubtitles" : "Website Subtitles",
+    "websiteText" : "Website Text",
+    "websiteBackground" : "Website Background"
+
 }

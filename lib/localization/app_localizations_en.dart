@@ -724,4 +724,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get buttonFontColor => 'Button Font Color';
+
+  @override
+  String get websiteMainTitle => 'Website Main Title';
+
+  @override
+  String get websiteTitles => 'Website Titles';
+
+  @override
+  String get websiteSubtitles => 'Website Subtitles';
+
+  @override
+  String get websiteText => 'Website Text';
+
+  @override
+  String get websiteBackground => 'Website Background';
 }

@@ -1528,6 +1528,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Button Font Color'**
   String get buttonFontColor;
+
+  /// No description provided for @websiteMainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Main Title'**
+  String get websiteMainTitle;
+
+  /// No description provided for @websiteTitles.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Titles'**
+  String get websiteTitles;
+
+  /// No description provided for @websiteSubtitles.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Subtitles'**
+  String get websiteSubtitles;
+
+  /// No description provided for @websiteText.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Text'**
+  String get websiteText;
+
+  /// No description provided for @websiteBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Background'**
+  String get websiteBackground;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

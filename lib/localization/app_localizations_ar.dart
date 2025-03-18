@@ -724,4 +724,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get buttonFontColor => 'لون خط الزر';
+
+  @override
+  String get websiteMainTitle => 'عنوان الموقع الرئيسي';
+
+  @override
+  String get websiteTitles => 'عناوين الموقع الاساسية';
+
+  @override
+  String get websiteSubtitles => 'عناوين الموقع الفرعية';
+
+  @override
+  String get websiteText => 'كتابة الموقع';
+
+  @override
+  String get websiteBackground => 'خلفية الموقع';
 }

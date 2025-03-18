@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -10,7 +11,22 @@ class ColorPickerDialog extends StatefulWidget {
 }
 
 class _ColorPickerDialogState extends State<ColorPickerDialog> {
+  late final TextEditingController _controller;
+
   Color _pickerColor = Color(0xffffffff);
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: _pickerColor.hexCode);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -18,11 +34,18 @@ class _ColorPickerDialogState extends State<ColorPickerDialog> {
       content: SingleChildScrollView(
         child: ColorPicker(
           pickerColor: _pickerColor,
+          hexInputBar: true,
+          hexInputController: _controller,
           onColorChanged: (color) {
             setState(() {
               _pickerColor = color;
+              _controller.text = color.hexCode;
             });
           },
+          labelTypes: const [
+            ColorLabelType.rgb,
+          ],
+          displayThumbColor: true,
         ),
       ),
       actionsAlignment: MainAxisAlignment.center,

@@ -1,4 +1,5 @@
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
+import 'package:doctor_mobile_admin_panel/firebase_options.dart';
 import 'package:doctor_mobile_admin_panel/localization/app_localizations.dart';
 import 'package:doctor_mobile_admin_panel/providers/_px_main.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
@@ -6,6 +7,7 @@ import 'package:doctor_mobile_admin_panel/providers/px_theme.dart';
 import 'package:doctor_mobile_admin_panel/router/router.dart';
 import 'package:doctor_mobile_admin_panel/theme/app_theme.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -14,6 +16,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   await initializeDateFormatting('ar');
 

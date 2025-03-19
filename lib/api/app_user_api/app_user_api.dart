@@ -33,6 +33,8 @@ class HxAppUsersPocketbase implements AppUsersApi {
       final result = await (DataSourceHelper.ds as PocketBase)
           .collection("users")
           .authWithPassword(email, password);
+      //TODO: add firebase fetching token logic
+      //
       return result.record.id;
     } on ClientException catch (e) {
       throw Exception(e.response["message"]);

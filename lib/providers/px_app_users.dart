@@ -27,11 +27,7 @@ class PxAppUsers extends ChangeNotifier {
         email,
         password,
       );
-      // _model = RecordAuth(
-      //   token: result.token,
-      //   record: result.record,
-      //   meta: result.meta,
-      // );
+
       _isLoggedIn = true;
 
       _doc_id = result;
@@ -44,7 +40,6 @@ class PxAppUsers extends ChangeNotifier {
 
   void logout() {
     _isLoggedIn = false;
-    // _model = null;
     PocketbaseHelper.pb.authStore.clear();
     notifyListeners();
   }

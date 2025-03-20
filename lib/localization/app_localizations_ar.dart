@@ -739,4 +739,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get websiteBackground => 'خلفية الموقع';
+
+  @override
+  String get websiteButtons => 'خصائص الزر';
 }

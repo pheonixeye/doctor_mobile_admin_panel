@@ -278,5 +278,6 @@
     "websiteTitles" : "عناوين الموقع الاساسية",
     "websiteSubtitles" : "عناوين الموقع الفرعية",
     "websiteText" : "كتابة الموقع",
-    "websiteBackground" : "خلفية الموقع"
+    "websiteBackground" : "خلفية الموقع",
+    "websiteButtons" : "خصائص الزر"
 }

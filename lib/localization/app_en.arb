@@ -280,6 +280,7 @@
     "websiteTitles" : "Website Titles",
     "websiteSubtitles" : "Website Subtitles",
     "websiteText" : "Website Text",
-    "websiteBackground" : "Website Background"
+    "websiteBackground" : "Website Background",
+    "websiteButtons" : "Website Buttons"
 
 }

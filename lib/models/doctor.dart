@@ -26,6 +26,7 @@ class Doctor extends Equatable {
   final String logo;
   final String? site_settings_id;
   final String? social_contacts_id;
+  final String? fcm_token;
 
   const Doctor({
     required this.id,
@@ -49,6 +50,7 @@ class Doctor extends Equatable {
     required this.logo,
     required this.site_settings_id,
     required this.social_contacts_id,
+    this.fcm_token,
   });
 
   Doctor copyWith({
@@ -73,6 +75,7 @@ class Doctor extends Equatable {
     String? logo,
     String? site_settings_id,
     String? social_contacts_id,
+    String? fcm_token,
   }) {
     return Doctor(
       id: id ?? this.id,
@@ -96,6 +99,7 @@ class Doctor extends Equatable {
       logo: logo ?? this.logo,
       site_settings_id: site_settings_id ?? this.site_settings_id,
       social_contacts_id: social_contacts_id ?? this.social_contacts_id,
+      fcm_token: fcm_token ?? this.fcm_token,
     );
   }
 
@@ -122,6 +126,7 @@ class Doctor extends Equatable {
       'logo': logo,
       'site_settings_id': site_settings_id,
       'social_contacts_id': social_contacts_id,
+      'fcm_token': fcm_token,
     };
   }
 
@@ -152,6 +157,7 @@ class Doctor extends Equatable {
       logo: map['logo'] as String,
       site_settings_id: map['site_settings_id'] as String?,
       social_contacts_id: map['social_contacts_id'] as String?,
+      fcm_token: map['fcm_token'] as String?,
     );
   }
 
@@ -182,6 +188,7 @@ class Doctor extends Equatable {
       logo,
       site_settings_id,
       social_contacts_id,
+      fcm_token,
     ];
   }
 

@@ -1,6 +1,6 @@
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
-// import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -33,8 +33,6 @@ class HxAppUsersPocketbase implements AppUsersApi {
       final result = await (DataSourceHelper.ds as PocketBase)
           .collection("users")
           .authWithPassword(email, password);
-      //TODO: add firebase fetching token logic
-      //
       return result.record.id;
     } on ClientException catch (e) {
       throw Exception(e.response["message"]);
@@ -65,8 +63,19 @@ class HxAppUsersSupabase implements AppUsersApi {
     final result = await (DataSourceHelper.ds as SupabaseClient)
         .auth
         .signInWithPassword(email: email, password: password);
-    // dprint(result.user);
-    return result.user?.id;
+    if (result.user != null && result.user!.id.isNotEmpty) {
+      //todo: add firebase fetching token logic
+
+      await FirebaseMessaging.instance.requestPermission();
+      final fcm_token = await FirebaseMessaging.instance.getToken();
+      if (fcm_token != null) {
+        await (DataSourceHelper.ds as SupabaseClient)
+            .from('doctors')
+            .update({'fcm_token': fcm_token}).eq('id', result.user!.id);
+      }
+      return result.user?.id;
+    }
+    return null;
   }
 
   @override

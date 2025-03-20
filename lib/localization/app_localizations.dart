@@ -1558,6 +1558,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Website Background'**
   String get websiteBackground;
+
+  /// No description provided for @websiteButtons.
+  ///
+  /// In en, this message translates to:
+  /// **'Website Buttons'**
+  String get websiteButtons;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

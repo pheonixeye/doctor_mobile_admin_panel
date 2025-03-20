@@ -179,7 +179,8 @@ class _SiteSettingsViewState extends State<SiteSettingsView> {
                 ],
               ),
               ExpansionTile(
-                title: SiteSettingsItemHeader(header: context.loc.websiteText),
+                title:
+                    SiteSettingsItemHeader(header: context.loc.websiteButtons),
                 initiallyExpanded: true,
                 children: [
                   ...s.settings!.buttonSettings(context).entries.map((entry) {

@@ -39,8 +39,6 @@ class BookingCard extends StatelessWidget {
               ),
               title: Row(
                 children: [
-                  Text('${booking.name}'),
-                  Text(' - '),
                   Text.rich(
                     TextSpan(
                       text: '${booking.phone}',
@@ -56,6 +54,14 @@ class BookingCard extends StatelessWidget {
                             ),
                           );
                         },
+                      children: [
+                        TextSpan(text: '\n'),
+                        TextSpan(
+                            text: '${booking.name}',
+                            style: TextStyle(
+                              decoration: TextDecoration.none,
+                            )),
+                      ],
                     ),
                     style: TextStyle(
                       decoration: TextDecoration.underline,

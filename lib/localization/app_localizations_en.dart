@@ -739,4 +739,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get websiteBackground => 'Website Background';
+
+  @override
+  String get websiteButtons => 'Website Buttons';
 }

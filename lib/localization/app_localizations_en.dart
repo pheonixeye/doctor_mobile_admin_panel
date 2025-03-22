@@ -672,6 +672,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heroImageOther => 'Hero Image Other';
 
   @override
+  String get deleteHeroItem => 'Delete Hero Item ?';
+
+  @override
+  String get confirmDeleteHeroItem => 'Are You Sure You Would Delete This Hero Item ? This Action is Irreversible.';
+
+  @override
   String get websiteTitleFontColor => 'Website Title Font Color';
 
   @override
@@ -742,4 +748,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get websiteButtons => 'Website Buttons';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get month => 'Month';
+
+  @override
+  String get day => 'Day';
+
+  @override
+  String get noBookingsForDate => 'No Bookings Found For Selected Date.';
 }

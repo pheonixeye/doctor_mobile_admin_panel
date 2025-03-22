@@ -672,6 +672,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get heroImageOther => 'الصورة للشاشات الاخري';
 
   @override
+  String get deleteHeroItem => 'الغاء هذا العنصر الاساسي ؟';
+
+  @override
+  String get confirmDeleteHeroItem => 'هل انت متاكد من الغاء هذا العنصر الاساسي ؟ هذا الفعل لا يمكن استرجاعه.';
+
+  @override
   String get websiteTitleFontColor => 'لون خط عنوان الموقع';
 
   @override
@@ -742,4 +748,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get websiteButtons => 'خصائص الزر';
+
+  @override
+  String get year => 'السنة';
+
+  @override
+  String get month => 'الشهر';
+
+  @override
+  String get day => 'اليوم';
+
+  @override
+  String get noBookingsForDate => 'لا يوجد حجوزات للفترة المحددة.';
 }

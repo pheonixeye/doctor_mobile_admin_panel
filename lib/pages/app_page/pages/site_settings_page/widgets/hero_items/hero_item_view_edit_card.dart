@@ -1,9 +1,13 @@
+import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
+import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/hero_item.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/hero_items/hero_item_edit_item.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/site_settings_page/widgets/hero_items/hero_item_image_picker.dart';
+import 'package:doctor_mobile_admin_panel/providers/px_hero_items.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor_mobile_admin_panel/extensions/hero_item_ext.dart';
+import 'package:provider/provider.dart';
 
 class HeroItemViewEditCard extends StatefulWidget {
   const HeroItemViewEditCard({super.key, required this.item});
@@ -47,6 +51,39 @@ class _HeroItemViewEditCardState extends State<HeroItemViewEditCard> {
           children: [
             Text(widget.item.title_en),
             Text(widget.item.title_ar),
+          ],
+        ),
+        subtitle: Row(
+          children: [
+            const Spacer(),
+            IconButton.outlined(
+              onPressed: () async {
+                final _toDelete = await showDialog<bool?>(
+                  context: context,
+                  builder: (context) {
+                    return GenericConfirmationDialog(
+                      title: context.loc.deleteHeroItem,
+                      message: context.loc.confirmDeleteHeroItem,
+                    );
+                  },
+                );
+                if (_toDelete == null || _toDelete == false) {
+                  return;
+                }
+                if (context.mounted) {
+                  await shellFunction(
+                    context,
+                    toExecute: () async {
+                      await context
+                          .read<PxHeroItems>()
+                          .deleteHeroItem(widget.item.id);
+                    },
+                  );
+                }
+              },
+              icon: const Icon(Icons.delete),
+            ),
+            const SizedBox(width: 10),
           ],
         ),
         children: [

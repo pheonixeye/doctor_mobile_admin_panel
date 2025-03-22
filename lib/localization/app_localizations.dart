@@ -1421,6 +1421,18 @@ abstract class AppLocalizations {
   /// **'Hero Image Other'**
   String get heroImageOther;
 
+  /// No description provided for @deleteHeroItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Hero Item ?'**
+  String get deleteHeroItem;
+
+  /// No description provided for @confirmDeleteHeroItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Are You Sure You Would Delete This Hero Item ? This Action is Irreversible.'**
+  String get confirmDeleteHeroItem;
+
   /// No description provided for @websiteTitleFontColor.
   ///
   /// In en, this message translates to:
@@ -1564,6 +1576,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Website Buttons'**
   String get websiteButtons;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get year;
+
+  /// No description provided for @month.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get month;
+
+  /// No description provided for @day.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get day;
+
+  /// No description provided for @noBookingsForDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No Bookings Found For Selected Date.'**
+  String get noBookingsForDate;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

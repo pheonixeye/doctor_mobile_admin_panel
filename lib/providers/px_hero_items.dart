@@ -40,4 +40,9 @@ class PxHeroItems extends ChangeNotifier {
 
     await _fetchItems();
   }
+
+  Future<void> deleteHeroItem(String id) async {
+    await service.deleteHeroItem(id);
+    await _fetchItems();
+  }
 }

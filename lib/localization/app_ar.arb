@@ -255,6 +255,8 @@
     "arabicHeroDescription" : "الكتابة بالعربية",
     "heroImageMobile" : "الصورة للموبايل",
     "heroImageOther" : "الصورة للشاشات الاخري",
+    "deleteHeroItem" : "الغاء هذا العنصر الاساسي ؟",
+    "confirmDeleteHeroItem" : "هل انت متاكد من الغاء هذا العنصر الاساسي ؟ هذا الفعل لا يمكن استرجاعه.",
     "@@site_settings_view" : "",
     "websiteTitleFontColor" : "لون خط عنوان الموقع",
     "websiteTitleFontShadowColor" : "لون ظل خط عنوان الموقع",
@@ -279,5 +281,11 @@
     "websiteSubtitles" : "عناوين الموقع الفرعية",
     "websiteText" : "كتابة الموقع",
     "websiteBackground" : "خلفية الموقع",
-    "websiteButtons" : "خصائص الزر"
+    "websiteButtons" : "خصائص الزر",
+    "@@site_settings_view" : "",
+    "year" : "السنة",
+    "month" : "الشهر",
+    "day" : "اليوم",
+    "@@bookings_view" : "",
+    "noBookingsForDate" : "لا يوجد حجوزات للفترة المحددة."
 }

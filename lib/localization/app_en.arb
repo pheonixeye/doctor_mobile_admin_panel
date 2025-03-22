@@ -257,6 +257,8 @@
     "arabicHeroDescription" : "Arabic Hero Description",
     "heroImageMobile" : "Hero Image Mobile",
     "heroImageOther" : "Hero Image Other",
+    "deleteHeroItem" : "Delete Hero Item ?",
+    "confirmDeleteHeroItem" : "Are You Sure You Would Delete This Hero Item ? This Action is Irreversible.",
     "@@site_settings_view" : "",
     "websiteTitleFontColor" : "Website Title Font Color",
     "websiteTitleFontShadowColor" : "Website Title Font Shadow Color",
@@ -281,6 +283,11 @@
     "websiteSubtitles" : "Website Subtitles",
     "websiteText" : "Website Text",
     "websiteBackground" : "Website Background",
-    "websiteButtons" : "Website Buttons"
-
+    "websiteButtons" : "Website Buttons",
+    "@@site_settings_view" : "",
+    "year" : "Year",
+    "month" : "Month",
+    "day" : "Day",
+    "@@bookings_view" : "",
+    "noBookingsForDate" : "No Bookings Found For Selected Date."
 }

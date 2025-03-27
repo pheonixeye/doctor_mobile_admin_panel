@@ -483,6 +483,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get next => 'Next';
 
   @override
+  String get clinicImage => 'Clinic Image';
+
+  @override
   String get createService => 'Add New Service';
 
   @override

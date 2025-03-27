@@ -53,4 +53,17 @@ class PxClinics extends ChangeNotifier {
     await clinicsService.updateClinicSchedule(schedule);
     await _fetchDoctorClinicsById();
   }
+
+  Future<void> updateClinicImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  }) async {
+    await clinicsService.updateClinicImage(
+      id: id,
+      fileBytes: fileBytes,
+      fileName_key: fileName_key,
+    );
+    await _fetchDoctorClinicsById();
+  }
 }

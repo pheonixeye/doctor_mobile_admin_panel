@@ -113,6 +113,7 @@ class _ClinicCreateDialogState extends State<ClinicCreateDialog> {
                 doc_id: context.read<PxAppUsers>().doc_id!,
                 schedule_ids: [],
                 off_dates: [],
+                image: '',
               );
               Navigator.pop(context, _clinic);
             }

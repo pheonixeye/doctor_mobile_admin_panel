@@ -9,7 +9,6 @@ import 'package:doctor_mobile_admin_panel/pages/app_page/logic/date_provider.dar
 import 'package:doctor_mobile_admin_panel/pages/app_page/widgets/booking_card.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_bookings.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -75,21 +74,28 @@ class _AppPageState extends State<AppPage> with AfterLayoutMixin {
             restorationId: 'bookings-page-items',
             children: [
               ListTile(
-                leading: const CircleAvatar(),
+                leading: FloatingActionButton.small(
+                  heroTag: 'all-month-bookings',
+                  tooltip: "All Month's Bookings",
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  onPressed: () {
+                    shellFunction(
+                      context,
+                      toExecute: () {
+                        b.filterThisMonthBooking();
+                      },
+                    );
+                  },
+                  child: const Icon(Icons.calendar_month),
+                ),
                 title: Row(
                   children: [
                     Text(context.loc.bookings),
                     const Spacer(),
-                    b.date.day == 0
-                        ? Text(DateFormat(
-                            'MM/yyyy',
-                            'en',
-                          ).format(
-                            DateTime(b.date.year, b.date.month),
-                          ))
-                        : Text(
-                            DateFormat('dd / MM / yyyy', l.locale.languageCode)
-                                .format(b.date)),
+                    Text(DateFormat('dd / MM / yyyy', l.locale.languageCode)
+                        .format(b.date)),
                     const SizedBox(width: 10),
                   ],
                 ),
@@ -98,7 +104,7 @@ class _AppPageState extends State<AppPage> with AfterLayoutMixin {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  tooltip: 'today-List',
+                  tooltip: "Today's Bookings",
                   heroTag: 'today-bookings',
                   onPressed: () {
                     final _today = DateTime.now();
@@ -214,41 +220,10 @@ class _AppPageState extends State<AppPage> with AfterLayoutMixin {
                       child: Row(
                         children: [
                           // const Gap(10),
-                          Tooltip(
-                            message: 'All Month Operations',
-                            child: SizedBox(
-                              width: _textWidth,
-                              child: Card.outlined(
-                                elevation: b.date.day == 0 ? 0 : 6,
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 8.0),
-                                    child: Text.rich(
-                                      TextSpan(
-                                        text: context.loc.day,
-                                        style: TextStyle(
-                                          color: Theme.of(context)
-                                              .appBarTheme
-                                              .backgroundColor,
-                                          decoration: TextDecoration.underline,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        recognizer: TapGestureRecognizer()
-                                          ..onTap = () {
-                                            shellFunction(
-                                              context,
-                                              toExecute: () {
-                                                b.setDate(d: 0);
-                                              },
-                                            );
-                                          },
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                          const SizedBox(width: 10),
+                          SizedBox(
+                            width: _textWidth,
+                            child: Text(context.loc.day),
                           ),
                           const SizedBox(width: 10),
                           Expanded(

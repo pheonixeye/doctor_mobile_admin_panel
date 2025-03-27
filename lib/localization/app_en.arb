@@ -184,6 +184,7 @@
     "selectStartTime" : "Pick Starting Time",
     "selectEndTime" : "Pick Ending Time",
     "next" : "Next",
+    "clinicImage" : "Clinic Image",
     "@@clinic_view_edit_card" : "",
     "createService" : "Add New Service",
     "englishDescription" : "English Description",

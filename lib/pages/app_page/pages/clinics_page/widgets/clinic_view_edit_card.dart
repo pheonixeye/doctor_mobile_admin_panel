@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_mobile_admin_panel/components/generic_confirmation_dialog.dart';
+import 'package:doctor_mobile_admin_panel/constants/constants.dart';
 import 'package:doctor_mobile_admin_panel/extensions/loc_ext_fns.dart';
+import 'package:doctor_mobile_admin_panel/extensions/model_image_url_extractor.dart';
 import 'package:doctor_mobile_admin_panel/functions/shell_function.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
@@ -7,6 +10,7 @@ import 'package:doctor_mobile_admin_panel/models/schedule.dart';
 import 'package:doctor_mobile_admin_panel/pages/app_page/pages/clinics_page/widgets/schedule_creation_dialog.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_clinics.dart';
 import 'package:doctor_mobile_admin_panel/providers/px_locale.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -71,6 +75,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
   Widget build(BuildContext context) {
     return Consumer2<PxClinics, PxLocale>(
       builder: (context, c, l, _) {
+        print(widget.model.clinic.image);
         return Card.outlined(
           elevation: 0,
           color: Theme.of(context).primaryColor.withValues(alpha: 0.2),
@@ -176,6 +181,83 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                 ...Clinic.clinicEditableFields(context)
                                     .entries
                                     .map((entry) {
+                                  if (entry.key == 'image') {
+                                    return ExpansionTile(
+                                      title: Text(entry.value),
+                                      subtitle: Row(
+                                        children: [
+                                          const Spacer(),
+                                          IconButton.outlined(
+                                            onPressed: () async {
+                                              final _result = await FilePicker
+                                                  .platform
+                                                  .pickFiles(
+                                                allowMultiple: false,
+                                                allowedExtensions: AppConstants
+                                                    .imageAllowedExtentions,
+                                                type: FileType.custom,
+                                                withData: true,
+                                              );
+                                              if (_result == null) {
+                                                return;
+                                              }
+
+                                              if (context.mounted) {
+                                                await shellFunction(
+                                                  context,
+                                                  toExecute: () async {
+                                                    await c.updateClinicImage(
+                                                      id: widget
+                                                          .model.clinic.id,
+                                                      fileBytes: _result.files
+                                                              .first.bytes ??
+                                                          [],
+                                                      fileName_key:
+                                                          '${entry.key}.${_result.xFiles.first.name.split('.').last}',
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            },
+                                            icon: const Icon(Icons.add),
+                                          ),
+                                          const SizedBox(width: 10),
+                                        ],
+                                      ),
+                                      children: [
+                                        CachedNetworkImage(
+                                          imageUrl: widget.model.clinic
+                                                  .imageUrl(widget.model.clinic
+                                                              .toJson()[
+                                                          entry.key] ??
+                                                      '') ??
+                                              '',
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width -
+                                                60,
+                                            height: 300,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.contain,
+                                              ),
+                                              border: Border.all(),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                          ),
+                                          placeholder: (context, url) => Center(
+                                            child: CircularProgressIndicator(),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
+                                      ],
+                                    );
+                                  }
                                   return ListTile(
                                     title: Text(entry.value),
                                     contentPadding:

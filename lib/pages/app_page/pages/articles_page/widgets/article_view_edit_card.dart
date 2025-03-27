@@ -155,7 +155,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
                     }
                   },
                   isSelected: _tabController.index == 1,
-                  icon: const Icon(Icons.calendar_month),
+                  icon: const Icon(Icons.description),
                 ),
                 const SizedBox(width: 10),
                 IconButton.outlined(

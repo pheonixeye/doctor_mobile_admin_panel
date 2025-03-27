@@ -17,8 +17,9 @@ class PxBookings extends ChangeNotifier {
   static List<Booking>? _filteredBookings;
   List<Booking>? get filteredBookings => _filteredBookings;
 
-  static const String _format = 'dd / MM / yyyy';
+  static const String _format = 'yyyy-MM-dd';
   static DateTime _date = DateTime.now();
+  static final DateTime NOW = DateTime.now();
   DateTime get date => _date;
   String get stringDate => DateFormat(_format, 'en').format(_date);
 
@@ -30,19 +31,34 @@ class PxBookings extends ChangeNotifier {
     );
     notifyListeners();
     filterBookings();
+    // print(stringDate);
   }
 
   Future<void> _fetchBookings() async {
     _bookings = await service.getDoctorBookings();
-    _filteredBookings = _bookings;
+    _filteredBookings = _bookings
+        ?.where((b) =>
+            DateTime.parse(b.date!) == DateTime(NOW.year, NOW.month, NOW.day))
+        .toList();
     notifyListeners();
   }
 
   void filterBookings() {
-    _filteredBookings = _filteredBookings?.where((b) {
-      return b.date == stringDate;
+    _filteredBookings = _bookings?.where((b) {
+      return DateTime.parse(b.date!) == DateTime.parse(stringDate);
     }).toList();
     notifyListeners();
+    // print(_filteredBookings?.map((e) => e.toJson()).toList());
+  }
+
+  void filterThisMonthBooking() {
+    _filteredBookings = _bookings?.where((b) {
+      final _bDate = DateTime.parse(b.date!);
+      final _mDate = DateTime(_date.year, _date.month);
+      return (_bDate.year == _mDate.year && _bDate.month == _mDate.month);
+    }).toList();
+    notifyListeners();
+    // print(_filteredBookings?.map((e) => e.toJson()).toList());
   }
 
   void resetBookings() {

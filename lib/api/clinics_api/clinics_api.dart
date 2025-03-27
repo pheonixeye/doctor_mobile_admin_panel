@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
@@ -15,6 +17,11 @@ abstract class ClinicsApi {
   Future<Clinic?> createClinic(Clinic clinic);
   Future<void> deleteClinic(String clinic_id);
   Future<Clinic?> updateClinicData(String clinic_id, String key, dynamic value);
+  Future<void> updateClinicImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  });
 
   Future<void> addClinicSchedule(Schedule schedule);
   Future<void> deleteClinicSchedule(String schedule_id);
@@ -161,6 +168,16 @@ class HxClinicsPocketbase extends ClinicsApi {
           body: newSchedule.toJson(),
         );
   }
+
+  @override
+  Future<void> updateClinicImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  }) async {
+    // TODO: implement updateClinicImage
+    throw UnimplementedError();
+  }
 }
 
 @SUPABASE()
@@ -234,5 +251,32 @@ class HxClinicsSupabase extends ClinicsApi {
     await _client
         .from(_schedulesCollection)
         .update({...newSchedule.toSupabaseJson()}).eq('id', newSchedule.id);
+  }
+
+  @override
+  Future<void> updateClinicImage({
+    required String id,
+    required List<int> fileBytes,
+    required String fileName_key,
+  }) async {
+    final _data = Uint8List.fromList(fileBytes);
+    // final _file = File.fromRawPath(_data);
+    //TODO: change for mobile
+    final result = await _client.storage.from('base').uploadBinary(
+          '$doc_id/$collection/$id/$fileName_key',
+          _data,
+          fileOptions: const FileOptions(
+            cacheControl: '3600',
+            upsert: true,
+          ),
+        );
+
+    String _pathDebased = result.replaceFirstMapped('base/', (m) => '');
+
+    final _update = {
+      fileName_key.split('.').first: _pathDebased,
+    };
+
+    await _client.from(collection).update(_update).eq('id', id);
   }
 }

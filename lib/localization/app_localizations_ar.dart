@@ -483,6 +483,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get next => 'التالى';
 
   @override
+  String get clinicImage => 'صورة العيادة';
+
+  @override
   String get createService => 'اضافة خدمة جديدة';
 
   @override

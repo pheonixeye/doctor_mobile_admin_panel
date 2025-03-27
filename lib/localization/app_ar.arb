@@ -182,6 +182,7 @@
     "selectStartTime" : "اختر وقت البداية",
     "selectEndTime" : "اختر وقت الانتهاء",
     "next" : "التالى",
+    "clinicImage" : "صورة العيادة",
     "@@clinic_view_edit_card" : "",
     "createService" : "اضافة خدمة جديدة",
     "englishDescription" : "الوصف بالانجليزية",

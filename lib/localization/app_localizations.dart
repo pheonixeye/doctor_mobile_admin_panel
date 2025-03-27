@@ -1043,6 +1043,12 @@ abstract class AppLocalizations {
   /// **'Next'**
   String get next;
 
+  /// No description provided for @clinicImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic Image'**
+  String get clinicImage;
+
   /// No description provided for @createService.
   ///
   /// In en, this message translates to:

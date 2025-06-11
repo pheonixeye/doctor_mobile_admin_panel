@@ -15,7 +15,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moiErSystem => 'MOI ER SYSTEM';
 
   @override
-  String get moiErSystemRehab => 'MOI ER SYSTEM - Rehab Military Medical Complex';
+  String get moiErSystemRehab =>
+      'MOI ER SYSTEM - Rehab Military Medical Complex';
 
   @override
   String get email => 'Email';
@@ -39,7 +40,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forgotPassword => 'Forgot Password';
 
   @override
-  String get linkSentToEmail => 'A Password Reset Link Was Sent To Your Email Address.';
+  String get linkSentToEmail =>
+      'A Password Reset Link Was Sent To Your Email Address.';
 
   @override
   String get notRegisteredYet => 'Not Registered Yet ?  ';
@@ -90,7 +92,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phoneValidator => 'Enter Valid Mobile Phone Number.(11 digits)';
 
   @override
-  String get nationalIdValidator => 'Enter Valid National Id Number.(14 digits)';
+  String get nationalIdValidator =>
+      'Enter Valid National Id Number.(14 digits)';
 
   @override
   String get addNewPatient => 'Add New Patient';
@@ -114,7 +117,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get patientPhone => 'Patient Phone Number';
 
   @override
-  String get phoneNotAvailable => 'Patient Phone Could Not Be Acquired At Time Of Entry.';
+  String get phoneNotAvailable =>
+      'Patient Phone Could Not Be Acquired At Time Of Entry.';
 
   @override
   String get noPatientsFound => 'No Patients Found';
@@ -342,7 +346,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmDeleteAdmissionTitle => 'Delete Admission ?';
 
   @override
-  String get confirmDeleteAdmissionMessage => 'Delete Admission Data ? Continue ?';
+  String get confirmDeleteAdmissionMessage =>
+      'Delete Admission Data ? Continue ?';
 
   @override
   String get deleteErVisit => 'Delete Visit';
@@ -351,7 +356,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmDeleteVisitTitle => 'Delete ER Visit ?';
 
   @override
-  String get confirmDeleteVisitMessage => 'Delete ER Visit for This Patient ? Continue ?';
+  String get confirmDeleteVisitMessage =>
+      'Delete ER Visit for This Patient ? Continue ?';
 
   @override
   String get printERAdmissionSheet => 'Print ER Admission Sheet';
@@ -444,7 +450,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteClinic => 'Delete Clinic';
 
   @override
-  String get deleteClinicConfirmation => 'Continue with Deleting This Clinic? Are You Sure?';
+  String get deleteClinicConfirmation =>
+      'Continue with Deleting This Clinic? Are You Sure?';
 
   @override
   String get englishAddress => 'English Address';
@@ -507,7 +514,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteService => 'Delete Service';
 
   @override
-  String get deleteServiceConfirmation => 'Continue with Deleting This Service? Are You Sure?';
+  String get deleteServiceConfirmation =>
+      'Continue with Deleting This Service? Are You Sure?';
 
   @override
   String get addServiceFaq => 'Add Service Faq';
@@ -528,7 +536,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteFaq => 'Delete Faq';
 
   @override
-  String get deleteFaqConfirmation => 'Continue with Deleting This Faq? Are You Sure?';
+  String get deleteFaqConfirmation =>
+      'Continue with Deleting This Faq? Are You Sure?';
 
   @override
   String get mainPhone => 'Main Phone';
@@ -591,13 +600,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteArticle => 'Delete Article';
 
   @override
-  String get deleteArticleConfirmation => 'Continue with Deleting This Article? Are You Sure?';
+  String get deleteArticleConfirmation =>
+      'Continue with Deleting This Article? Are You Sure?';
 
   @override
   String get deleteParagraph => 'Delete Paragraph';
 
   @override
-  String get deleteParagraphConfirmation => 'Continue with Deleting This Paragraph? Are You Sure?';
+  String get deleteParagraphConfirmation =>
+      'Continue with Deleting This Paragraph? Are You Sure?';
 
   @override
   String get createParagraph => 'Add New Paragraph';
@@ -612,7 +623,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAbout => 'Delete Doctor About';
 
   @override
-  String get confirmDeleteAbout => 'Continue with Deleting This About? Are You Sure?';
+  String get confirmDeleteAbout =>
+      'Continue with Deleting This About? Are You Sure?';
 
   @override
   String get heroItems => 'Hero Items';
@@ -678,7 +690,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteHeroItem => 'Delete Hero Item ?';
 
   @override
-  String get confirmDeleteHeroItem => 'Are You Sure You Would Delete This Hero Item ? This Action is Irreversible.';
+  String get confirmDeleteHeroItem =>
+      'Are You Sure You Would Delete This Hero Item ? This Action is Irreversible.';
 
   @override
   String get websiteTitleFontColor => 'Website Title Font Color';

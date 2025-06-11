@@ -36,7 +36,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
 
   late final TabController _tabController;
 
-  late final ExpansionTileController _tileController;
+  late final ExpansibleController _tileController;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
       length: 2,
       vsync: this,
     );
-    _tileController = ExpansionTileController();
+    _tileController = ExpansibleController();
   }
 
   @override

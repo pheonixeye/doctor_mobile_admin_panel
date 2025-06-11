@@ -28,7 +28,7 @@ class BookingCard extends StatelessWidget {
             final _clinic = c.clinics!
                 .firstWhereOrNull((m) => m.clinic.id == booking.clinic_id);
             final _schedule = _clinic?.schedule
-                .firstWhereOrNull((s) => s.id == booking.schedule_id);
+                .firstWhereOrNull((s) => s?.id == booking.schedule_id);
             while (_clinic == null || _schedule == null) {
               return const LinearProgressIndicator();
             }

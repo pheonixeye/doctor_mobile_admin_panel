@@ -15,7 +15,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get moiErSystem => 'نظام ادارة الاستقبال و الطوارئ';
 
   @override
-  String get moiErSystemRehab => 'نظام ادارة الاستقبال و الطوارئ - المجمع الطبى بالرحاب';
+  String get moiErSystemRehab =>
+      'نظام ادارة الاستقبال و الطوارئ - المجمع الطبى بالرحاب';
 
   @override
   String get email => 'البريد الالكتروني';
@@ -39,7 +40,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgotPassword => 'نسيان كلمة السر';
 
   @override
-  String get linkSentToEmail => 'تم ارسال رابط تعديل كلمة السر علي البريد الالكتروني';
+  String get linkSentToEmail =>
+      'تم ارسال رابط تعديل كلمة السر علي البريد الالكتروني';
 
   @override
   String get notRegisteredYet => 'ليس لديك حساب ؟  ';
@@ -117,7 +119,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phoneNotAvailable => 'تعذر الحصول علي رقم المريض';
 
   @override
-  String get noPatientsFound => 'لم يتم العثور علي مرضي بمعاملات البحث المطلوبة';
+  String get noPatientsFound =>
+      'لم يتم العثور علي مرضي بمعاملات البحث المطلوبة';
 
   @override
   String get searchTitle => 'بحث بالاسم او الرقم القومي';
@@ -342,7 +345,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmDeleteAdmissionTitle => 'الغاء الحجز ؟';
 
   @override
-  String get confirmDeleteAdmissionMessage => 'هل تود الاستمرار بالغاء بيانات الحجز ؟';
+  String get confirmDeleteAdmissionMessage =>
+      'هل تود الاستمرار بالغاء بيانات الحجز ؟';
 
   @override
   String get deleteErVisit => 'الغاء الزيارة';
@@ -351,7 +355,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmDeleteVisitTitle => 'الغاء الزيارة ؟';
 
   @override
-  String get confirmDeleteVisitMessage => 'هل تود الاستمرار بالغاء هذه الزيارة ؟';
+  String get confirmDeleteVisitMessage =>
+      'هل تود الاستمرار بالغاء هذه الزيارة ؟';
 
   @override
   String get printERAdmissionSheet => 'طباعة وثيقة دخول طوارئ';
@@ -444,7 +449,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteClinic => 'الغاء العيادة';
 
   @override
-  String get deleteClinicConfirmation => 'متابعة الغاء هذه العيادة ؟ هل انت متأكد ؟';
+  String get deleteClinicConfirmation =>
+      'متابعة الغاء هذه العيادة ؟ هل انت متأكد ؟';
 
   @override
   String get englishAddress => 'العنوان بالانجليزية';
@@ -507,7 +513,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteService => 'الغاء الخدمة';
 
   @override
-  String get deleteServiceConfirmation => 'متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟';
+  String get deleteServiceConfirmation =>
+      'متابعة الغاء هذه الخدمة ؟ هل انت متأكد ؟';
 
   @override
   String get addServiceFaq => 'اضافة سؤال متكرر';
@@ -528,7 +535,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteFaq => 'الغاء السؤال المتكرر';
 
   @override
-  String get deleteFaqConfirmation => 'متابعة الغاء هذا السؤال المتكرر ؟ هل انت متأكد ؟';
+  String get deleteFaqConfirmation =>
+      'متابعة الغاء هذا السؤال المتكرر ؟ هل انت متأكد ؟';
 
   @override
   String get mainPhone => 'رقم الموبايل للموقع';
@@ -591,13 +599,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteArticle => 'الغاء المقالة';
 
   @override
-  String get deleteArticleConfirmation => 'متابعة الغاء هذه المقالة ؟ هل انت متأكد ؟';
+  String get deleteArticleConfirmation =>
+      'متابعة الغاء هذه المقالة ؟ هل انت متأكد ؟';
 
   @override
   String get deleteParagraph => 'الغاء الفقرة';
 
   @override
-  String get deleteParagraphConfirmation => 'متابعة الغاء هذه الفقرة ؟ هل انت متأكد ؟';
+  String get deleteParagraphConfirmation =>
+      'متابعة الغاء هذه الفقرة ؟ هل انت متأكد ؟';
 
   @override
   String get createParagraph => 'اضافة فقرة جديدة';
@@ -678,7 +688,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteHeroItem => 'الغاء هذا العنصر الاساسي ؟';
 
   @override
-  String get confirmDeleteHeroItem => 'هل انت متاكد من الغاء هذا العنصر الاساسي ؟ هذا الفعل لا يمكن استرجاعه.';
+  String get confirmDeleteHeroItem =>
+      'هل انت متاكد من الغاء هذا العنصر الاساسي ؟ هذا الفعل لا يمكن استرجاعه.';
 
   @override
   String get websiteTitleFontColor => 'لون خط عنوان الموقع';

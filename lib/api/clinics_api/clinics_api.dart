@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:doctor_mobile_admin_panel/api/common.dart';
 import 'package:doctor_mobile_admin_panel/api/profile_api/profile_api.dart';
 import 'package:doctor_mobile_admin_panel/extensions/annotations.dart';
+import 'package:doctor_mobile_admin_panel/functions/pretty_json.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic.dart';
 import 'package:doctor_mobile_admin_panel/models/clinic_response_model.dart';
 import 'package:doctor_mobile_admin_panel/models/doctor.dart';
@@ -213,14 +214,21 @@ class HxClinicsSupabase extends ClinicsApi {
 
     final _result = await _client.rpc(rpc, params: _params).select();
 
-    // dprint(_result);
+    dprint(_result);
     return _result.map((x) {
       return ClinicResponseModel(
         offDates: [],
         clinic: Clinic.fromJson(x),
-        schedule: (x['schedules'] as List<dynamic>)
-            .map((y) => Schedule.fromJson(y))
-            .toList(),
+        schedule: (x['schedules'] as List<dynamic>?)?.map(
+              (y) {
+                try {
+                  return Schedule.fromJson(y);
+                } catch (e) {
+                  return null;
+                }
+              },
+            ).toList() ??
+            [],
       );
     }).toList();
   }

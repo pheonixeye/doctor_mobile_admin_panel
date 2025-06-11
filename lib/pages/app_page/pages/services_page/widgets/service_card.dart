@@ -29,7 +29,7 @@ class _ServiceCardState extends State<ServiceCard>
   late Map<String, bool> _isEditing;
 
   late final TabController _tabController;
-  late final ExpansionTileController _tileController;
+  late final ExpansibleController _tileController;
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _ServiceCardState extends State<ServiceCard>
       length: 3,
       vsync: this,
     );
-    _tileController = ExpansionTileController();
+    _tileController = ExpansibleController();
   }
 
   @override

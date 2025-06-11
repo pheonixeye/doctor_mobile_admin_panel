@@ -31,7 +31,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
   late Map<String, bool> _isEditing;
 
   late final TabController _tabController;
-  late final ExpansionTileController _tileController;
+  late final ExpansibleController _tileController;
 
   @override
   void initState() {
@@ -40,7 +40,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
       length: 2,
       vsync: this,
     );
-    _tileController = ExpansionTileController();
+    _tileController = ExpansibleController();
   }
 
   @override
@@ -75,7 +75,7 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
   Widget build(BuildContext context) {
     return Consumer2<PxClinics, PxLocale>(
       builder: (context, c, l, _) {
-        print(widget.model.clinic.image);
+        // print(widget.model.clinic.image);
         return Card.outlined(
           elevation: 0,
           color: Theme.of(context).primaryColor.withValues(alpha: 0.2),
@@ -398,6 +398,9 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                 ),
                                 ...widget.model.schedule.map(
                                   (sch) {
+                                    if (sch == null) {
+                                      return const SizedBox();
+                                    }
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: ListTile(

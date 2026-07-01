@@ -44,7 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-
 /test
 /web
 /android
@@ -54,3 +53,8 @@ app.*.map.json
 /assets/env/
 
 /lib/firebase_options.dart
+
+# FVM Version Cache
+.fvm/
+
+.env

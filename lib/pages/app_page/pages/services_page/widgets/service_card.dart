@@ -395,7 +395,7 @@ class _ServiceCardState extends State<ServiceCard>
                                   trailing: IconButton.outlined(
                                     onPressed: () async {
                                       final _result =
-                                          await FilePicker.platform.pickFiles(
+                                          await FilePicker.pickFiles(
                                         allowMultiple: false,
                                         allowedExtensions:
                                             AppConstants.imageAllowedExtentions,

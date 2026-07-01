@@ -9,7 +9,6 @@ import 'package:doctor_mobile_admin_panel/theme/app_theme.dart';
 import 'package:doctor_mobile_admin_panel/utils/util_keys.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -23,11 +22,10 @@ Future<void> main() async {
 
   await initializeDateFormatting('ar');
 
-  await dotenv.load(fileName: "assets/env/.env");
-
   await Supabase.initialize(
-    url: dotenv.env[AppConstants.SUPABASE_URL]!,
-    anonKey: dotenv.env[AppConstants.SUPABASE_ANON_KEY]!,
+    url: const String.fromEnvironment(AppConstants.SUPABASE_URL),
+    publishableKey:
+        const String.fromEnvironment(AppConstants.SUPABASE_ANON_KEY),
   );
 
   runApp(const ApplicationProvider());

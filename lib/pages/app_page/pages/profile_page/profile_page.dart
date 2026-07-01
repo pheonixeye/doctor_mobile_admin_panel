@@ -75,8 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             const SizedBox(width: 10),
                             IconButton.outlined(
                               onPressed: () async {
-                                final bytes =
-                                    await FilePicker.platform.pickFiles(
+                                final bytes = await FilePicker.pickFiles(
                                   withData: true,
                                   type: FileType.custom,
                                   allowedExtensions:

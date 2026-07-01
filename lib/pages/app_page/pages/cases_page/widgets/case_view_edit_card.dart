@@ -86,8 +86,7 @@ class _CaseViewEditCardState extends State<CaseViewEditCard> {
                                 const EdgeInsets.symmetric(horizontal: 4),
                             trailing: IconButton.outlined(
                               onPressed: () async {
-                                final _result =
-                                    await FilePicker.platform.pickFiles(
+                                final _result = await FilePicker.pickFiles(
                                   allowMultiple: false,
                                   allowedExtensions:
                                       AppConstants.imageAllowedExtentions,

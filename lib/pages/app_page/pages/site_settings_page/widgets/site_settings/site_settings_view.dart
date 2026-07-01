@@ -67,7 +67,7 @@ class _SiteSettingsViewState extends State<SiteSettingsView> {
                   header: context.loc.websiteBackground,
                   forBackground: true,
                   onPressed: () async {
-                    final _result = await FilePicker.platform.pickFiles(
+                    final _result = await FilePicker.pickFiles(
                       allowMultiple: false,
                       allowedExtensions: AppConstants.imageAllowedExtentions,
                       type: FileType.custom,

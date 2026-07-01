@@ -189,9 +189,8 @@ class _ClinicViewEditCardState extends State<ClinicViewEditCard>
                                           const Spacer(),
                                           IconButton.outlined(
                                             onPressed: () async {
-                                              final _result = await FilePicker
-                                                  .platform
-                                                  .pickFiles(
+                                              final _result =
+                                                  await FilePicker.pickFiles(
                                                 allowMultiple: false,
                                                 allowedExtensions: AppConstants
                                                     .imageAllowedExtentions,

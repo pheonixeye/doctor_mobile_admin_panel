@@ -1,5 +1,4 @@
 import 'package:doctor_mobile_admin_panel/constants/constants.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -12,7 +11,7 @@ enum DataSource {
 
 class DataSourceHelper {
   //TODO: change dynamically
-  final DataSource _dataSource = DataSource.sb;
+  final DataSource _dataSource = DataSource.pb;
 
   DataSource get dataSource => _dataSource;
 
@@ -22,7 +21,8 @@ class DataSourceHelper {
 
   DataSourceHelper() {
     _ds ??= switch (_dataSource) {
-      DataSource.pb => PocketBase(dotenv.env[AppConstants.POCKETBASE_URL]!),
+      DataSource.pb =>
+        PocketBase(const String.fromEnvironment(AppConstants.POCKETBASE_URL)),
       DataSource.sb => Supabase.instance.client,
     };
   }
@@ -33,7 +33,7 @@ typedef Supa = SupabaseClient;
 
 class PocketbaseHelper {
   static final PocketBase _pb =
-      PocketBase(dotenv.env[AppConstants.POCKETBASE_URL]!);
+      PocketBase(const String.fromEnvironment(AppConstants.POCKETBASE_URL));
 
   static PocketBase get pb => _pb;
 }

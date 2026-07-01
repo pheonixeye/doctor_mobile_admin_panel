@@ -64,7 +64,7 @@ class NotificationService {
       iOS: initializationSettingsIOS,
     );
     _flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
+      settings: initializationSettings,
       onDidReceiveNotificationResponse: (details) {
         final message = RemoteMessage.fromMap(
             {'data': jsonDecode(details.payload ?? '{}')});
@@ -105,10 +105,10 @@ class NotificationService {
     final id = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
     _flutterLocalNotificationsPlugin.show(
-      id,
-      message.notification?.title ?? '',
-      message.notification?.body ?? '',
-      platformChannelSpecifics,
+      id: id,
+      title: message.notification?.title ?? '',
+      body: message.notification?.body ?? '',
+      notificationDetails: platformChannelSpecifics,
       payload: jsonEncode(message.data),
     );
 

@@ -64,6 +64,7 @@ class _CreateServiceDialogState extends State<CreateServiceDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 2,
                             controller: _nameEnController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -87,6 +88,7 @@ class _CreateServiceDialogState extends State<CreateServiceDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 2,
                             controller: _nameArController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -110,6 +112,7 @@ class _CreateServiceDialogState extends State<CreateServiceDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 8,
                             controller: _descEnController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -133,6 +136,7 @@ class _CreateServiceDialogState extends State<CreateServiceDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 8,
                             controller: _descArController,
                             validator: (value) {
                               return baseValidator(value, context: context);

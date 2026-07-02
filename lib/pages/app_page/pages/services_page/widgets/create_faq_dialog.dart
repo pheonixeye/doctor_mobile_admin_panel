@@ -113,7 +113,7 @@ class _CreateFaqDialogState extends State<CreateFaqDialog> {
                         Expanded(
                           child: TextFormField(
                             controller: _aEnController,
-                            maxLines: 4,
+                            maxLines: 8,
                             validator: (value) {
                               return baseValidator(value, context: context);
                             },
@@ -137,7 +137,7 @@ class _CreateFaqDialogState extends State<CreateFaqDialog> {
                         Expanded(
                           child: TextFormField(
                             controller: _aArController,
-                            maxLines: 4,
+                            maxLines: 8,
                             validator: (value) {
                               return baseValidator(value, context: context);
                             },

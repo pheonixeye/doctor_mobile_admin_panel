@@ -132,7 +132,7 @@ class HxServicesPocketbase extends ServicesApi {
       id,
       files: [
         http.MultipartFile.fromBytes(
-          fileName_key,
+          'image',
           fileBytes,
           filename: fileName_key,
         ),

@@ -75,9 +75,9 @@ class Article extends Equatable {
       description_en: map['description_en'] as String,
       description_ar: map['description_ar'] as String,
       thumbnail: map['thumbnail'] as String,
-      // paragraphs_ids: map['paragraphs_ids'] == null
-      //     ? []
-      //     : List<String>.from((map['paragraphs_ids'] as List<dynamic>)),
+      paragraphs_ids: map['paragraphs_ids'] == null
+          ? []
+          : List<String>.from((map['paragraphs_ids'] as List<dynamic>)),
     );
   }
 

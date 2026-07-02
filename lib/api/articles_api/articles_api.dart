@@ -52,7 +52,7 @@ class HxArticlesPocketbase extends ArticlesApi {
 
   static const String collectionArticles = 'articles';
 
-  static const String collectionParagraphs = 'articles_paragraphs';
+  static const String collectionParagraphs = 'article_paragraphs';
 
   static const String _expand = 'paragraphs_ids';
 
@@ -134,15 +134,17 @@ class HxArticlesPocketbase extends ArticlesApi {
     required String fileName_key,
   }) async {
     try {
-      final _result = await _client.collection(collectionArticles).update(id,
-          files: [
-            http.MultipartFile.fromBytes(
-              fileName_key,
-              fileBytes,
-              filename: fileName_key,
-            ),
-          ],
-          expand: _expand);
+      final _result = await _client.collection(collectionArticles).update(
+            id,
+            files: [
+              http.MultipartFile.fromBytes(
+                'thumbnail',
+                fileBytes,
+                filename: fileName_key,
+              ),
+            ],
+            expand: _expand,
+          );
 
       return ArticleResponseModel(
         article: Article.fromJson(_result.toJson()),

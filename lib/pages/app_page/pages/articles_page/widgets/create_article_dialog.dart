@@ -63,6 +63,7 @@ class _CreateArticleDialogState extends State<CreateArticleDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 2,
                             controller: _titleEnController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -86,6 +87,7 @@ class _CreateArticleDialogState extends State<CreateArticleDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 2,
                             controller: _titleArController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -109,6 +111,7 @@ class _CreateArticleDialogState extends State<CreateArticleDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 8,
                             controller: _descEnController,
                             validator: (value) {
                               return baseValidator(value, context: context);
@@ -132,6 +135,7 @@ class _CreateArticleDialogState extends State<CreateArticleDialog> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            maxLines: 8,
                             controller: _descArController,
                             validator: (value) {
                               return baseValidator(value, context: context);

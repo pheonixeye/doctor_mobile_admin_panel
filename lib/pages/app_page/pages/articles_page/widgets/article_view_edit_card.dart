@@ -99,14 +99,14 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
 
   int _maxLinesArticles(String key) {
     return switch (key) {
-      'description_en' || 'description_ar' => 4,
+      'description_en' || 'description_ar' => 8,
       _ => 2,
     };
   }
 
   int _maxLinesParagraph(String key) {
     return switch (key) {
-      'body_en' || 'body_ar' => 4,
+      'body_en' || 'body_ar' => 8,
       _ => 2,
     };
   }
@@ -270,7 +270,7 @@ class _ArticleViewEditCardState extends State<ArticleViewEditCard>
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
                                                 image: imageProvider,
-                                                fit: BoxFit.contain,
+                                                fit: BoxFit.fill,
                                               ),
                                               border: Border.all(),
                                               borderRadius:
